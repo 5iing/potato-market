@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/home/home_page.dart';
+import 'components/tab_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,9 +16,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+        fontFamily: 'SpoqaHanSansNeo',
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const TabView(),
     );
   }
 }

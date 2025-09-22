@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:potato_market/pages/article/article_detail.dart';
+import 'package:potato_market/pages/write_article/write_article.dart';
 import '../../components/main_article.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +24,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -53,6 +56,7 @@ class _HomePageState extends State<HomePage> {
                         menu,
                         style: const TextStyle(
                           fontSize: 18,
+                          fontWeight: FontWeight.w800,
                           color: Colors.black87,
                         ),
                       ),
@@ -107,26 +111,104 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-          MainArticle(
-            productName: '닌텐도 스위치',
-            hometown: '목동동',
-            price: '350,000원',
-            uploadedAt: '3시간 전',
+          Divider(
+            thickness: 1,
+            height: 1,
+            color: Colors.grey.shade200,
+            indent: 16,
+            endIndent: 16,
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ArticleDetail(
+                    authorName: '홍길동',
+                    authorTemprature: '-20',
+                    hometown: '목동동',
+                    productName: '닌텐도 스위치',
+                    price: '999,999원',
+                    category: '생활/가공식품',
+                    description: 'aa',
+                    hopedTradeLocation: '목동동',
+                  ),
+                ),
+              );
+            },
+            child: MainArticle(
+              productName: '닌텐도 스위치',
+              hometown: '목동동',
+              price: '350,000원',
+              uploadedAt: '3시간 전',
+              isReserving: true,
+            ),
           ),
           MainArticle(
             productName: '아이폰 15 Pro',
             hometown: '동패동',
             price: '1,200,000원',
             uploadedAt: '1시간 전',
+            isReserving: false,
           ),
           MainArticle(
             productName: '맥북 프로',
             hometown: '교하동',
             price: '2,500,000원',
             uploadedAt: '5시간 전',
+            isReserving: false,
+          ),
+          MainArticle(
+            productName: '아이폰 15 Pro',
+            hometown: '동패동',
+            price: '1,200,000원',
+            uploadedAt: '1시간 전',
+            isReserving: false,
+          ),
+          MainArticle(
+            productName: '아이폰 15 Pro',
+            hometown: '동패동',
+            price: '1,200,000원',
+            uploadedAt: '1시간 전',
+            isReserving: false,
+          ),
+          MainArticle(
+            productName: '아이폰 15 Pro',
+            hometown: '동패동',
+            price: '1,200,000원',
+            uploadedAt: '1시간 전',
+            isReserving: false,
+          ),
+          MainArticle(
+            productName: '아이폰 15 Pro',
+            hometown: '동패동',
+            price: '1,200,000원',
+            uploadedAt: '1시간 전',
+            isReserving: false,
+          ),
+          MainArticle(
+            productName: '아이폰 15 Pro',
+            hometown: '동패동',
+            price: '1,200,000원',
+            uploadedAt: '1시간 전',
+            isReserving: false,
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => WriteArticle()),
+            );
+          },
+          backgroundColor: Colors.orange,
+          child: Text(
+            "+",
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 32, color: Colors.white),
+          )),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

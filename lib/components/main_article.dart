@@ -5,14 +5,15 @@ class MainArticle extends StatefulWidget {
   final String hometown;
   final String price;
   final String uploadedAt;
+  final bool isReserving;
 
-  const MainArticle({
-    super.key,
-    required this.productName,
-    required this.hometown,
-    required this.price,
-    required this.uploadedAt,
-  });
+  const MainArticle(
+      {super.key,
+      required this.productName,
+      required this.hometown,
+      required this.price,
+      required this.uploadedAt,
+      required this.isReserving});
 
   @override
   _MainArticleState createState() => _MainArticleState();
@@ -29,7 +30,6 @@ class _MainArticleState extends State<MainArticle> {
             padding: const EdgeInsets.all(16),
             child: Row(
               children: [
-                // 이미지 섹션
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
@@ -57,9 +57,7 @@ class _MainArticleState extends State<MainArticle> {
                       Text(
                         widget.productName,
                         style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                            fontSize: 16, fontWeight: FontWeight.w500),
                       ),
                       const SizedBox(height: 4),
                       Row(
@@ -81,8 +79,7 @@ class _MainArticleState extends State<MainArticle> {
                         widget.price,
                         style: const TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.orange,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 2),
@@ -102,7 +99,7 @@ class _MainArticleState extends State<MainArticle> {
           Divider(
             thickness: 1,
             height: 1,
-            color: Colors.grey.shade300,
+            color: Colors.grey.shade200,
             indent: 16,
             endIndent: 16,
           ),
