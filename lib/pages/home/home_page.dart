@@ -5,6 +5,7 @@ import '../../components/main_article.dart';
 import '../../services/api_service.dart';
 import '../../models/article.dart';
 import '../../utils/format_utils.dart';
+import '../../components/skeleton_loader.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -57,10 +58,121 @@ class _HomePageState extends State<HomePage> {
     await _loadArticles();
   }
 
+  void _showLocationPicker() {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // 핸들바
+            Container(
+              margin: const EdgeInsets.only(top: 12),
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            const SizedBox(height: 20),
+            // 제목
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Icon(Icons.location_on, color: Colors.orange[600], size: 24),
+                  const SizedBox(width: 8),
+                  const Text(
+                    '지역을 선택해주세요',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            // 지역 리스트
+            ...(_dropdownMenus
+                .map((location) => InkWell(
+                      onTap: () {
+                        setState(() {
+                          _selectedMenu = location;
+                        });
+                        _loadArticles();
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 16),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 12,
+                              height: 12,
+                              decoration: BoxDecoration(
+                                color: _selectedMenu == location
+                                    ? Colors.orange[600]
+                                    : Colors.transparent,
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: _selectedMenu == location
+                                      ? Colors.orange[600]!
+                                      : Colors.grey[400]!,
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Text(
+                              location,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: _selectedMenu == location
+                                    ? FontWeight.w600
+                                    : FontWeight.normal,
+                                color: _selectedMenu == location
+                                    ? Colors.orange[700]
+                                    : Colors.black87,
+                              ),
+                            ),
+                            const Spacer(),
+                            if (_selectedMenu == location)
+                              Icon(
+                                Icons.check,
+                                color: Colors.orange[600],
+                                size: 20,
+                              ),
+                          ],
+                        ),
+                      ),
+                    ))
+                .toList()),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildBody() {
     if (_isLoading) {
-      return const Center(
-        child: CircularProgressIndicator(),
+      return ListView.builder(
+        itemCount: 5, // 스켈레톤 아이템 5개 표시
+        itemBuilder: (context, index) {
+          return const MainArticleSkeleton();
+        },
       );
     }
 
@@ -116,7 +228,7 @@ class _HomePageState extends State<HomePage> {
         }
 
         final article = _articles[index - 1];
-        return GestureDetector(
+        return InkWell(
           onTap: () {
             if (article.id != null) {
               print('상세페이지로 이동: 게시글 ID ${article.id}');
@@ -132,6 +244,8 @@ class _HomePageState extends State<HomePage> {
               print('게시글 ID가 null입니다');
             }
           },
+          splashColor: Colors.grey[200], // 터치 시 물결 효과
+          highlightColor: Colors.grey[100], // 터치 시 하이라이트
           child: MainArticle(
             productName: article.title ?? '제목 없음',
             hometown: article.location ?? '알 수 없음',
@@ -155,46 +269,40 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
+            GestureDetector(
+              onTap: _showLocationPicker,
               child: Container(
-                child: DropdownButton<String>(
-                  value: _selectedMenu,
-                  hint: const Text(
-                    '지역 선택',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                decoration: BoxDecoration(
+                  color: Colors.orange[50],
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: Colors.orange[200]!, width: 1),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.location_on,
+                      color: Colors.orange[600],
+                      size: 18,
                     ),
-                  ),
-                  dropdownColor: Colors.white.withOpacity(0.9),
-                  elevation: 0,
-                  underline: Container(),
-                  icon: const Icon(
-                    Icons.arrow_drop_down,
-                    color: Colors.grey,
-                    size: 30,
-                  ),
-                  items: _dropdownMenus.map((String menu) {
-                    return DropdownMenuItem<String>(
-                      value: menu,
-                      child: Text(
-                        menu,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.black87,
-                        ),
+                    const SizedBox(width: 6),
+                    Text(
+                      _selectedMenu ?? '지역 선택',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.orange[700],
                       ),
-                    );
-                  }).toList(),
-                  onChanged: (String? value) {
-                    setState(() {
-                      _selectedMenu = value;
-                    });
-                    _loadArticles(); // 지역 변경 시 게시글 다시 로딩
-                  },
+                    ),
+                    const SizedBox(width: 4),
+                    Icon(
+                      Icons.keyboard_arrow_down,
+                      color: Colors.orange[600],
+                      size: 20,
+                    ),
+                  ],
                 ),
               ),
             ),

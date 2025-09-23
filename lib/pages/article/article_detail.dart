@@ -3,6 +3,7 @@ import 'package:potato_market/components/buy_bottom_bar.dart';
 import '../../services/api_service.dart';
 import '../../models/article.dart';
 import '../../utils/format_utils.dart';
+import '../../components/skeleton_loader.dart';
 
 class ArticleDetail extends StatefulWidget {
   final int articleId;
@@ -47,7 +48,6 @@ class _ArticleDetailState extends State<ArticleDetail> {
         _article = article;
         _images = article.images ?? [];
         if (_images.isEmpty) {
-          // 기본 이미지가 없으면 플레이스홀더 추가
           _images = ['placeholder'];
         }
         _isLoading = false;
@@ -62,24 +62,50 @@ class _ArticleDetailState extends State<ArticleDetail> {
     }
   }
 
+  Color _getTemperatureColor(double? temperature) {
+    if (temperature == null) return Colors.blue;
+
+    if (temperature <= 40.0) {
+      return Colors.blue;
+    } else if (temperature <= 70.0) {
+      return Colors.orange;
+    } else {
+      return Colors.red;
+    }
+  }
+
+  Color _getTemperatureBackgroundColor(double? temperature) {
+    if (temperature == null) return Colors.blue[50]!;
+
+    if (temperature <= 40.0) {
+      return Colors.blue[50]!;
+    } else if (temperature <= 70.0) {
+      return Colors.orange[50]!;
+    } else {
+      return Colors.red[50]!;
+    }
+  }
+
+  Color _getTemperatureBorderColor(double? temperature) {
+    if (temperature == null) return Colors.blue[200]!;
+
+    if (temperature <= 40.0) {
+      return Colors.blue[200]!;
+    } else if (temperature <= 70.0) {
+      return Colors.orange[200]!;
+    } else {
+      return Colors.red[200]!;
+    }
+  }
+
   @override
   Widget build(BuildContext ctx) {
     if (_isLoading) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text('게시글 상세'),
-          backgroundColor: Colors.white,
-        ),
-        body: Center(child: CircularProgressIndicator()),
-      );
+      return const ArticleDetailSkeleton();
     }
 
     if (_error != null || _article == null) {
       return Scaffold(
-        appBar: AppBar(
-          title: Text('게시글 상세'),
-          backgroundColor: Colors.white,
-        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -119,7 +145,6 @@ class _ArticleDetailState extends State<ArticleDetail> {
           child: Column(
             children: [
               Stack(children: [
-                // 카로셀 이미지
                 SizedBox(
                   width: double.infinity,
                   height: 400,
@@ -151,7 +176,6 @@ class _ArticleDetailState extends State<ArticleDetail> {
                         );
                       }
 
-                      // 네트워크 이미지 표시
                       return Image.network(
                         'https://potato-backend-production.up.railway.app$imageUrl',
                         fit: BoxFit.cover,
@@ -294,6 +318,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
                   ),
                 ),
               ]),
+              // 사용자 정보 섹션
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -301,45 +326,75 @@ class _ArticleDetailState extends State<ArticleDetail> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Container(
-                            decoration: BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(55))),
-                            child: Icon(
-                              Icons.person,
-                              size: 45,
-                            )),
-                        SizedBox(
-                          width: 5,
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                          ),
+                          child: FittedBox(
+                            fit: BoxFit.contain,
+                            child: Icon(Icons.person, color: Colors.black),
+                          ),
                         ),
+                        SizedBox(width: 15),
                         Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(_article!.user?.name ?? '익명',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16)),
-                              Text(
-                                  _article!.user?.location ??
-                                      _article!.location ??
-                                      '알 수 없음',
-                                  style: TextStyle(fontSize: 12))
-                            ]),
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _article!.user?.name ?? '익명',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 20,
+                              ),
+                            ),
+                            Text(
+                              _article!.user?.location ??
+                                  _article!.location ??
+                                  '알 수 없음',
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 14),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                            '${_article!.user?.temperature?.toStringAsFixed(1) ?? '36.5'}'),
-                        Text(
-                          '매너온도',
-                        )
-                      ],
+                    // 매너온도 (간소화된 버전)
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: _getTemperatureBackgroundColor(
+                            _article!.user?.temperature),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                          color: _getTemperatureBorderColor(
+                              _article!.user?.temperature),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.thermostat,
+                            color: _getTemperatureColor(
+                                _article!.user?.temperature),
+                            size: 16,
+                          ),
+                          SizedBox(width: 4),
+                          Text(
+                            '${_article!.user?.temperature?.toStringAsFixed(1) ?? "36.5"}°C',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: _getTemperatureColor(
+                                  _article!.user?.temperature),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
