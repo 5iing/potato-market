@@ -79,14 +79,12 @@ class _ArticleDetailState extends State<ArticleDetail> {
                     },
                   ),
                 ),
-                // 상단 네비게이션 바
                 Positioned(
                   top: 0,
                   left: 0,
                   right: 0,
                   child: Container(
                     height: 100,
-                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
@@ -97,46 +95,66 @@ class _ArticleDetailState extends State<ArticleDetail> {
                         ],
                       ),
                     ),
-                    child: SafeArea(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              borderRadius: BorderRadius.circular(20),
-                              onTap: () {
-                                print('뒤로가기 버튼 클릭됨!'); // 디버그용
-                                Navigator.pop(context);
-                              },
-                              child: Container(
-                                padding: const EdgeInsets.all(8),
-                                child: const Icon(Icons.arrow_back,
-                                    color: Colors.white, size: 28),
-                              ),
-                            ),
-                          ),
-                          Row(
-                            children: [
-                              GestureDetector(
-                                onTap: () => print('공유하기'),
-                                child: const Icon(Icons.share,
-                                    color: Colors.white, size: 24),
-                              ),
-                              const SizedBox(width: 15),
-                              GestureDetector(
-                                onTap: () => print('메뉴'),
-                                child: const Icon(Icons.more_vert,
-                                    color: Colors.white, size: 24),
-                              ),
-                            ],
-                          )
-                        ],
+                  ),
+                ),
+                Positioned(
+                  top: 50,
+                  left: 20,
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(20),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        width: 44,
+                        height: 44,
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.3),
+                          borderRadius: BorderRadius.circular(22),
+                        ),
+                        child: const Icon(Icons.arrow_back,
+                            color: Colors.white, size: 24),
                       ),
                     ),
                   ),
                 ),
-                // 페이지 인디케이터
+                Positioned(
+                  top: 50,
+                  right: 20,
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () => print('공유하기'),
+                        child: Container(
+                          width: 44,
+                          height: 44,
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(22),
+                          ),
+                          child: const Icon(Icons.share,
+                              color: Colors.white, size: 20),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      GestureDetector(
+                        onTap: () => print('메뉴'),
+                        child: Container(
+                          width: 44,
+                          height: 44,
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.3),
+                            borderRadius: BorderRadius.circular(22),
+                          ),
+                          child: const Icon(Icons.more_vert,
+                              color: Colors.white, size: 20),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Positioned(
                   bottom: 20,
                   left: 0,
