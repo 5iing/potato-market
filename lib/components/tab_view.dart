@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:potato_market/pages/mypage/my_page.dart';
 import '../pages/home/home_page.dart';
 import '../pages/nearby/nearby_page.dart';
+import '../pages/chat/chat_page.dart';
 import 'nav_bar.dart';
 
 class TabView extends StatefulWidget {
@@ -16,7 +18,8 @@ class _TabViewState extends State<TabView> {
   final List<Widget> _pages = [
     const HomePage(),
     const NearbyPage(),
-    const Text('he'),
+    const ChatPage(),
+    const MyPage(),
   ];
 
   void _onTabChanged(int index) {
