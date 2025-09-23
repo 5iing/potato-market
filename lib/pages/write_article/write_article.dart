@@ -21,12 +21,24 @@ class _WriteArticleState extends State<WriteArticle> {
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('닫기',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Text('닫기',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+            ),
             Text('중고거래 글쓰기',
                 style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
-            Text('완료',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400))
+            GestureDetector(
+              onTap: () {
+                // TODO: 게시글 저장 로직 추가
+                print('완료 버튼 클릭됨!');
+                Navigator.pop(context);
+              },
+              child: Text('완료',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
+            )
           ],
         ),
       ),
