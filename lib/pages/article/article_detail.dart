@@ -1,26 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:potato_market/components/buy_bottom_bar.dart';
+import '../../services/api_service.dart';
+import '../../models/article.dart';
+import '../../utils/format_utils.dart';
 
 class ArticleDetail extends StatefulWidget {
-  final String authorName;
-  final String authorTemprature;
-  final String hometown;
-  final String productName;
-  final String price;
-  final String category; //TODO: make this constant(enum)
-  final String description;
-  final String hopedTradeLocation;
+  final int articleId;
 
-  const ArticleDetail(
-      {super.key,
-      required this.authorName,
-      required this.authorTemprature,
-      required this.hometown,
-      required this.productName,
-      required this.price,
-      required this.category,
-      required this.description,
-      required this.hopedTradeLocation});
+  const ArticleDetail({
+    super.key,
+    required this.articleId,
+  });
 
   @override
   _ArticleDetailState createState() => _ArticleDetailState();
@@ -28,17 +18,103 @@ class ArticleDetail extends StatefulWidget {
 
 class _ArticleDetailState extends State<ArticleDetail> {
   final PageController _pageController = PageController();
+  final ApiService _apiService = ApiService();
+
   int _currentPage = 0;
-  final List<String> _images = [
-    'lib/assets/download.jpeg',
-    'lib/assets/switch.jpeg',
-  ];
+  Article? _article;
+  bool _isLoading = true;
+  String? _error;
+  List<String> _images = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadArticle();
+  }
+
+  Future<void> _loadArticle() async {
+    try {
+      setState(() {
+        _isLoading = true;
+        _error = null;
+      });
+
+      print('게시글 ID로 요청: ${widget.articleId}');
+      final article = await _apiService.getArticle(widget.articleId);
+      print('받은 게시글 데이터: ${article.title}');
+
+      setState(() {
+        _article = article;
+        _images = article.images ?? [];
+        if (_images.isEmpty) {
+          // 기본 이미지가 없으면 플레이스홀더 추가
+          _images = ['placeholder'];
+        }
+        _isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        _error = e.toString();
+        _isLoading = false;
+      });
+      print('게시글 로딩 에러: $e');
+      print('요청한 게시글 ID: ${widget.articleId}');
+    }
+  }
 
   @override
   Widget build(BuildContext ctx) {
+    if (_isLoading) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('게시글 상세'),
+          backgroundColor: Colors.white,
+        ),
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+
+    if (_error != null || _article == null) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('게시글 상세'),
+          backgroundColor: Colors.white,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.error_outline, size: 64, color: Colors.red),
+              SizedBox(height: 16),
+              Text('게시글을 불러올 수 없습니다', style: TextStyle(fontSize: 18)),
+              SizedBox(height: 8),
+              Text('에러: $_error', style: TextStyle(color: Colors.grey)),
+              SizedBox(height: 8),
+              Text('게시글 ID: ${widget.articleId}',
+                  style: TextStyle(color: Colors.grey, fontSize: 12)),
+              SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: _loadArticle,
+                child: Text('다시 시도'),
+              ),
+              SizedBox(height: 8),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('돌아가기'),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
-        bottomNavigationBar:
-            BuyBottomBar(price: '12, 000', isNegotiation: false),
+        bottomNavigationBar: BuyBottomBar(
+          price: FormatUtils.formatPrice(_article!.price),
+          isNegotiation: _article!.isNegotiable ?? false,
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -56,23 +132,59 @@ class _ArticleDetailState extends State<ArticleDetail> {
                     },
                     itemCount: _images.length,
                     itemBuilder: (context, index) {
-                      if (_images[index].isEmpty) {
+                      final imageUrl = _images[index];
+
+                      if (imageUrl == 'placeholder' || imageUrl.isEmpty) {
                         return Container(
-                          color: Colors.blue[200],
+                          color: Colors.grey[200],
                           child: const Center(
-                            child: Text('이미지 불러오기 실패',
-                                style: TextStyle(fontSize: 24)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.image, size: 80, color: Colors.grey),
+                                SizedBox(height: 8),
+                                Text('이미지 없음',
+                                    style: TextStyle(color: Colors.grey)),
+                              ],
+                            ),
                           ),
                         );
                       }
-                      return Image.asset(
-                        _images[index],
+
+                      // 네트워크 이미지 표시
+                      return Image.network(
+                        'https://potato-backend-production.up.railway.app$imageUrl',
                         fit: BoxFit.cover,
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return Container(
+                            color: Colors.grey[100],
+                            child: Center(
+                              child: CircularProgressIndicator(
+                                value: loadingProgress.expectedTotalBytes !=
+                                        null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            ),
+                          );
+                        },
                         errorBuilder: (context, error, stackTrace) {
                           return Container(
                             color: Colors.grey[300],
-                            child:
-                                const Icon(Icons.image_not_supported, size: 50),
+                            child: const Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.broken_image,
+                                      size: 50, color: Colors.grey),
+                                  SizedBox(height: 8),
+                                  Text('이미지 로딩 실패',
+                                      style: TextStyle(color: Colors.grey)),
+                                ],
+                              ),
+                            ),
                           );
                         },
                       );
@@ -207,18 +319,23 @@ class _ArticleDetailState extends State<ArticleDetail> {
                         Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('아아아아',
+                              Text(_article!.user?.name ?? '익명',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w500,
                                       fontSize: 16)),
-                              Text('목동동', style: TextStyle(fontSize: 12))
+                              Text(
+                                  _article!.user?.location ??
+                                      _article!.location ??
+                                      '알 수 없음',
+                                  style: TextStyle(fontSize: 12))
                             ]),
                       ],
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text('59.5'),
+                        Text(
+                            '${_article!.user?.temperature?.toStringAsFixed(1) ?? '36.5'}'),
                         Text(
                           '매너온도',
                         )
@@ -245,7 +362,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "참숯 판매",
+                        _article!.title ?? '제목 없음',
                         style: TextStyle(
                             fontWeight: FontWeight.w500, fontSize: 20),
                       ),
@@ -253,19 +370,19 @@ class _ArticleDetailState extends State<ArticleDetail> {
                         height: 5,
                       ),
                       Text(
-                        "생활/가공식품  3분 전",
+                        "${_article!.category ?? '기타'}  ${FormatUtils.formatDateTime(_article!.createdAt)}",
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.w200),
                       ),
                       SizedBox(
                         height: 15,
                       ),
-                      Text("ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ"),
+                      Text(_article!.content ?? '내용 없음'),
                       SizedBox(
                         height: 15,
                       ),
                       Text(
-                        "관심 1 조회 294",
+                        "조회 ${_article!.views ?? 0}",
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.w200),
                       ),

@@ -6,6 +6,7 @@ class MainArticle extends StatefulWidget {
   final String price;
   final String uploadedAt;
   final bool isReserving;
+  final String? imageUrl; // 이미지 URL 추가
 
   const MainArticle(
       {super.key,
@@ -13,7 +14,8 @@ class MainArticle extends StatefulWidget {
       required this.hometown,
       required this.price,
       required this.uploadedAt,
-      required this.isReserving});
+      required this.isReserving,
+      this.imageUrl});
 
   @override
   _MainArticleState createState() => _MainArticleState();
@@ -32,21 +34,51 @@ class _MainArticleState extends State<MainArticle> {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    'lib/assets/switch.jpeg',
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        width: 80,
-                        height: 80,
-                        child: const Icon(
-                          Icons.image_not_supported,
+                  child: widget.imageUrl != null && widget.imageUrl!.isNotEmpty
+                      ? Image.network(
+                          'https://potato-backend-production.up.railway.app${widget.imageUrl}',
+                          width: 100,
+                          height: 100,
+                          fit: BoxFit.cover,
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Container(
+                              width: 100,
+                              height: 100,
+                              color: Colors.grey[200],
+                              child: Center(
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  value: loadingProgress.expectedTotalBytes !=
+                                          null
+                                      ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
+                                      : null,
+                                ),
+                              ),
+                            );
+                          },
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              width: 100,
+                              height: 100,
+                              color: Colors.grey[200],
+                              child: const Icon(
+                                Icons.image_not_supported,
+                                color: Colors.grey,
+                              ),
+                            );
+                          },
+                        )
+                      : Container(
+                          width: 100,
+                          height: 100,
+                          color: Colors.grey[200],
+                          child: const Icon(
+                            Icons.image,
+                            color: Colors.grey,
+                          ),
                         ),
-                      );
-                    },
-                  ),
                 ),
                 const SizedBox(width: 16),
                 // 텍스트 정보 섹션
