@@ -26,10 +26,13 @@ class _MainArticleState extends State<MainArticle> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.zero,
+      width: double.infinity, // 전체 폭 확보
       child: Column(
         children: [
-          Padding(
+          Container(
+            width: double.infinity, // 터치 영역 확장
             padding: const EdgeInsets.all(16),
+            color: Colors.transparent, // 터치 영역을 위한 투명 배경
             child: Row(
               children: [
                 ClipRRect(
