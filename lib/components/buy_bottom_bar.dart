@@ -44,13 +44,17 @@ class _BuyBottomBarState extends State<BuyBottomBar> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        "12,000원",
+                        widget.price,
                         style: TextStyle(
                             fontWeight: FontWeight.w600, fontSize: 16),
                       ),
                       Text(
-                        "가격제안불가",
-                        style: TextStyle(fontWeight: FontWeight.w400),
+                        widget.isNegotiation ? "가격제안가능" : "가격제안불가",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color:
+                              widget.isNegotiation ? Colors.blue : Colors.grey,
+                        ),
                       )
                     ],
                   )
