@@ -324,10 +324,14 @@ class _WriteArticleState extends State<WriteArticle> {
         indent: 16,
         endIndent: 16,
       ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        child: GestureDetector(
-          onTap: () => _showCategoryPicker(),
+      InkWell(
+        onTap: () => _showCategoryPicker(),
+        splashColor: Colors.grey[200],
+        highlightColor: Colors.grey[100],
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

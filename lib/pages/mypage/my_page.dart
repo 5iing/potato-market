@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:potato_market/components/custom_divider.dart';
 import '../../services/api_service.dart';
 import '../../models/user.dart';
+import '../../components/skeleton_loader.dart';
 
 class MyPage extends StatefulWidget {
   const MyPage({super.key});
@@ -126,15 +127,20 @@ class _MyPageState extends State<MyPage> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Text(
-                      _isLoading ? "로딩중..." : (_user?.name ?? "익명"),
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
-                    ),
-                    Text(
-                      _isLoading ? "..." : (_user?.location ?? "알 수 없음"),
-                      style: TextStyle(color: Colors.grey, fontSize: 14),
-                    )
+                    _isLoading
+                        ? SkeletonLoader(width: 100, height: 20)
+                        : Text(
+                            _user?.name ?? "익명",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 20),
+                          ),
+                    SizedBox(height: 4),
+                    _isLoading
+                        ? SkeletonLoader(width: 80, height: 14)
+                        : Text(
+                            _user?.location ?? "알 수 없음",
+                            style: TextStyle(color: Colors.grey, fontSize: 14),
+                          )
                   ],
                 )
               ],
