@@ -5,6 +5,8 @@ import 'package:potato_market/components/custom_divider.dart';
 import '../../services/api_service.dart';
 
 class WriteArticle extends StatefulWidget {
+  const WriteArticle({super.key});
+
   @override
   State<WriteArticle> createState() => _WriteArticleState();
 }
@@ -135,12 +137,12 @@ class _WriteArticleState extends State<WriteArticle> {
   void _showCategoryPicker() {
     showModalBottomSheet(
       context: context,
-      builder: (context) => Container(
+      builder: (context) => SizedBox(
         height: 300,
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
+            const Padding(
+              padding: EdgeInsets.all(16),
               child: Text(
                 '카테고리 선택',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -154,7 +156,7 @@ class _WriteArticleState extends State<WriteArticle> {
                   return ListTile(
                     title: Text(category),
                     trailing: _selectedCategory == category
-                        ? Icon(Icons.check, color: Colors.orange)
+                        ? const Icon(Icons.check, color: Colors.orange)
                         : null,
                     onTap: () {
                       setState(() {
@@ -187,8 +189,8 @@ class _WriteArticleState extends State<WriteArticle> {
       Container(
         height: 100,
         decoration:
-            BoxDecoration(border: Border(bottom: BorderSide(width: 0.1))),
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            const BoxDecoration(border: Border(bottom: BorderSide(width: 0.1))),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -197,10 +199,10 @@ class _WriteArticleState extends State<WriteArticle> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Text('닫기',
+              child: const Text('닫기',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400)),
             ),
-            Text('중고거래 글쓰기',
+            const Text('중고거래 글쓰기',
                 style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
             GestureDetector(
               onTap: _isLoading ? null : _submitArticle,
@@ -219,7 +221,7 @@ class _WriteArticleState extends State<WriteArticle> {
         ),
       ),
       Padding(
-        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -241,7 +243,7 @@ class _WriteArticleState extends State<WriteArticle> {
                         color: Colors.grey[600],
                         size: 24,
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Text(
                         "${_selectedImages.length}/10",
                         style: TextStyle(
@@ -254,12 +256,12 @@ class _WriteArticleState extends State<WriteArticle> {
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               ..._selectedImages.asMap().entries.map((entry) {
                 int index = entry.key;
                 File image = entry.value;
                 return Container(
-                  margin: EdgeInsets.only(right: 10),
+                  margin: const EdgeInsets.only(right: 10),
                   child: Stack(
                     children: [
                       ClipRRect(
@@ -283,7 +285,7 @@ class _WriteArticleState extends State<WriteArticle> {
                               color: Colors.black.withOpacity(0.7),
                               shape: BoxShape.circle,
                             ),
-                            child: Icon(
+                            child: const Icon(
                               Icons.close,
                               color: Colors.white,
                               size: 14,
@@ -294,7 +296,7 @@ class _WriteArticleState extends State<WriteArticle> {
                     ],
                   ),
                 );
-              }).toList(),
+              }),
             ],
           ),
         ),
@@ -310,7 +312,7 @@ class _WriteArticleState extends State<WriteArticle> {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: TextField(
           controller: _titleController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
               border: InputBorder.none,
               hintText: '글 제목',
               hintStyle:
@@ -335,8 +337,8 @@ class _WriteArticleState extends State<WriteArticle> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(_selectedCategory, style: TextStyle(fontSize: 16)),
-              Icon(
+              Text(_selectedCategory, style: const TextStyle(fontSize: 16)),
+              const Icon(
                 Icons.arrow_forward,
                 color: Colors.black45,
               )
@@ -344,26 +346,26 @@ class _WriteArticleState extends State<WriteArticle> {
           ),
         ),
       ),
-      CustomDivider(),
+      const CustomDivider(),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: TextField(
           controller: _priceController,
           keyboardType: TextInputType.number,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
               border: InputBorder.none,
               hintText: '가격 입력(선택사항)',
               hintStyle:
                   TextStyle(fontWeight: FontWeight.w400, color: Colors.grey)),
         ),
       ),
-      CustomDivider(),
+      const CustomDivider(),
       Padding(
-        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         child: TextField(
           controller: _contentController,
           maxLines: 5,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
               border: InputBorder.none,
               hintText: '올릴 게시글 내용을 작성해주세요.\n(가품 및 판매 금지품목은 게시가 제한될 수 있어요.)',
               hintStyle: TextStyle(

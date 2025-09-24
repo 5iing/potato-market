@@ -17,7 +17,7 @@ class _BuyBottomBarState extends State<BuyBottomBar> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           border: Border(top: BorderSide(color: Colors.black54, width: 0.15)),
         ),
         width: double.infinity,
@@ -32,7 +32,7 @@ class _BuyBottomBarState extends State<BuyBottomBar> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(Icons.favorite),
+                  const Icon(Icons.favorite),
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 15),
                     width: 0.5,
@@ -45,7 +45,7 @@ class _BuyBottomBarState extends State<BuyBottomBar> {
                     children: [
                       Text(
                         widget.price,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.w600, fontSize: 16),
                       ),
                       Text(
@@ -64,12 +64,12 @@ class _BuyBottomBarState extends State<BuyBottomBar> {
             Container(
               width: 150,
               height: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.orange,
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 "채팅으로 거래하기",
                 style: TextStyle(
                   color: Colors.white,

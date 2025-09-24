@@ -110,25 +110,25 @@ class _ArticleDetailState extends State<ArticleDetail> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.error_outline, size: 64, color: Colors.red),
-              SizedBox(height: 16),
-              Text('게시글을 불러올 수 없습니다', style: TextStyle(fontSize: 18)),
-              SizedBox(height: 8),
-              Text('에러: $_error', style: TextStyle(color: Colors.grey)),
-              SizedBox(height: 8),
+              const Icon(Icons.error_outline, size: 64, color: Colors.red),
+              const SizedBox(height: 16),
+              const Text('게시글을 불러올 수 없습니다', style: TextStyle(fontSize: 18)),
+              const SizedBox(height: 8),
+              Text('에러: $_error', style: const TextStyle(color: Colors.grey)),
+              const SizedBox(height: 8),
               Text('게시글 ID: ${widget.articleId}',
-                  style: TextStyle(color: Colors.grey, fontSize: 12)),
-              SizedBox(height: 16),
+                  style: const TextStyle(color: Colors.grey, fontSize: 12)),
+              const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _loadArticle,
-                child: Text('다시 시도'),
+                child: const Text('다시 시도'),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('돌아가기'),
+                child: const Text('돌아가기'),
               ),
             ],
           ),
@@ -307,7 +307,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
                         ),
                         child: Text(
                           '${_currentPage + 1} / ${_images.length}',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -330,22 +330,22 @@ class _ArticleDetailState extends State<ArticleDetail> {
                         Container(
                           width: 60,
                           height: 60,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.grey,
                             borderRadius: BorderRadius.all(Radius.circular(30)),
                           ),
-                          child: FittedBox(
+                          child: const FittedBox(
                             fit: BoxFit.contain,
                             child: Icon(Icons.person, color: Colors.black),
                           ),
                         ),
-                        SizedBox(width: 15),
+                        const SizedBox(width: 15),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               _article!.user?.name ?? '익명',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 20,
                               ),
@@ -355,7 +355,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
                                   _article!.location ??
                                   '알 수 없음',
                               style:
-                                  TextStyle(color: Colors.grey, fontSize: 14),
+                                  const TextStyle(color: Colors.grey, fontSize: 14),
                             ),
                           ],
                         ),
@@ -364,7 +364,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
                     // 매너온도 (간소화된 버전)
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                          const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                       decoration: BoxDecoration(
                         color: _getTemperatureBackgroundColor(
                             _article!.user?.temperature),
@@ -383,7 +383,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
                                 _article!.user?.temperature),
                             size: 16,
                           ),
-                          SizedBox(width: 4),
+                          const SizedBox(width: 4),
                           Text(
                             '${_article!.user?.temperature?.toStringAsFixed(1) ?? "36.5"}°C',
                             style: TextStyle(
@@ -406,7 +406,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
                 indent: 16,
                 endIndent: 16,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Align(
@@ -418,27 +418,27 @@ class _ArticleDetailState extends State<ArticleDetail> {
                     children: [
                       Text(
                         _article!.title ?? '제목 없음',
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.w500, fontSize: 20),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Text(
                         "${_article!.category ?? '기타'}  ${FormatUtils.formatDateTime(_article!.createdAt)}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 12, fontWeight: FontWeight.w200),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(_article!.content ?? '내용 없음'),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
                         "조회 ${_article!.views ?? 0}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 12, fontWeight: FontWeight.w200),
                       ),
                     ],

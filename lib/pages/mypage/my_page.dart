@@ -47,7 +47,6 @@ class _MyPageState extends State<MyPage> {
     }
   }
 
-  // 매너온도에 따른 색상 반환
   Color _getTemperatureColor(double? temperature) {
     if (temperature == null) return Colors.blue;
 
@@ -60,7 +59,6 @@ class _MyPageState extends State<MyPage> {
     }
   }
 
-  // 매너온도에 따른 배경색 반환
   Color _getTemperatureBackgroundColor(double? temperature) {
     if (temperature == null) return Colors.blue[50]!;
 
@@ -73,7 +71,6 @@ class _MyPageState extends State<MyPage> {
     }
   }
 
-  // 매너온도에 따른 테두리 색상 반환
   Color _getTemperatureBorderColor(double? temperature) {
     if (temperature == null) return Colors.blue[200]!;
 
@@ -91,12 +88,12 @@ class _MyPageState extends State<MyPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               "나의 감자",
-              style: TextStyle(fontWeight: FontWeight.w500),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             Icon(Icons.settings)
           ],
@@ -113,33 +110,35 @@ class _MyPageState extends State<MyPage> {
                 Container(
                   width: 60,
                   height: 60,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.grey,
                       borderRadius: BorderRadius.all(Radius.circular(55))),
-                  child: FittedBox(
+                  child: const FittedBox(
                     fit: BoxFit.contain,
                     child: Icon(Icons.person, color: Colors.black),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 15,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _isLoading
-                        ? SkeletonLoader(width: 100, height: 20)
+                        ? const SkeletonLoader(width: 100, height: 20)
                         : Text(
                             _user?.name ?? "익명",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.w500, fontSize: 20),
                           ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     _isLoading
-                        ? SkeletonLoader(width: 80, height: 14)
+                        ? const SkeletonLoader(width: 80, height: 14)
                         : Text(
                             _user?.location ?? "알 수 없음",
-                            style: TextStyle(color: Colors.grey, fontSize: 14),
+                            style: const TextStyle(
+                                color: Colors.grey, fontSize: 14),
                           )
                   ],
                 )
@@ -168,7 +167,6 @@ class _MyPageState extends State<MyPage> {
               ),
             ),
           ),
-          // 매너온도 섹션
           if (_user != null)
             Column(
               children: [
@@ -176,7 +174,7 @@ class _MyPageState extends State<MyPage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: Container(
-                    padding: EdgeInsets.all(15),
+                    padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: _getTemperatureBackgroundColor(_user!.temperature),
                       borderRadius: BorderRadius.circular(8),
@@ -197,7 +195,7 @@ class _MyPageState extends State<MyPage> {
                                 color: Colors.grey[600],
                               ),
                             ),
-                            SizedBox(height: 4),
+                            const SizedBox(height: 4),
                             Text(
                               '${_user!.temperature?.toStringAsFixed(1) ?? "36.5"}°C',
                               style: TextStyle(
@@ -220,24 +218,26 @@ class _MyPageState extends State<MyPage> {
               ],
             ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30),
+            padding: EdgeInsets.symmetric(vertical: 30),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Column(
-                  children: [Icon(Icons.receipt), Text('판매내역')],
+                Container(
+                  child: Column(
+                    children: [Icon(Icons.receipt_long_outlined), Text('판매내역')],
+                  ),
                 ),
                 Column(
-                  children: [Icon(Icons.receipt), Text('판매내역')],
+                  children: [Icon(Icons.shopping_bag_outlined), Text('구매내역')],
                 ),
                 Column(
-                  children: [Icon(Icons.receipt), Text('판매내역')],
+                  children: [Icon(Icons.favorite_border), Text('관심목록')],
                 )
               ],
             ),
           ),
-          CustomDivider(),
-          Padding(
+          const CustomDivider(),
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
               children: [

@@ -145,7 +145,7 @@ class ArticleDetailSkeleton extends StatelessWidget {
         child: Column(
           children: [
             // 이미지 캐러셀 스켈레톤
-            SkeletonLoader(
+            const SkeletonLoader(
               width: double.infinity,
               height: 400,
               borderRadius: BorderRadius.zero,
