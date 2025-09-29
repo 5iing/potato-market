@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   List<Article> _articles = [];
   bool _isLoading = true;
   String? _error;
+  final bool? result = false;
 
   @override
   void initState() {
@@ -169,7 +170,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildBody() {
     if (_isLoading) {
       return ListView.builder(
-        itemCount: 5, // 스켈레톤 아이템 5개 표시
+        itemCount: 5,
         itemBuilder: (context, index) {
           return const MainArticleSkeleton();
         },
@@ -252,6 +253,8 @@ class _HomePageState extends State<HomePage> {
             price: FormatUtils.formatPrice(article.price),
             uploadedAt: FormatUtils.formatDateTime(article.createdAt),
             isReserving: article.status == 'reserved',
+            view: article.views ?? 0,
+            likeCount: article.likeCount ?? 0,
             imageUrl: article.images?.isNotEmpty == true
                 ? article.images!.first
                 : null,
@@ -340,10 +343,24 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const WriteArticle()),
-            );
+            Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WriteArticle()))
+                .then((value) {
+              setState(() {
+                _refreshArticles();
+              });
+            });
+
+            // final result = Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => const WriteArticle()),
+            // );
+
+            // if (result == true) {
+            //   _refreshArticles();
+            //   print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            //   setState(() {});
+            // }
           },
           backgroundColor: Colors.orange,
           child: const Text(

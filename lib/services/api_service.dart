@@ -199,9 +199,8 @@ class ApiService {
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      print('게시글 상세 API 응답: $data'); // 디버깅용
+      print('게시글 상세 API 응답: $data');
 
-      // 응답 구조에 따라 데이터 추출
       if (data is Map && data.containsKey('data')) {
         return Article.fromJson(data['data']);
       } else {
@@ -235,9 +234,8 @@ class ApiService {
 
     if (response.statusCode == 201 || response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      print('게시글 작성 응답: $data'); // 디버깅용
+      print('게시글 작성 응답: $data');
 
-      // 응답 형태에 따라 처리
       if (data is Map && data.containsKey('data')) {
         return Article.fromJson(data['data']);
       } else {
@@ -306,7 +304,6 @@ class ApiService {
     }
   }
 
-  // 이미지 업로드
   Future<String> uploadImage(File imageFile) async {
     try {
       var request = http.MultipartRequest(
@@ -314,14 +311,11 @@ class ApiService {
         Uri.parse('$baseUrl/upload/image'),
       );
 
-      // 헤더 추가
       final headers = await _getHeaders();
       request.headers.addAll(headers);
-
-      // 이미지 파일 추가
       request.files.add(
         await http.MultipartFile.fromPath(
-          'images', // 백엔드에서 'images' 필드명 사용
+          'images',
           imageFile.path,
           contentType: MediaType('image', 'jpeg'),
         ),
@@ -334,13 +328,12 @@ class ApiService {
         final data = jsonDecode(response.body);
         print('이미지 업로드 응답: $data');
 
-        // 응답에서 이미지 URL 추출
         if (data is Map &&
             data.containsKey('images') &&
             data['images'] is List) {
           final images = data['images'] as List;
           if (images.isNotEmpty) {
-            return images[0]; // 첫 번째 이미지 URL 반환
+            return images[0];
           }
         } else if (data is Map &&
             data.containsKey('data') &&
@@ -360,7 +353,6 @@ class ApiService {
     }
   }
 
-  // 여러 이미지 업로드 (한 번에 처리)
   Future<List<String>> uploadMultipleImages(List<File> imageFiles) async {
     try {
       var request = http.MultipartRequest(
@@ -368,15 +360,13 @@ class ApiService {
         Uri.parse('$baseUrl/upload/image'),
       );
 
-      // 헤더 추가
       final headers = await _getHeaders();
       request.headers.addAll(headers);
 
-      // 여러 이미지 파일 추가
       for (final imageFile in imageFiles) {
         request.files.add(
           await http.MultipartFile.fromPath(
-            'images', // 백엔드에서 'images' 필드명 사용
+            'images',
             imageFile.path,
             contentType: MediaType('image', 'jpeg'),
           ),
@@ -390,7 +380,6 @@ class ApiService {
         final data = jsonDecode(response.body);
         print('여러 이미지 업로드 응답: $data');
 
-        // 응답에서 이미지 URL 배열 추출
         if (data is Map &&
             data.containsKey('images') &&
             data['images'] is List) {
@@ -402,12 +391,10 @@ class ApiService {
       }
     } catch (e) {
       print('여러 이미지 업로드 에러: $e');
-      // 실패 시 개별 업로드로 폴백
       return await _uploadImagesIndividually(imageFiles);
     }
   }
 
-  // 개별 이미지 업로드 (폴백용)
   Future<List<String>> _uploadImagesIndividually(List<File> imageFiles) async {
     final List<String> imageUrls = [];
 
@@ -417,7 +404,6 @@ class ApiService {
         imageUrls.add(imageUrl);
       } catch (e) {
         print('개별 이미지 업로드 실패: $e');
-        // 일부 이미지 실패해도 계속 진행
       }
     }
 

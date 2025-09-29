@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:potato_market/components/custom_divider.dart';
+import 'package:potato_market/utils/field_comma_formatter.dart';
 import '../../services/api_service.dart';
 
 class WriteArticle extends StatefulWidget {
@@ -54,7 +56,6 @@ class _WriteArticleState extends State<WriteArticle> {
           ? 0
           : int.tryParse(_priceController.text.replaceAll(',', '')) ?? 0;
 
-      // 이미지 업로드
       List<String> imageUrls = [];
       if (_selectedImages.isNotEmpty) {
         setState(() {
@@ -68,12 +69,12 @@ class _WriteArticleState extends State<WriteArticle> {
         content: _contentController.text.trim(),
         price: price,
         category: _selectedCategory,
-        location: '목동동', // 기본 위치
+        location: '목동동',
         images: imageUrls,
       );
 
       if (mounted) {
-        Navigator.pop(context);
+        Navigator.pop(context, true);
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('게시글이 성공적으로 작성되었습니다!')),
         );
@@ -352,11 +353,15 @@ class _WriteArticleState extends State<WriteArticle> {
         child: TextField(
           controller: _priceController,
           keyboardType: TextInputType.number,
+          inputFormatters: [
+            FilteringTextInputFormatter.digitsOnly,
+            FieldCommaFormatter()
+          ],
           decoration: const InputDecoration(
               border: InputBorder.none,
               hintText: '가격 입력(선택사항)',
               hintStyle:
-                  TextStyle(fontWeight: FontWeight.w400, color: Colors.grey)),
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.grey)),
         ),
       ),
       const CustomDivider(),

@@ -11,27 +11,28 @@ class Article {
   final List<String>? images;
   final String? status;
   final int? views;
-  final bool? isNegotiable; // 가격 제안 가능 여부
+  final bool? isNegotiable;
   final DateTime? createdAt;
   final DateTime? updatedAt;
   final User? user;
+  final int? likeCount;
 
-  Article({
-    this.id,
-    this.userId,
-    this.title,
-    this.content,
-    this.price,
-    this.category,
-    this.location,
-    this.images,
-    this.status,
-    this.views,
-    this.isNegotiable,
-    this.createdAt,
-    this.updatedAt,
-    this.user,
-  });
+  Article(
+      {this.id,
+      this.userId,
+      this.title,
+      this.content,
+      this.price,
+      this.category,
+      this.location,
+      this.images,
+      this.status,
+      this.views,
+      this.isNegotiable,
+      this.createdAt,
+      this.updatedAt,
+      this.user,
+      this.likeCount});
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
@@ -45,6 +46,7 @@ class Article {
       images: json['images'] != null ? List<String>.from(json['images']) : null,
       status: json['status'],
       views: json['views'],
+      likeCount: json['likeCount'],
       isNegotiable: json['isNegotiable'] ?? json['is_negotiable'] ?? false,
       createdAt: (json['createdAt'] ?? json['created_at']) != null
           ? DateTime.parse(json['createdAt'] ?? json['created_at'])
@@ -68,6 +70,7 @@ class Article {
       'images': images,
       'status': status,
       'views': views,
+      'likeCount': likeCount,
       'created_at': createdAt?.toIso8601String(),
       'user': user?.toJson(),
     };

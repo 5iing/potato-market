@@ -354,8 +354,8 @@ class _ArticleDetailState extends State<ArticleDetail> {
                               _article!.user?.location ??
                                   _article!.location ??
                                   '알 수 없음',
-                              style:
-                                  const TextStyle(color: Colors.grey, fontSize: 14),
+                              style: const TextStyle(
+                                  color: Colors.grey, fontSize: 14),
                             ),
                           ],
                         ),
@@ -363,8 +363,8 @@ class _ArticleDetailState extends State<ArticleDetail> {
                     ),
                     // 매너온도 (간소화된 버전)
                     Container(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 8),
                       decoration: BoxDecoration(
                         color: _getTemperatureBackgroundColor(
                             _article!.user?.temperature),
@@ -436,11 +436,23 @@ class _ArticleDetailState extends State<ArticleDetail> {
                       const SizedBox(
                         height: 15,
                       ),
-                      Text(
-                        "조회 ${_article!.views ?? 0}",
-                        style: const TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w200),
-                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "조회 ${_article!.views ?? 0}",
+                            style: const TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w200),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "좋아요 ${_article!.likeCount ?? 0}",
+                            style: const TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w200),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),

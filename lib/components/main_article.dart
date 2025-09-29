@@ -6,7 +6,9 @@ class MainArticle extends StatefulWidget {
   final String price;
   final String uploadedAt;
   final bool isReserving;
-  final String? imageUrl; // 이미지 URL 추가
+  final String? imageUrl;
+  final int view;
+  final int likeCount;
 
   const MainArticle(
       {super.key,
@@ -15,6 +17,8 @@ class MainArticle extends StatefulWidget {
       required this.price,
       required this.uploadedAt,
       required this.isReserving,
+      required this.view,
+      required this.likeCount,
       this.imageUrl});
 
   @override
@@ -124,6 +128,38 @@ class _MainArticleState extends State<MainArticle> {
                           fontSize: 11,
                           color: Colors.grey[500],
                         ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 100,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Icon(
+                        Icons.search,
+                        color: Colors.grey,
+                        size: 18,
+                      ),
+                      Text(
+                        widget.view.toString(),
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Icon(
+                        Icons.favorite_border_outlined,
+                        color: Colors.grey,
+                        size: 18,
+                      ),
+                      SizedBox(
+                        width: 2,
+                      ),
+                      Text(
+                        widget.likeCount.toString(),
+                        style: TextStyle(color: Colors.grey),
                       ),
                     ],
                   ),
