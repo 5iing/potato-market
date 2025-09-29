@@ -103,9 +103,8 @@ class ApiService {
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      print('사용자 프로필 API 응답: $data'); // 디버깅용
+      print('사용자 프로필 API 응답: $data');
 
-      // 응답 구조에 따라 데이터 추출
       if (data is Map && data.containsKey('data')) {
         return User.fromJson(data['data']);
       } else {
@@ -167,16 +166,14 @@ class ApiService {
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      print('API 응답 데이터: $data'); // 디버깅용
+      print('API 응답 데이터: $data');
 
-      // 응답 형태에 따라 처리
       List<dynamic> articlesJson;
       if (data is List) {
         articlesJson = data;
       } else if (data is Map &&
           data.containsKey('data') &&
           data['data'].containsKey('articles')) {
-        // { status: "OK", data: { articles: [...] } } 형태
         articlesJson = data['data']['articles'];
       } else if (data is Map && data.containsKey('articles')) {
         articlesJson = data['articles'];

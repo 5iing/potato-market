@@ -237,15 +237,16 @@ class _MyPageState extends State<MyPage> {
             ),
           ),
           const CustomDivider(),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
               children: [
                 Row(
                   children: [
                     Icon(
-                      Icons.pin,
+                      Icons.location_on_outlined,
                       size: 30,
+                      color: Colors.black.withOpacity(0.7),
                     ),
                     SizedBox(
                       width: 10,
@@ -262,14 +263,15 @@ class _MyPageState extends State<MyPage> {
                 Row(
                   children: [
                     Icon(
-                      Icons.pin,
+                      Icons.add_box_outlined,
                       size: 30,
+                      color: Colors.black.withOpacity(0.7),
                     ),
                     SizedBox(
                       width: 10,
                     ),
                     Text(
-                      '내 동네 설정',
+                      '동네 인증하기',
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
@@ -280,14 +282,15 @@ class _MyPageState extends State<MyPage> {
                 Row(
                   children: [
                     Icon(
-                      Icons.pin,
+                      Icons.alarm_add_outlined,
                       size: 30,
+                      color: Colors.black.withOpacity(0.7),
                     ),
                     SizedBox(
                       width: 10,
                     ),
                     Text(
-                      '내 동네 설정',
+                      '키워드 알림',
                       style: TextStyle(fontSize: 16),
                     )
                   ],

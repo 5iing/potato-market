@@ -307,23 +307,13 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                  icon: const Icon(
-                    Icons.search,
-                    color: Colors.black87,
-                    size: 24,
-                  ),
-                  onPressed: () {
-                    print('검색 클릭!');
-                  },
-                ),
                 IconButton(
                   icon: const Icon(
                     Icons.menu,
                     color: Colors.black87,
-                    size: 24,
+                    size: 22,
                   ),
                   onPressed: () {
                     print('메뉴 클릭');
@@ -333,7 +323,7 @@ class _HomePageState extends State<HomePage> {
                   icon: const Icon(
                     Icons.notifications,
                     color: Colors.black87,
-                    size: 24,
+                    size: 22,
                   ),
                   onPressed: () {
                     print('알림 클릭!');
@@ -352,11 +342,11 @@ class _HomePageState extends State<HomePage> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => WriteArticle()),
+              MaterialPageRoute(builder: (context) => const WriteArticle()),
             );
           },
           backgroundColor: Colors.orange,
-          child: Text(
+          child: const Text(
             "+",
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 32, color: Colors.white),

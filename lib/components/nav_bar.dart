@@ -20,8 +20,8 @@ class NavBar extends StatelessWidget {
           label: '홈',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.location_city),
-          label: '내 근처',
+          icon: Icon(Icons.search_off_outlined),
+          label: '검색',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.chat),

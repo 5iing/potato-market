@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:potato_market/pages/mypage/my_page.dart';
+import 'package:potato_market/pages/search/search_page.dart';
 import '../pages/home/home_page.dart';
-import '../pages/nearby/nearby_page.dart';
 import '../pages/chat/chat_page.dart';
 import 'nav_bar.dart';
 
@@ -17,7 +17,7 @@ class _TabViewState extends State<TabView> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    const NearbyPage(),
+    const SearchPage(),
     const ChatPage(),
     const MyPage(),
   ];
