@@ -138,8 +138,10 @@ class _ArticleDetailState extends State<ArticleDetail> {
 
     return Scaffold(
         bottomNavigationBar: BuyBottomBar(
+          id: _article!.id!,
           price: FormatUtils.formatPrice(_article!.price),
           isNegotiation: _article!.isNegotiable ?? false,
+          isLiked: _article!.isLiked ?? false,
         ),
         body: SingleChildScrollView(
           child: Column(

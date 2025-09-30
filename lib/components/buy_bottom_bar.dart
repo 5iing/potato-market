@@ -1,17 +1,34 @@
 import 'package:flutter/material.dart';
+import '../services/api_service.dart';
 
 class BuyBottomBar extends StatefulWidget {
   final String price;
   final bool isNegotiation;
+  final bool isLiked;
+  final int id;
 
   const BuyBottomBar(
-      {super.key, required this.price, required this.isNegotiation});
+      {super.key,
+      required this.id,
+      required this.price,
+      required this.isNegotiation,
+      required this.isLiked});
 
   @override
   State<BuyBottomBar> createState() => _BuyBottomBarState();
 }
 
 class _BuyBottomBarState extends State<BuyBottomBar> {
+  final ApiService _apiService = ApiService();
+  late bool _isLiked = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _isLiked = widget.isLiked;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -32,7 +49,25 @@ class _BuyBottomBarState extends State<BuyBottomBar> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(Icons.favorite),
+                  GestureDetector(
+                    onTap: () {
+                      if (_isLiked) {
+                        _apiService.unLikeArticle(id: widget.id);
+                        _isLiked = false;
+                        setState(() {});
+                      } else {
+                        _apiService.likeArticle(id: widget.id);
+                        _isLiked = true;
+                        setState(() {});
+                      }
+                    },
+                    child: _isLiked
+                        ? const Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                          )
+                        : const Icon(Icons.favorite_border_outlined),
+                  ),
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 15),
                     width: 0.5,
