@@ -211,6 +211,93 @@ class ApiService {
     }
   }
 
+  Future<Article> likeArticle({required int id}) async {
+    final response = await http.post(
+      Uri.parse(
+        '$baseUrl/articles/$id/like',
+      ),
+      headers: await _getHeaders(),
+      body: jsonEncode({
+        'id': id,
+      }),
+    );
+
+    if (response.statusCode == 200 | 201) {
+      final data = jsonDecode(response.body);
+
+      if (data is Map && data.containsKey('data')) {
+        return Article.fromJson(data['data']);
+      } else {
+        return Article.fromJson(data);
+      }
+    } else {
+      throw Exception('게시글 좋아요 실패: ${response.body}');
+    }
+  }
+
+  Future<Article> unLikeArticle({required int id}) async {
+    final response = await http.delete(
+      Uri.parse('$baseUrl/articles/$id/like'),
+      headers: await _getHeaders(),
+      body: jsonEncode({
+        'id': id,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+
+      if (data is Map && data.containsKey('data')) {
+        return Article.fromJson(data['data']);
+      } else {
+        return Article.fromJson(data);
+      }
+    } else {
+      throw Exception('게시글 좋아요 취소 실패');
+    }
+  }
+
+  Future<List<Article>> getLikedArticle(
+      // TODO: 페이지네이션 추가
+      {int page = 1,
+      int limit = 20,
+      int? id}) async {
+    final queryParams = <String, String>{
+      'page': page.toString(),
+      'limit': limit.toString(),
+    };
+
+    final response = await http.get(
+        Uri.parse('$baseUrl/articles/liked')
+            .replace(queryParameters: queryParams),
+        headers: await _getHeaders());
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+
+      List<dynamic> articlesJson;
+      if (data is List) {
+        articlesJson = data;
+      } else if (data is Map &&
+          data.containsKey('data') &&
+          data['data'].containsKey('articles')) {
+        articlesJson = data['data']['articles'];
+      } else if (data is Map && data.containsKey('articles')) {
+        articlesJson = data['articles'];
+      } else if (data is Map &&
+          data.containsKey('data') &&
+          data['data'] is List) {
+        articlesJson = data['data'];
+      } else {
+        articlesJson = [];
+      }
+
+      return articlesJson.map((json) => Article.fromJson(json)).toList();
+    } else {
+      throw Exception('좋아요 누른 게시글 목록 조회 실패');
+    }
+  }
+
   Future<Article> createArticle({
     required String title,
     required String content,
@@ -278,7 +365,7 @@ class ApiService {
     }
   }
 
-  Future<void> deleteArticle(int id) async {
+  Future<void> deleteArticle({int? id}) async {
     final response = await http.delete(
       Uri.parse('$baseUrl/articles/$id'),
       headers: await _getHeaders(),
