@@ -16,6 +16,7 @@ class Article {
   final DateTime? updatedAt;
   final User? user;
   final int? likeCount;
+  final bool? isLiked;
 
   Article(
       {this.id,
@@ -32,7 +33,8 @@ class Article {
       this.createdAt,
       this.updatedAt,
       this.user,
-      this.likeCount});
+      this.likeCount,
+      this.isLiked});
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
@@ -47,6 +49,7 @@ class Article {
       status: json['status'],
       views: json['views'],
       likeCount: json['likeCount'],
+      isLiked: json['isLiked'],
       isNegotiable: json['isNegotiable'] ?? json['is_negotiable'] ?? false,
       createdAt: (json['createdAt'] ?? json['created_at']) != null
           ? DateTime.parse(json['createdAt'] ?? json['created_at'])
@@ -70,6 +73,7 @@ class Article {
       'images': images,
       'status': status,
       'views': views,
+      'isLiked': isLiked,
       'likeCount': likeCount,
       'created_at': createdAt?.toIso8601String(),
       'user': user?.toJson(),
