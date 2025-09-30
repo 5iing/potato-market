@@ -27,7 +27,7 @@ class ApiService {
 
   Future<Map<String, String>> _getHeaders() async {
     const hardcodedToken =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxlZXllb253b29AemVudHJ5by5hcHAiLCJzdWIiOjEsImlhdCI6MTc1ODYwNDc5MSwiZXhwIjoxNzU5MjA5NTkxfQ.IGzs6IwGv1owv0hp6hkkx3v-8L4rqTR3t4uXK_Tl-jY';
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOjMyLCJpYXQiOjE3NTkyMDk3MDcsImV4cCI6MTc1OTgxNDUwN30.ZdenUZUDR5aULQ7P85B79p3IHkrlXH3syTQSxB7XJ-w';
 
     final headers = {
       'Content-Type': 'application/json',
