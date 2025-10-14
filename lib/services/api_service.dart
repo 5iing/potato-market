@@ -378,16 +378,33 @@ class ApiService {
 
   Future<List<Article>> getMyArticles() async {
     final response = await http.get(
-      Uri.parse('$baseUrl/user/articles'),
+      Uri.parse('$baseUrl/user/articles?page=1&limit=50'),
       headers: await _getHeaders(),
     );
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      final List<dynamic> articlesJson = data['articles'] ?? data;
+
+      List<dynamic> articlesJson;
+      if (data is List) {
+        articlesJson = data;
+      } else if (data is Map &&
+          data.containsKey('data') &&
+          data['data'].containsKey('articles')) {
+        articlesJson = data['data']['articles'];
+      } else if (data is Map && data.containsKey('articles')) {
+        articlesJson = data['articles'];
+      } else if (data is Map &&
+          data.containsKey('data') &&
+          data['data'] is List) {
+        articlesJson = data['data'];
+      } else {
+        articlesJson = [];
+      }
+
       return articlesJson.map((json) => Article.fromJson(json)).toList();
     } else {
-      throw Exception('내 게시글 조회 실패: ${response.body}');
+      throw Exception('좋아요 누른 게시글 목록 조회 실패');
     }
   }
 

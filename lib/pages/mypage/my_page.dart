@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:potato_market/components/custom_divider.dart';
 import 'package:potato_market/pages/liked_article/liked_article.dart';
+import 'package:potato_market/pages/selled_article/selled_article.dart';
 import '../../services/api_service.dart';
 import '../../models/user.dart';
 import '../../components/skeleton_loader.dart';
@@ -96,7 +97,7 @@ class _MyPageState extends State<MyPage> {
               "나의 감자",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
-            Icon(Icons.settings)
+            // Icon(Icons.settings)
           ],
         ),
       ),
@@ -146,28 +147,28 @@ class _MyPageState extends State<MyPage> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            child: GestureDetector(
-              onTap: _error != null ? _loadUserProfile : null,
-              child: Container(
-                width: double.infinity,
-                height: 40,
-                decoration: BoxDecoration(
-                  border: Border.all(width: 0.005, color: Colors.grey),
-                  color: _error != null ? Colors.red[50] : null,
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  _error != null ? '다시 시도' : '프로필 보기',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: _error != null ? Colors.red : Colors.black,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          //   child: GestureDetector(
+          //     onTap: _error != null ? _loadUserProfile : null,
+          //     child: Container(
+          //       width: double.infinity,
+          //       height: 40,
+          //       decoration: BoxDecoration(
+          //         border: Border.all(width: 0.005, color: Colors.grey),
+          //         color: _error != null ? Colors.red[50] : null,
+          //       ),
+          //       alignment: Alignment.center,
+          //       child: Text(
+          //         _error != null ? '다시 시도' : '프로필 보기',
+          //         style: TextStyle(
+          //           fontWeight: FontWeight.w500,
+          //           color: _error != null ? Colors.red : Colors.black,
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
           if (_user != null)
             Column(
               children: [
@@ -223,14 +224,18 @@ class _MyPageState extends State<MyPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
+                GestureDetector(
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SelledArticle())),
                   child: Column(
                     children: [Icon(Icons.receipt_long_outlined), Text('판매내역')],
                   ),
                 ),
-                Column(
-                  children: [Icon(Icons.shopping_bag_outlined), Text('구매내역')],
-                ),
+                // Column(
+                //   children: [Icon(Icons.shopping_bag_outlined), Text('구매내역')],
+                // ),
                 GestureDetector(
                   onTap: () => Navigator.push(context,
                       MaterialPageRoute(builder: (context) => LikedArticle())),
