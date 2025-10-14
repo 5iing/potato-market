@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _selectedMenu = _dropdownMenus[0];
+    // _loadUserInfo();
     _loadArticles();
   }
 
@@ -54,6 +55,14 @@ class _HomePageState extends State<HomePage> {
       print('게시글 로딩 에러: $e');
     }
   }
+
+  // Future<void> _loadUserInfo() async {
+  //   try {
+  //     final user = await _apiService.getUserProfile();
+  //   } catch (e) {
+  //     throw Exception('사용자 정보 불러오기 에러: $e');
+  //   }
+  // }
 
   Future<void> _refreshArticles() async {
     await _loadArticles();
@@ -308,31 +317,6 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  icon: const Icon(
-                    Icons.menu,
-                    color: Colors.black87,
-                    size: 22,
-                  ),
-                  onPressed: () {
-                    print('메뉴 클릭');
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.notifications,
-                    color: Colors.black87,
-                    size: 22,
-                  ),
-                  onPressed: () {
-                    print('알림 클릭!');
-                  },
-                ),
-              ],
             ),
           ],
         ),
