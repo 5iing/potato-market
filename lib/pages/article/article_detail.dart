@@ -141,6 +141,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
           id: _article!.id!,
           price: FormatUtils.formatPrice(_article!.price),
           isNegotiation: _article!.isNegotiable ?? false,
+          isMe: _article!.isMe ?? false,
           isLiked: _article!.isLiked ?? false,
         ),
         body: SingleChildScrollView(
@@ -179,7 +180,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
                       }
 
                       return Image.network(
-                        'https://potato-backend-production.up.railway.app$imageUrl',
+                        'http://localhost:3000$imageUrl',
                         fit: BoxFit.cover,
                         loadingBuilder: (context, child, loadingProgress) {
                           if (loadingProgress == null) return child;
