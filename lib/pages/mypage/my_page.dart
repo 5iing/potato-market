@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:potato_market/components/custom_divider.dart';
+import 'package:potato_market/pages/liked_article/liked_article.dart';
 import '../../services/api_service.dart';
 import '../../models/user.dart';
 import '../../components/skeleton_loader.dart';
@@ -230,77 +231,81 @@ class _MyPageState extends State<MyPage> {
                 Column(
                   children: [Icon(Icons.shopping_bag_outlined), Text('구매내역')],
                 ),
-                Column(
-                  children: [Icon(Icons.favorite_border), Text('관심목록')],
+                GestureDetector(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LikedArticle())),
+                  child: Column(
+                    children: [Icon(Icons.favorite_border), Text('관심목록')],
+                  ),
                 )
               ],
             ),
           ),
           const CustomDivider(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.location_on_outlined,
-                      size: 30,
-                      color: Colors.black.withOpacity(0.7),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      '내 동네 설정',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.add_box_outlined,
-                      size: 30,
-                      color: Colors.black.withOpacity(0.7),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      '동네 인증하기',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.alarm_add_outlined,
-                      size: 30,
-                      color: Colors.black.withOpacity(0.7),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      '키워드 알림',
-                      style: TextStyle(fontSize: 16),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
-          )
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          //   child: Column(
+          //     children: [
+          //       Row(
+          //         children: [
+          //           Icon(
+          //             Icons.location_on_outlined,
+          //             size: 30,
+          //             color: Colors.black.withOpacity(0.7),
+          //           ),
+          //           SizedBox(
+          //             width: 10,
+          //           ),
+          //           Text(
+          //             '내 동네 설정',
+          //             style: TextStyle(fontSize: 16),
+          //           ),
+          //         ],
+          //       ),
+          //       SizedBox(
+          //         height: 20,
+          //       ),
+          //       Row(
+          //         children: [
+          //           Icon(
+          //             Icons.add_box_outlined,
+          //             size: 30,
+          //             color: Colors.black.withOpacity(0.7),
+          //           ),
+          //           SizedBox(
+          //             width: 10,
+          //           ),
+          //           Text(
+          //             '동네 인증하기',
+          //             style: TextStyle(fontSize: 16),
+          //           ),
+          //         ],
+          //       ),
+          //       SizedBox(
+          //         height: 20,
+          //       ),
+          //       Row(
+          //         children: [
+          //           Icon(
+          //             Icons.alarm_add_outlined,
+          //             size: 30,
+          //             color: Colors.black.withOpacity(0.7),
+          //           ),
+          //           SizedBox(
+          //             width: 10,
+          //           ),
+          //           Text(
+          //             '키워드 알림',
+          //             style: TextStyle(fontSize: 16),
+          //           )
+          //         ],
+          //       ),
+          //       SizedBox(
+          //         height: 20,
+          //       ),
+          //     ],
+          //   ),
+          // )
         ],
       ),
     );
