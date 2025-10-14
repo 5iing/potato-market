@@ -2,13 +2,13 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
+import 'package:potato_market/models/chat_room.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/user.dart';
 import '../models/article.dart';
 
 class ApiService {
-  static const String baseUrl =
-      'https://potato-backend-production.up.railway.app/api';
+  static const String baseUrl = 'http://localhost:3000/api';
 
   Future<String?> getToken() async {
     final prefs = await SharedPreferences.getInstance();
@@ -27,7 +27,7 @@ class ApiService {
 
   Future<Map<String, String>> _getHeaders() async {
     const hardcodedToken =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOjMyLCJpYXQiOjE3NTkyMDk3MDcsImV4cCI6MTc1OTgxNDUwN30.ZdenUZUDR5aULQ7P85B79p3IHkrlXH3syTQSxB7XJ-w';
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJleHJleDExMDVAZ21haWwuY29tIiwic3ViIjoxMCwiaWF0IjoxNzYwNDAzMTgyLCJleHAiOjE3NjEwMDc5ODJ9.ztyFvqKd8cgAuMTNU36ddG4wWteslv-Y_Mktuv7fEUo';
 
     final headers = {
       'Content-Type': 'application/json',
@@ -495,5 +495,45 @@ class ApiService {
     }
 
     return imageUrls;
+  }
+
+  Future<List<ChatRoom>> getChatRooms() async {
+    final response = await http.get(
+      Uri.parse('$baseUrl/chat/rooms'),
+      headers: await _getHeaders(),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+
+      List<dynamic> chatroomJson;
+      if (data is List) {
+        chatroomJson = data;
+      } else if (data is Map &&
+          data.containsKey('data') &&
+          data['data'].containsKey('chatRooms')) {
+        chatroomJson = data['data']['chatRooms'];
+      } else {
+        chatroomJson = [];
+      }
+
+      return chatroomJson.map((json) => ChatRoom.fromJson(json)).toList();
+    } else {
+      throw Exception('프로필 조회 실패: ${response.body}');
+    }
+  }
+
+  Future<bool> createChatRoom({required int id}) async {
+    final response = await http.post(
+      Uri.parse('$baseUrl/chat/rooms'),
+      headers: await _getHeaders(),
+      body: jsonEncode({'articleId': id}),
+    );
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return true;
+    } else {
+      throw Exception('로그인 실패: ${response.body}');
+    }
   }
 }
