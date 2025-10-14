@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:potato_market/pages/chatting/chatting_page.dart';
 import '../services/api_service.dart';
+import '../pages/chat/chat_page.dart';
 
 class BuyBottomBar extends StatefulWidget {
   final String price;
   final bool isNegotiation;
   final bool isLiked;
   final int id;
+  final bool isMe;
 
   const BuyBottomBar(
       {super.key,
       required this.id,
       required this.price,
       required this.isNegotiation,
+      required this.isMe,
       required this.isLiked});
 
   @override
@@ -27,6 +31,14 @@ class _BuyBottomBarState extends State<BuyBottomBar> {
     // TODO: implement initState
     super.initState();
     _isLiked = widget.isLiked;
+  }
+
+  Future<void> _createChat({required int id}) async {
+    final resp = await _apiService.createChatRoom(id: id);
+    if (resp) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => ChattingPage()));
+    }
   }
 
   @override
@@ -96,23 +108,37 @@ class _BuyBottomBarState extends State<BuyBottomBar> {
                 ],
               ),
             ),
-            Container(
-              width: 150,
-              height: 50,
-              decoration: const BoxDecoration(
-                color: Colors.orange,
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
-              ),
-              alignment: Alignment.center,
-              child: const Text(
-                "채팅으로 거래하기",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
-            )
+            GestureDetector(
+                onTap: () {
+                  if (!widget.isMe) {}
+                },
+                child: Container(
+                  width: 150,
+                  height: 50,
+                  decoration: const BoxDecoration(
+                    color: Colors.orange,
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                  alignment: Alignment.center,
+                  child: widget.isMe
+                      ? Text(
+                          "판매완료 처리하기",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        )
+                      : GestureDetector(
+                          onTap: () => _createChat(id: widget.id),
+                          child: Text("채팅으로 거래하기",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              )),
+                        ),
+                ))
           ],
         ),
       ),
