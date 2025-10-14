@@ -43,7 +43,7 @@ class _MainArticleState extends State<MainArticle> {
                   borderRadius: BorderRadius.circular(8),
                   child: widget.imageUrl != null && widget.imageUrl!.isNotEmpty
                       ? Image.network(
-                          'https://potato-backend-production.up.railway.app${widget.imageUrl}',
+                          'http://localhost:3000${widget.imageUrl}',
                           width: 100,
                           height: 100,
                           fit: BoxFit.cover,
