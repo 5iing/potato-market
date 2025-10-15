@@ -33,6 +33,18 @@ class _BuyBottomBarState extends State<BuyBottomBar> {
     _isLiked = widget.isLiked;
   }
 
+  Future<void> _deleteArticle({required int id}) async {
+    try {
+      await _apiService.deleteArticle(id: id);
+
+      setState(() {
+        Navigator.pop(context);
+      });
+    } catch (e) {
+      throw e;
+    }
+  }
+
   Future<void> _createChat({required int id}) async {
     final resp = await _apiService.createChatRoom(id: id);
     if (resp) {
@@ -121,12 +133,15 @@ class _BuyBottomBarState extends State<BuyBottomBar> {
                   ),
                   alignment: Alignment.center,
                   child: widget.isMe
-                      ? Text(
-                          "판매완료 처리하기",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
+                      ? GestureDetector(
+                          onTap: () => _deleteArticle(id: widget.id),
+                          child: Text(
+                            "판매완료 처리하기",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
                           ),
                         )
                       : GestureDetector(
