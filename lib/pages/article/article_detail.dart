@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:potato_market/components/buy_bottom_bar.dart';
+import 'package:share_plus/share_plus.dart';
 import '../../services/api_service.dart';
 import '../../models/article.dart';
 import '../../utils/format_utils.dart';
@@ -7,10 +8,12 @@ import '../../components/skeleton_loader.dart';
 
 class ArticleDetail extends StatefulWidget {
   final int articleId;
+  final String articleTitle;
 
   const ArticleDetail({
     super.key,
     required this.articleId,
+    required this.articleTitle,
   });
 
   @override
@@ -265,7 +268,12 @@ class _ArticleDetailState extends State<ArticleDetail> {
                   child: Row(
                     children: [
                       GestureDetector(
-                        onTap: () => print('공유하기'),
+                        onTap: () {
+                          Share.share(
+                            'https://google.com',
+                            subject: widget.articleTitle,
+                          );
+                        },
                         child: Container(
                           width: 44,
                           height: 44,
@@ -277,20 +285,19 @@ class _ArticleDetailState extends State<ArticleDetail> {
                               color: Colors.white, size: 20),
                         ),
                       ),
-                      const SizedBox(width: 10),
-                      GestureDetector(
-                        onTap: () => print('메뉴'),
-                        child: Container(
-                          width: 44,
-                          height: 44,
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(22),
-                          ),
-                          child: const Icon(Icons.more_vert,
-                              color: Colors.white, size: 20),
-                        ),
-                      ),
+                      // GestureDetector(
+                      //   onTap: () => print('메뉴'),
+                      //   child: Container(
+                      //     width: 44,
+                      //     height: 44,
+                      //     decoration: BoxDecoration(
+                      //       color: Colors.black.withOpacity(0.3),
+                      //       borderRadius: BorderRadius.circular(22),
+                      //     ),
+                      //     child: const Icon(Icons.more_vert,
+                      //         color: Colors.white, size: 20),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
