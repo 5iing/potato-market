@@ -192,7 +192,9 @@ class _SearchPageState extends State<SearchPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => ArticleDetail(
-                                            articleId: article.id!)));
+                                              articleId: article.id!,
+                                              articleTitle: article.title!,
+                                            )));
                               }
                             },
                             child: MainArticle(

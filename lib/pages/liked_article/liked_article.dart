@@ -91,7 +91,9 @@ class _LikedArticleState extends State<LikedArticle> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => ArticleDetail(
-                                            articleId: article.id!)));
+                                              articleId: article.id!,
+                                              articleTitle: article.title!,
+                                            )));
                               }
                             },
                             child: MainArticle(

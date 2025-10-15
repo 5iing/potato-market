@@ -89,7 +89,9 @@ class _SelledArticleState extends State<SelledArticle> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => ArticleDetail(
-                                            articleId: article.id!)));
+                                              articleId: article.id!,
+                                              articleTitle: article.title!,
+                                            )));
                               }
                             },
                             child: MainArticle(
