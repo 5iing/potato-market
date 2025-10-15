@@ -247,15 +247,18 @@ class _HomePageState extends State<HomePage> {
                 MaterialPageRoute(
                   builder: (context) => ArticleDetail(
                     articleId: article.id!,
+                    articleTitle: article.title!,
                   ),
                 ),
-              );
+              ).then((value) {
+                _refreshArticles();
+              });
             } else {
               print('게시글 ID가 null입니다');
             }
           },
-          splashColor: Colors.grey[200], // 터치 시 물결 효과
-          highlightColor: Colors.grey[100], // 터치 시 하이라이트
+          splashColor: Colors.grey[200],
+          highlightColor: Colors.grey[100],
           child: MainArticle(
             productName: article.title ?? '제목 없음',
             hometown: article.location ?? '알 수 없음',
