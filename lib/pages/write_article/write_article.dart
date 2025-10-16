@@ -207,14 +207,14 @@ class _WriteArticleState extends State<WriteArticle> {
                 style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
             GestureDetector(
               onTap: _isLoading ? null : _submitArticle,
-              child: Text(
-                _isLoading
-                    ? (_isUploadingImages ? '이미지 업로드중...' : '저장중...')
-                    : '완료',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: _isLoading ? Colors.grey : Colors.black,
+              child: Container(
+                child: Text(
+                  _isLoading ? (_isUploadingImages ? '...' : '저장중...') : '완료',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: _isLoading ? Colors.grey : Colors.black,
+                  ),
                 ),
               ),
             )
