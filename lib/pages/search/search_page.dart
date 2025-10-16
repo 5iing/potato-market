@@ -180,7 +180,9 @@ class _SearchPageState extends State<SearchPage> {
                       itemCount: _articles.length + 1,
                       itemBuilder: (context, index) {
                         if (index == 0) {
-                          return CustomDivider();
+                          return SizedBox(
+                            height: 10,
+                          );
                         }
 
                         final article = _articles[index - 1];
