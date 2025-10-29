@@ -39,6 +39,10 @@ class _ChatPageState extends State<ChatPage> {
     }
   }
 
+  Future<void> _refreshArticles() async {
+    await _getChatRooms();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,38 +57,42 @@ class _ChatPageState extends State<ChatPage> {
           backgroundColor: Colors.white,
           elevation: 0,
         ),
-        body: _isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : _chatrooms.isEmpty
-                ? const Center(child: Text('채팅방이 없습니다.'))
-                : Column(
-                    children: [
-                      const CustomDivider(),
-                      Expanded(
-                        child: ListView.builder(
-                          itemCount: _chatrooms.length,
-                          itemBuilder: (context, index) {
-                            final chatroom = _chatrooms[index];
-                            return InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ChattingPage(),
-                                  ),
-                                );
-                              },
-                              child: MainChat(
-                                name: chatroom.seller.name ?? '알 수 없음',
-                                location: chatroom.article.location ?? '알 수 없음',
-                                lastChatTime: "3시간 전",
-                                lastChat: "이거 얼마에요?",
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ],
-                  ));
+        body: RefreshIndicator(
+          onRefresh: _refreshArticles,
+          child: _buildBody(),
+        ));
+  }
+
+  Column _buildBody() {
+    return Column(
+      children: [
+        const CustomDivider(),
+        Expanded(
+          child: ListView.builder(
+            itemCount: _chatrooms.length,
+            itemBuilder: (context, index) {
+              final chatroom = _chatrooms[index];
+              return InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          ChattingPage(sellerName: chatroom.seller.name!),
+                    ),
+                  );
+                },
+                child: MainChat(
+                  name: chatroom.seller.name ?? '알 수 없음',
+                  location: chatroom.article.location ?? '알 수 없음',
+                  lastChatTime: "3시간 전",
+                  lastChat: "이거 얼마에요?",
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    );
   }
 }

@@ -18,7 +18,7 @@ class _SelledArticleState extends State<SelledArticle> {
   bool _isLoading = true;
   List<Article> _articles = [];
 
-  Future<void> _searchLikedArticles() async {
+  Future<void> _searchSelledArticles() async {
     try {
       final articles = await _apiService.getMyArticles();
 
@@ -37,7 +37,11 @@ class _SelledArticleState extends State<SelledArticle> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _searchLikedArticles();
+    _searchSelledArticles();
+  }
+
+  Future<void> _refreshArticles() async {
+    await _searchSelledArticles();
   }
 
   @override
@@ -49,67 +53,71 @@ class _SelledArticleState extends State<SelledArticle> {
             "판매내역",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           )),
-      body: Column(
-        children: [
-          Expanded(
-              child: _articles.isEmpty && _isLoading == false
-                  ? Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.shopping_bag_outlined,
-                              size: 64, color: Colors.grey),
-                          SizedBox(
-                            height: 16,
-                          ),
-                          Text(
-                            '아직 관심 목록이 없습니다',
-                            style: TextStyle(fontSize: 16, color: Colors.grey),
-                          ),
-                          SizedBox(
-                            height: 100,
-                          )
-                        ],
-                      ),
-                    )
-                  : ListView.builder(
-                      padding: EdgeInsets.zero,
-                      itemCount: _articles.length + 1,
-                      itemBuilder: (context, index) {
-                        if (index == 0) {
-                          return CustomDivider();
-                        }
+      body: RefreshIndicator(onRefresh: _refreshArticles, child: _buildBody()),
+    );
+  }
 
-                        final article = _articles[index - 1];
+  Widget _buildBody() {
+    return Column(
+      children: [
+        Expanded(
+            child: _articles.isEmpty && _isLoading == false
+                ? Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.shopping_bag_outlined,
+                            size: 64, color: Colors.grey),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        Text(
+                          '아직 관심 목록이 없습니다',
+                          style: TextStyle(fontSize: 16, color: Colors.grey),
+                        ),
+                        SizedBox(
+                          height: 100,
+                        )
+                      ],
+                    ),
+                  )
+                : ListView.builder(
+                    padding: EdgeInsets.zero,
+                    itemCount: _articles.length + 1,
+                    itemBuilder: (context, index) {
+                      if (index == 0) {
+                        return CustomDivider();
+                      }
 
-                        return InkWell(
-                            onTap: () {
-                              if (article.id != null) {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ArticleDetail(
-                                              articleId: article.id!,
-                                              articleTitle: article.title!,
-                                            )));
-                              }
-                            },
-                            child: MainArticle(
-                              productName: article.title ?? '제목 없음',
-                              hometown: article.location ?? '알 수 없음',
-                              price: FormatUtils.formatPrice(article.price),
-                              uploadedAt:
-                                  FormatUtils.formatDateTime(article.createdAt),
-                              view: article.views ?? 0,
-                              likeCount: article.likeCount ?? 0,
-                              isReserving: article.status == 'reserved',
-                              imageUrl: article.images?.isNotEmpty == true
-                                  ? article.images!.first
-                                  : null,
-                            ));
-                      }))
-        ],
-      ),
+                      final article = _articles[index - 1];
+
+                      return InkWell(
+                          onTap: () {
+                            if (article.id != null) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ArticleDetail(
+                                            articleId: article.id!,
+                                            articleTitle: article.title!,
+                                          )));
+                            }
+                          },
+                          child: MainArticle(
+                            productName: article.title ?? '제목 없음',
+                            hometown: article.location ?? '알 수 없음',
+                            price: FormatUtils.formatPrice(article.price),
+                            uploadedAt:
+                                FormatUtils.formatDateTime(article.createdAt),
+                            view: article.views ?? 0,
+                            likeCount: article.likeCount ?? 0,
+                            isReserving: article.status == 'reserved',
+                            imageUrl: article.images?.isNotEmpty == true
+                                ? article.images!.first
+                                : null,
+                          ));
+                    }))
+      ],
     );
   }
 }

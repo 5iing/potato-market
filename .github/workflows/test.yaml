@@ -1,0 +1,53 @@
+name: Test_GitHub_Actions
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  unit-test:
+    name: Unit Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Flutter SDK
+        uses: subosito/flutter-action@v2.12.0
+        with:
+          channel: "stable"
+          flutter-version: "3.24.3"
+
+      - name: Import Flutter Packages
+        run: flutter pub get
+
+      - name: Run Tests with Coverage
+        run: flutter test --coverage
+
+        # 커버리지 계산을 위한 lcov 라이브러리를 설치합니다.
+      - name: Install lcov
+        run: sudo apt-get install -y lcov
+
+      - name: Check Coverage
+        run: |
+          # lcov라는 라이브러리를 통해 전체 커버리지를 계산합니다.
+          COVERAGE=$(lcov --summary coverage/lcov.info 2>&1 | grep "lines" | awk '{print $2}' | sed 's/%//')
+          echo "Current coverage: $COVERAGE%"
+
+          # 최소 커버리지 기준을 설정합니다 (예: 80%)
+          MIN_COVERAGE=80
+
+          # 커버리지를 비교하여 분기합니다.
+          if (( $(echo "$COVERAGE < $MIN_COVERAGE" | bc -l) )); then
+            echo "❌ Coverage $COVERAGE% is below minimum $MIN_COVERAGE%"
+            exit 1
+          else
+            echo "✅ Coverage $COVERAGE% meets minimum requirement"
+          fi

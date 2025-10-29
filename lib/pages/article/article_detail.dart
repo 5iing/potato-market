@@ -36,6 +36,19 @@ class _ArticleDetailState extends State<ArticleDetail> {
     _loadArticle();
   }
 
+  Future<void> _deleteArticle() async {
+    try {
+      await _apiService.deleteArticle(id: widget.articleId);
+
+      setState(() {
+        Navigator.pop(context);
+      });
+      ;
+    } catch (e) {
+      _error = e.toString();
+    }
+  }
+
   Future<void> _loadArticle() async {
     try {
       setState(() {
@@ -146,6 +159,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
           isNegotiation: _article!.isNegotiable ?? false,
           isMe: _article!.isMe ?? false,
           isLiked: _article!.isLiked ?? false,
+          sellerName: _article!.user?.name ?? '알 수 없음',
         ),
         body: SingleChildScrollView(
           child: Column(

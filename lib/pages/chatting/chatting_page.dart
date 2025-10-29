@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ChattingPage extends StatefulWidget {
-  ChattingPage({super.key});
+  final String sellerName;
+
+  ChattingPage({super.key, required this.sellerName});
 
   @override
   State<ChattingPage> createState() => _ChattingPageState();
@@ -25,7 +27,7 @@ class _ChattingPageState extends State<ChattingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("홍길동")),
+        appBar: AppBar(title: Text(widget.sellerName)),
         body: Column(
           children: [
             Expanded(

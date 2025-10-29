@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:potato_market/pages/chatting/chatting_page.dart';
 import '../services/api_service.dart';
-import '../pages/chat/chat_page.dart';
 
 class BuyBottomBar extends StatefulWidget {
   final String price;
@@ -9,6 +8,7 @@ class BuyBottomBar extends StatefulWidget {
   final bool isLiked;
   final int id;
   final bool isMe;
+  final String sellerName;
 
   const BuyBottomBar(
       {super.key,
@@ -16,7 +16,8 @@ class BuyBottomBar extends StatefulWidget {
       required this.price,
       required this.isNegotiation,
       required this.isMe,
-      required this.isLiked});
+      required this.isLiked,
+      required this.sellerName});
 
   @override
   State<BuyBottomBar> createState() => _BuyBottomBarState();
@@ -49,7 +50,11 @@ class _BuyBottomBarState extends State<BuyBottomBar> {
     final resp = await _apiService.createChatRoom(id: id);
     if (resp) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => ChattingPage()));
+          context,
+          MaterialPageRoute(
+              builder: (context) => ChattingPage(
+                    sellerName: widget.sellerName,
+                  )));
     }
   }
 
