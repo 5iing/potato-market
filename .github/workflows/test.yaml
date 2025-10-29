@@ -11,43 +11,144 @@ on:
       - develop
 
 jobs:
-  unit-test:
-    name: Unit Test
+  test-and-coverage:
+    name: Unit Test & Code Coverage
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: 코드 체크아웃
         uses: actions/checkout@v4
 
-      - name: Install Flutter SDK
+      - name: Flutter SDK 설치
         uses: subosito/flutter-action@v2.12.0
         with:
-          channel: "stable"
-          flutter-version: "3.24.3"
+          channel: stable
+          cache: true
 
-      - name: Import Flutter Packages
+      - name: Flutter 버전 확인
+        run: flutter --version
+
+      - name: 의존성 패키지 설치
         run: flutter pub get
 
-      - name: Run Tests with Coverage
+      - name: 코드 분석 (Lint)
+        run: flutter analyze
+
+      - name: 단위 테스트 실행 (커버리지 포함)
         run: flutter test --coverage
 
-        # 커버리지 계산을 위한 lcov 라이브러리를 설치합니다.
-      - name: Install lcov
+      - name: lcov 설치
         run: sudo apt-get install -y lcov
 
-      - name: Check Coverage
+      - name: 커버리지 필터링 및 상세 리포트 출력
         run: |
-          # lcov라는 라이브러리를 통해 전체 커버리지를 계산합니다.
-          COVERAGE=$(lcov --summary coverage/lcov.info 2>&1 | grep "lines" | awk '{print $2}' | sed 's/%//')
-          echo "Current coverage: $COVERAGE%"
+          echo ""
+          echo "커버리지 분석 중..."
+          echo ""
 
-          # 최소 커버리지 기준을 설정합니다 (예: 80%)
+          # 생성된 파일 제외
+          lcov --remove coverage/lcov.info \
+            '**/*.g.dart' \
+            '**/*.freezed.dart' \
+            '**/*.mocks.dart' \
+            '**/generated_plugin_registrant.dart' \
+            -o coverage/lcov_filtered.info
+
+          echo "전체 커버리지 요약"
+          echo "========================================="
+          lcov --list coverage/lcov_filtered.info
+          echo ""
+
+          # 전체 커버리지 퍼센트 계산
+          COVERAGE=$(lcov --summary coverage/lcov_filtered.info 2>&1 | grep "lines" | awk '{print $2}' | sed 's/%//')
+
           MIN_COVERAGE=80
 
-          # 커버리지를 비교하여 분기합니다.
+          echo ""
+          echo "========================================="
+          echo "최종 커버리지 결과"
+          echo "========================================="
+          echo "현재 커버리지: $COVERAGE%"
+          echo "최소 요구 기준: ${MIN_COVERAGE}%"
+          echo "========================================="
+          echo ""
+
+
           if (( $(echo "$COVERAGE < $MIN_COVERAGE" | bc -l) )); then
-            echo "❌ Coverage $COVERAGE% is below minimum $MIN_COVERAGE%"
+            echo "테스트 실패: 커버리지가 최소 기준($MIN_COVERAGE%)에 미달합니다."
+            echo "   현재: $COVERAGE% | 필요: $MIN_COVERAGE%"
+            echo ""
             exit 1
           else
-            echo "✅ Coverage $COVERAGE% meets minimum requirement"
+            echo "테스트 통과: 커버리지가 요구 기준을 충족합니다!"
+            echo "   현재: $COVERAGE% | 필요: $MIN_COVERAGE%"
+            echo ""
+            exit 0
           fi
+
+      - name: 커버리지 리포트 업로드
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/lcov_filtered.info
+          fail_ci_if_error: false
+        if: always()
+
+      - name: 테스트 결과 아티팩트 저장
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage/
+        if: always()
+
+  build-and-push-ghcr:
+    name: Build & Push Docker to GHCR
+    runs-on: ubuntu-latest
+    needs: test-and-coverage
+
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 로그인(GHCR) - GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Flutter SDK 설치
+        uses: subosito/flutter-action@v2.12.0
+        with:
+          channel: stable
+          cache: true
+
+      - name: 의존성 패키지 설치
+        run: flutter pub get
+
+      - name: Release APK 빌드
+        run: flutter build apk --release
+
+      - name: Dockerfile 생성
+        run: |
+          cat <<EOF > Dockerfile
+          FROM debian:bullseye-slim
+          COPY build/app/outputs/flutter-apk/app-release.apk /app/app-release.apk
+          EOF
+
+      - name: 버전 태그 결정
+        id: version
+        run: echo "TAG=$(date +%Y%m%d)-${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+
+      - name: Docker build & push to GHCR
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository }}/flutter-apk:${{ steps.version.outputs.TAG }}
+
+      - name: 이미지 푸시 성공 확인
+        run: |
+          echo "GHCR 업로드 완료: ghcr.io/${{ github.repository }}/flutter-apk:${{ steps.version.outputs.TAG }}"
