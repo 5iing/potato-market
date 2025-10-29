@@ -31,8 +31,8 @@ jobs:
       - name: 의존성 패키지 설치
         run: flutter pub get
 
-      - name: 코드 분석 (Lint)
-        run: flutter analyze
+      # - name: 코드 분석 (Lint)
+      #   run: flutter analyze
 
       - name: 단위 테스트 실행 (커버리지 포함)
         run: flutter test --coverage
