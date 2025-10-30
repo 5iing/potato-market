@@ -9,6 +9,10 @@ import '../models/article.dart';
 
 class ApiService {
   static const String baseUrl = 'http://localhost:3000/api';
+  final http.Client client;
+
+  //test
+  ApiService({http.Client? client}) : client = client ?? http.Client();
 
   Future<String?> getToken() async {
     final prefs = await SharedPreferences.getInstance();
@@ -27,7 +31,7 @@ class ApiService {
 
   Future<Map<String, String>> _getHeaders() async {
     const hardcodedToken =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOjYsImlhdCI6MTc2MDkyMTE2OCwiZXhwIjoxNzYxNTI1OTY4fQ.nHn5WWQAIPZXtNVnM_9i4GpGimVT-ztMPp7VWYyBzrs';
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJzdWIiOjYsImlhdCI6MTc2MTc5MDcyMywiZXhwIjoxNzYyMzk1NTIzfQ.61YkrlaPbzysFw_u-mRlmtx5Pokb3C3hPWilfpRPv1Q';
 
     final headers = {
       'Content-Type': 'application/json',
@@ -44,7 +48,7 @@ class ApiService {
     String? phone,
     String? location,
   }) async {
-    final response = await http.post(
+    final response = await client.post(
       Uri.parse('$baseUrl/auth/register'),
       headers: await _getHeaders(),
       body: jsonEncode({
@@ -71,7 +75,7 @@ class ApiService {
     required String email,
     required String password,
   }) async {
-    final response = await http.post(
+    final response = await client.post(
       Uri.parse('$baseUrl/auth/login'),
       headers: await _getHeaders(),
       body: jsonEncode({
@@ -96,7 +100,7 @@ class ApiService {
   }
 
   Future<User> getUserProfile() async {
-    final response = await http.get(
+    final response = await client.get(
       Uri.parse('$baseUrl/user/profile'),
       headers: await _getHeaders(),
     );
@@ -121,7 +125,7 @@ class ApiService {
     String? location,
     String? profileImage,
   }) async {
-    final response = await http.put(
+    final response = await client.put(
       Uri.parse('$baseUrl/user/profile'),
       headers: await _getHeaders(),
       body: jsonEncode({
@@ -159,7 +163,7 @@ class ApiService {
     final uri =
         Uri.parse('$baseUrl/articles').replace(queryParameters: queryParams);
 
-    final response = await http.get(
+    final response = await client.get(
       uri,
       headers: await _getHeaders(),
     );
@@ -192,7 +196,7 @@ class ApiService {
   }
 
   Future<Article> getArticle(int id) async {
-    final response = await http.get(
+    final response = await client.get(
       Uri.parse('$baseUrl/articles/$id'),
       headers: await _getHeaders(),
     );
@@ -212,7 +216,7 @@ class ApiService {
   }
 
   Future<Article> likeArticle({required int id}) async {
-    final response = await http.post(
+    final response = await client.post(
       Uri.parse(
         '$baseUrl/articles/$id/like',
       ),
@@ -222,7 +226,7 @@ class ApiService {
       }),
     );
 
-    if (response.statusCode == 200 | 201) {
+    if (response.statusCode == 200 || response.statusCode == 201) {
       final data = jsonDecode(response.body);
 
       if (data is Map && data.containsKey('data')) {
@@ -236,7 +240,7 @@ class ApiService {
   }
 
   Future<Article> unLikeArticle({required int id}) async {
-    final response = await http.delete(
+    final response = await client.delete(
       Uri.parse('$baseUrl/articles/$id/like'),
       headers: await _getHeaders(),
       body: jsonEncode({
@@ -267,7 +271,7 @@ class ApiService {
       'limit': limit.toString(),
     };
 
-    final response = await http.get(
+    final response = await client.get(
         Uri.parse('$baseUrl/articles/liked')
             .replace(queryParameters: queryParams),
         headers: await _getHeaders());
@@ -306,7 +310,7 @@ class ApiService {
     required String location,
     List<String>? images,
   }) async {
-    final response = await http.post(
+    final response = await client.post(
       Uri.parse('$baseUrl/articles'),
       headers: await _getHeaders(),
       body: jsonEncode({
@@ -343,7 +347,7 @@ class ApiService {
     List<String>? images,
     String? status,
   }) async {
-    final response = await http.put(
+    final response = await client.put(
       Uri.parse('$baseUrl/articles/$id'),
       headers: await _getHeaders(),
       body: jsonEncode({
@@ -366,7 +370,7 @@ class ApiService {
   }
 
   Future<void> deleteArticle({int? id}) async {
-    final response = await http.delete(
+    final response = await client.delete(
       Uri.parse('$baseUrl/articles/$id'),
       headers: await _getHeaders(),
     );
@@ -377,7 +381,7 @@ class ApiService {
   }
 
   Future<List<Article>> getMyArticles() async {
-    final response = await http.get(
+    final response = await client.get(
       Uri.parse('$baseUrl/user/articles?page=1&limit=50'),
       headers: await _getHeaders(),
     );
@@ -515,7 +519,7 @@ class ApiService {
   }
 
   Future<List<ChatRoom>> getChatRooms() async {
-    final response = await http.get(
+    final response = await client.get(
       Uri.parse('$baseUrl/chat/rooms'),
       headers: await _getHeaders(),
     );
@@ -541,7 +545,7 @@ class ApiService {
   }
 
   Future<bool> createChatRoom({required int id}) async {
-    final response = await http.post(
+    final response = await client.post(
       Uri.parse('$baseUrl/chat/rooms'),
       headers: await _getHeaders(),
       body: jsonEncode({'articleId': id}),
