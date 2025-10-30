@@ -1,0 +1,40 @@
+{
+  // Dart & Flutter 설정
+  "dart.flutterSdkPath": "/usr/local/Caskroom/flutter/3.24.5/flutter",
+
+  // 테스트 자동 탐색 활성화
+  "dart.previewFlutterUiGuides": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+
+  // 테스트 실행 설정
+  "dart.runTestsInShell": false,
+  "dart.testRunnerMode": "normal",
+
+  // CodeLens 활성화 (테스트 위에 Run/Debug 버튼 표시)
+  "dart.showTestCodeLens": true,
+
+  // 테스트 결과 자동으로 펼치기
+  "testing.automaticallyOpenPeekView": "failureInVisibleDocument",
+  "testing.openTesting": "openOnTestStart",
+
+  // 에디터 설정
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+
+  // 파일 제외 설정
+  "files.exclude": {
+    "**/.dart_tool": true,
+    "**/.packages": true,
+    "**/build": true
+  },
+
+  // 검색 제외 설정
+  "search.exclude": {
+    "**/.dart_tool": true,
+    "**/build": true,
+    "**/*.g.dart": true,
+    "**/*.mocks.dart": true
+  }
+}
