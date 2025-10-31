@@ -36,5 +36,6 @@
     "**/build": true,
     "**/*.g.dart": true,
     "**/*.mocks.dart": true
-  }
+  },
+  "testing.automaticallyOpenTestResults": "openOnTestStart"
 }
