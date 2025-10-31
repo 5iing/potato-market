@@ -1,0 +1,486 @@
+#
+{
+  "page": {},
+  "script": "",
+  "forms": [
+    {
+      "statetransitions": [],
+      "luactions": [
+        {
+          "name": "navigatorPop",
+          "description": ""
+        },
+        {
+          "name": "NavigateToChat",
+          "description": "",
+          "actions": [
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.openPage",
+              "assignVal": [
+                {
+                  "name": "pagePath",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "leeyeonwoo/chat_page",
+                      "type": "DataType.string"
+                    }
+                  ]
+                },
+                {
+                  "name": "linkArg"
+                },
+                {
+                  "name": "routeName",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "LucyRoute.cupertino",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "detectors": [],
+      "id": "unknown",
+      "title": "",
+      "nativeBinder": null,
+      "objet": {
+        "bulb": "Jet",
+        "uuid": "d3da2a70-ad4e-11f0-a557-6fa74cf80583",
+        "property": {
+          "id": "unknown",
+          "title": ""
+        },
+        "child": {
+          "bulb": "Layout",
+          "uuid": "eab7e521-ad4e-11f0-a557-6fa74cf80583",
+          "property": {},
+          "interior": [
+            {
+              "bulb": "DecoratedBox",
+              "uuid": "de5ac3b0-ad4e-11f0-a557-6fa74cf80583",
+              "property": {
+                "decoration.color": {
+                  "color.value": 4294967295
+                },
+                "decoration.border": "null",
+                "decoration.borderRadius": "null",
+                "decoration.boxShadow": "null",
+                "decoration.gradient": "null"
+              },
+              "id": "DecoratedBox"
+            }
+          ],
+          "objet": {
+            "bulb": "Column",
+            "uuid": "eab7e520-ad4e-11f0-a557-6fa74cf80583",
+            "property": {},
+            "children": [
+              {
+                "bulb": "Layout",
+                "uuid": "fdedcd81-ad4e-11f0-a557-6fa74cf80583",
+                "property": {},
+                "objet": {
+                  "bulb": "SpaceBox",
+                  "uuid": "fdedcd80-ad4e-11f0-a557-6fa74cf80583",
+                  "property": {
+                    "width": 20.0,
+                    "height": 60.0
+                  }
+                }
+              },
+              {
+                "bulb": "Layout",
+                "uuid": "222447b1-ad4f-11f0-a557-6fa74cf80583",
+                "property": {},
+                "objet": {
+                  "bulb": "Row",
+                  "uuid": "222447b0-ad4f-11f0-a557-6fa74cf80583",
+                  "property": {
+                    "mainAxisAlignment": "spaceBetween"
+                  },
+                  "children": [
+                    {
+                      "bulb": "Layout",
+                      "uuid": "03652fb2-ad4f-11f0-a557-6fa74cf80583",
+                      "property": {},
+                      "interior": [
+                        {
+                          "bulb": "GestureDetector",
+                          "uuid": "5c76c850-ad51-11f0-a557-6fa74cf80583",
+                          "property": {
+                            "onTap": {
+                              "type": "EventResponseType.action",
+                              "name": "NavigateToChat"
+                            }
+                          },
+                          "id": "GestureDetector"
+                        },
+                        {
+                          "bulb": "Padding",
+                          "uuid": "dab08af0-ad4f-11f0-a557-6fa74cf80583",
+                          "property": {
+                            "padding.left": 10.0
+                          },
+                          "id": "Padding"
+                        },
+                        {
+                          "bulb": "Align",
+                          "uuid": "0987c600-ad4f-11f0-a557-6fa74cf80583",
+                          "property": {
+                            "alignment.x": -0.87,
+                            "alignment.y": -0.16
+                          },
+                          "id": "Align"
+                        },
+                        {
+                          "bulb": "SizedBox",
+                          "uuid": "03652fb0-ad4f-11f0-a557-6fa74cf80583",
+                          "property": {
+                            "width": 36.0,
+                            "height": 36.0
+                          },
+                          "id": "SizedBox"
+                        }
+                      ],
+                      "objet": {
+                        "bulb": "Icon",
+                        "uuid": "03652fb1-ad4f-11f0-a557-6fa74cf80583",
+                        "property": {
+                          "iconData": {
+                            "codePoint": 57490,
+                            "fontFamily": "MaterialIcons",
+                            "fontPackage": null,
+                            "matchTextDirection": true
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "bulb": "Layout",
+                      "uuid": "2ba10581-ad4f-11f0-a557-6fa74cf80583",
+                      "property": {},
+                      "objet": {
+                        "bulb": "Text",
+                        "uuid": "2ba10580-ad4f-11f0-a557-6fa74cf80583",
+                        "property": {
+                          "text": "홍길동",
+                          "style.color": {
+                            "color.value": 4278190080
+                          },
+                          "style.fontSize": 20.0,
+                          "style.locale": "null",
+                          "style.foreground": "null",
+                          "style.background": "null",
+                          "style.shadows": "null",
+                          "style.fontFeatures": "null",
+                          "style.decoration": "null",
+                          "style.fontFamilyFallback": "null",
+                          "textDirection": "ltr",
+                          "locale": "null",
+                          "strutStyle": "null",
+                          "textHeightBehavior": "null"
+                        }
+                      }
+                    },
+                    {
+                      "bulb": "Layout",
+                      "uuid": "50782c81-ad4f-11f0-a557-6fa74cf80583",
+                      "property": {},
+                      "interior": [
+                        {
+                          "bulb": "Padding",
+                          "uuid": "de92a720-ad4f-11f0-a557-6fa74cf80583",
+                          "property": {
+                            "padding.right": 10.0
+                          },
+                          "id": "Padding"
+                        }
+                      ],
+                      "objet": {
+                        "bulb": "SpaceBox",
+                        "uuid": "50782c80-ad4f-11f0-a557-6fa74cf80583",
+                        "property": {
+                          "width": 36.0,
+                          "height": 36.0
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bulb": "Layout",
+                "uuid": "e3dd7b11-ad4f-11f0-a557-6fa74cf80583",
+                "property": {},
+                "interior": [
+                  {
+                    "bulb": "Expanded",
+                    "uuid": "c550c840-ad50-11f0-a557-6fa74cf80583",
+                    "property": {},
+                    "id": "Expanded"
+                  }
+                ],
+                "objet": {
+                  "bulb": "Column",
+                  "uuid": "e3dd7b10-ad4f-11f0-a557-6fa74cf80583",
+                  "property": {},
+                  "children": [
+                    {
+                      "bulb": "Layout",
+                      "uuid": "1b708300-ad51-11f0-a557-6fa74cf80583",
+                      "property": {},
+                      "interior": [
+                        {
+                          "bulb": "Padding",
+                          "uuid": "28024900-ad51-11f0-a557-6fa74cf80583",
+                          "property": {
+                            "padding.top": 10.0,
+                            "padding.bottom": 10.0
+                          },
+                          "id": "Padding"
+                        },
+                        {
+                          "bulb": "Align",
+                          "uuid": "1b708301-ad51-11f0-a557-6fa74cf80583",
+                          "property": {
+                            "alignment.x": 0.91,
+                            "alignment.y": -0.03
+                          },
+                          "id": "Align"
+                        },
+                        {
+                          "bulb": "DecoratedBox",
+                          "uuid": "1b708302-ad51-11f0-a557-6fa74cf80583",
+                          "property": {
+                            "decoration.color": {
+                              "color.value": 4278231295
+                            },
+                            "decoration.border": "null",
+                            "decoration.borderRadius.topLeft.radius": 5.0,
+                            "decoration.borderRadius.topRight.radius": 5.0,
+                            "decoration.borderRadius.bottomRight.radius": 5.0,
+                            "decoration.borderRadius.bottomLeft.radius": 5.0,
+                            "decoration.boxShadow": "null",
+                            "decoration.gradient": "null"
+                          },
+                          "id": "DecoratedBox"
+                        }
+                      ],
+                      "objet": {
+                        "bulb": "Wrap",
+                        "uuid": "1b708303-ad51-11f0-a557-6fa74cf80583",
+                        "property": {},
+                        "children": [
+                          {
+                            "bulb": "Layout",
+                            "uuid": "1b708304-ad51-11f0-a557-6fa74cf80583",
+                            "property": {},
+                            "interior": [
+                              {
+                                "bulb": "Padding",
+                                "uuid": "1b708305-ad51-11f0-a557-6fa74cf80583",
+                                "property": {
+                                  "padding.left": 10.0,
+                                  "padding.right": 10.0,
+                                  "padding.top": 10.0,
+                                  "padding.bottom": 10.0
+                                },
+                                "id": "Padding"
+                              }
+                            ],
+                            "objet": {
+                              "bulb": "Text",
+                              "uuid": "1b708306-ad51-11f0-a557-6fa74cf80583",
+                              "property": {
+                                "text": "이거 얼마에요?",
+                                "style": "null",
+                                "textDirection": "ltr",
+                                "locale": "null",
+                                "strutStyle": "null",
+                                "textHeightBehavior": "null"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "bulb": "Layout",
+                      "uuid": "dc788441-ad50-11f0-a557-6fa74cf80583",
+                      "property": {},
+                      "interior": [
+                        {
+                          "bulb": "Align",
+                          "uuid": "e8677a90-ad50-11f0-a557-6fa74cf80583",
+                          "property": {
+                            "alignment.x": -0.92,
+                            "alignment.y": -0.04
+                          },
+                          "id": "Align"
+                        },
+                        {
+                          "bulb": "DecoratedBox",
+                          "uuid": "e043e420-ad50-11f0-a557-6fa74cf80583",
+                          "property": {
+                            "decoration.color": {
+                              "color.value": 660167001
+                            },
+                            "decoration.border": "null",
+                            "decoration.borderRadius.topLeft.radius": 5.0,
+                            "decoration.borderRadius.topRight.radius": 5.0,
+                            "decoration.borderRadius.bottomRight.radius": 5.0,
+                            "decoration.borderRadius.bottomLeft.radius": 5.0,
+                            "decoration.boxShadow": "null",
+                            "decoration.gradient": "null"
+                          },
+                          "id": "DecoratedBox"
+                        }
+                      ],
+                      "objet": {
+                        "bulb": "Wrap",
+                        "uuid": "dc788440-ad50-11f0-a557-6fa74cf80583",
+                        "property": {},
+                        "children": [
+                          {
+                            "bulb": "Layout",
+                            "uuid": "ea8af6d1-ad50-11f0-a557-6fa74cf80583",
+                            "property": {},
+                            "interior": [
+                              {
+                                "bulb": "Padding",
+                                "uuid": "021e9400-ad51-11f0-a557-6fa74cf80583",
+                                "property": {
+                                  "padding.left": 10.0,
+                                  "padding.right": 10.0,
+                                  "padding.top": 10.0,
+                                  "padding.bottom": 10.0
+                                },
+                                "id": "Padding"
+                              }
+                            ],
+                            "objet": {
+                              "bulb": "Text",
+                              "uuid": "ea8af6d0-ad50-11f0-a557-6fa74cf80583",
+                              "property": {
+                                "text": "3만원 입니다",
+                                "style.color": {
+                                  "color.value": 4278190080
+                                },
+                                "style.locale": "null",
+                                "style.foreground": "null",
+                                "style.background": "null",
+                                "style.shadows": "null",
+                                "style.fontFeatures": "null",
+                                "style.decoration": "null",
+                                "style.fontFamilyFallback": "null",
+                                "textDirection": "ltr",
+                                "locale": "null",
+                                "strutStyle": "null",
+                                "textHeightBehavior": "null"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "bulb": "Layout",
+                "uuid": "609323d1-ad50-11f0-a557-6fa74cf80583",
+                "property": {},
+                "interior": [
+                  {
+                    "bulb": "Padding",
+                    "uuid": "664bd4c0-ad50-11f0-a557-6fa74cf80583",
+                    "property": {
+                      "padding.left": 20.0,
+                      "padding.right": 20.0,
+                      "padding.top": 5.0,
+                      "padding.bottom": 50.0
+                    },
+                    "id": "Padding"
+                  }
+                ],
+                "objet": {
+                  "bulb": "TextField",
+                  "uuid": "609323d0-ad50-11f0-a557-6fa74cf80583",
+                  "property": {
+                    "focusNode": "null",
+                    "decoration.icon": "null",
+                    "decoration.label": "null",
+                    "decoration.labelStyle.color": {
+                      "color.value": 4278190080
+                    },
+                    "decoration.labelStyle.locale": "null",
+                    "decoration.labelStyle.foreground": "null",
+                    "decoration.labelStyle.background": "null",
+                    "decoration.labelStyle.shadows": "null",
+                    "decoration.labelStyle.fontFeatures": "null",
+                    "decoration.labelStyle.decoration": "null",
+                    "decoration.labelStyle.fontFamilyFallback": "null",
+                    "decoration.floatingLabelStyle": "null",
+                    "decoration.helperStyle": "null",
+                    "decoration.hintStyle": "null",
+                    "decoration.errorStyle": "null",
+                    "decoration.contentPadding": "null",
+                    "decoration.prefixIcon": "null",
+                    "decoration.prefixIconConstraints": "null",
+                    "decoration.prefix": "null",
+                    "decoration.prefixStyle": "null",
+                    "decoration.suffixIcon": "null",
+                    "decoration.suffixIconConstraints": "null",
+                    "decoration.suffix": "null",
+                    "decoration.suffixStyle": "null",
+                    "decoration.counter": "null",
+                    "decoration.counterStyle": "null",
+                    "decoration.errorBorder": "null",
+                    "decoration.focusedBorder": "null",
+                    "decoration.focusedErrorBorder": "null",
+                    "decoration.disabledBorder": "null",
+                    "decoration.enabledBorder": "null",
+                    "decoration.border.borderType": "none",
+                    "decoration.alignLabelWithHint": true,
+                    "decoration.constraints": "null",
+                    "keyboardType": "null",
+                    "style.color": {
+                      "color.value": 4278190080
+                    },
+                    "style.locale": "null",
+                    "style.foreground": "null",
+                    "style.background": "null",
+                    "style.shadows": "null",
+                    "style.fontFeatures": "null",
+                    "style.decoration": "null",
+                    "style.fontFamilyFallback": "null",
+                    "strutStyle": "null",
+                    "maxLines": 1,
+                    "inputFormatters": "null",
+                    "cursorRadius": "null",
+                    "scrollPadding": "null",
+                    "scrollController": "null",
+                    "autofillHints": "null"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "bindinginfos": [],
+      "script": "",
+      "provinstance": [],
+      "contentsdm": [],
+      "variable": []
+    }
+  ],
+  "variable": []
+}

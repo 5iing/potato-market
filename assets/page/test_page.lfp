@@ -1,0 +1,29 @@
+#
+{
+  "page": {},
+  "script": "",
+  "forms": [
+    {
+      "statetransitions": null,
+      "luactions": [],
+      "detectors": [],
+      "id": "unknown",
+      "title": "",
+      "nativeBinder": null,
+      "objet": {
+        "bulb": "Jet",
+        "uuid": "1351c230-ad8b-11f0-9154-3b68624b4f15",
+        "property": {
+          "id": "unknown",
+          "title": ""
+        }
+      },
+      "bindinginfos": [],
+      "script": "",
+      "provinstance": [],
+      "contentsdm": [],
+      "variable": []
+    }
+  ],
+  "variable": []
+}

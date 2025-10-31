@@ -1,0 +1,44 @@
+#
+{
+  "page": {},
+  "script": "",
+  "forms": [
+    {
+      "statetransitions": [],
+      "luactions": [],
+      "detectors": [],
+      "id": "unknown",
+      "title": "",
+      "nativeBinder": null,
+      "objet": {
+        "bulb": "Jet",
+        "uuid": "94c80eb0-aee8-11f0-add8-f308989a3ae0",
+        "property": {
+          "id": "unknown",
+          "title": ""
+        },
+        "child": {
+          "bulb": "Layout",
+          "uuid": "9abdacd1-b523-11f0-91ee-b92754864fc6",
+          "property": {
+            "id": "testImg"
+          },
+          "objet": {
+            "bulb": "Image",
+            "uuid": "9abdacd0-b523-11f0-91ee-b92754864fc6",
+            "property": {
+              "alignment": "null",
+              "centerSlice": "null"
+            }
+          }
+        }
+      },
+      "bindinginfos": [],
+      "script": "function onStart() {\n    testImg.image = 'https://i.pinimg.com/originals/1a/4a/24/1a4a2407bd0b8ae9a696373c01e54be7.jpg';\n    $log.d(testImg)\n}",
+      "provinstance": [],
+      "contentsdm": [],
+      "variable": []
+    }
+  ],
+  "variable": []
+}
