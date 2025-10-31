@@ -1,0 +1,1046 @@
+#설정 페이지
+{
+  "page": {
+    "description": "설정 페이지"
+  },
+  "script": "",
+  "forms": [
+    {
+      "statetransitions": [],
+      "luactions": [
+        {
+          "name": "NavigateToMypage",
+          "description": "",
+          "actions": [
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.openPage",
+              "assignVal": [
+                {
+                  "name": "pagePath",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "leeyeonwoo/my_page",
+                      "type": "DataType.string"
+                    }
+                  ]
+                },
+                {
+                  "name": "linkArg"
+                },
+                {
+                  "name": "routeName",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "LucyRoute.cupertino",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "logout",
+          "description": "",
+          "actions": [
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.toastShow",
+              "assignVal": [
+                {
+                  "name": "toastType",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "ToastType.error",
+                      "type": "DataType.string"
+                    }
+                  ]
+                },
+                {
+                  "name": "toastMsg",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "로그아웃 되었습니다!",
+                      "type": "DataType.string"
+                    }
+                  ]
+                },
+                {
+                  "name": "duration",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.openPage",
+              "assignVal": [
+                {
+                  "name": "pagePath",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "leeyeonwoo/home",
+                      "type": "DataType.string"
+                    }
+                  ]
+                },
+                {
+                  "name": "linkArg"
+                },
+                {
+                  "name": "routeName",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "LucyRoute.cupertino",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "detectors": [],
+      "id": "unknown",
+      "title": "",
+      "nativeBinder": null,
+      "objet": {
+        "bulb": "Jet",
+        "uuid": "66b01b10-aee0-11f0-a12b-3b2630075131",
+        "property": {
+          "id": "unknown",
+          "title": ""
+        },
+        "child": {
+          "bulb": "Layout",
+          "uuid": "6864a8e1-aee0-11f0-a12b-3b2630075131",
+          "property": {},
+          "interior": [
+            {
+              "bulb": "DecoratedBox",
+              "uuid": "7309e120-aee0-11f0-a12b-3b2630075131",
+              "property": {
+                "decoration.color": {
+                  "color.value": 4294967295
+                },
+                "decoration.border": "null",
+                "decoration.borderRadius": "null",
+                "decoration.boxShadow": "null",
+                "decoration.gradient": "null"
+              },
+              "id": "DecoratedBox"
+            }
+          ],
+          "objet": {
+            "bulb": "SafeArea",
+            "uuid": "6864a8e0-aee0-11f0-a12b-3b2630075131",
+            "property": {
+              "minimum": "null"
+            },
+            "child": {
+              "bulb": "Layout",
+              "uuid": "694b1141-aee0-11f0-a12b-3b2630075131",
+              "property": {},
+              "interior": [
+                {
+                  "bulb": "Padding",
+                  "uuid": "a19fbb80-aee1-11f0-a12b-3b2630075131",
+                  "property": {
+                    "padding": "null"
+                  },
+                  "id": "Padding"
+                }
+              ],
+              "objet": {
+                "bulb": "Column",
+                "uuid": "694b1140-aee0-11f0-a12b-3b2630075131",
+                "property": {
+                  "crossAxisAlignment": "start"
+                },
+                "children": [
+                  {
+                    "bulb": "Layout",
+                    "uuid": "01db76c1-aee1-11f0-a12b-3b2630075131",
+                    "property": {},
+                    "objet": {
+                      "bulb": "Column",
+                      "uuid": "01db76c0-aee1-11f0-a12b-3b2630075131",
+                      "property": {},
+                      "children": [
+                        {
+                          "bulb": "Layout",
+                          "uuid": "03794841-aee1-11f0-a12b-3b2630075131",
+                          "property": {},
+                          "objet": {
+                            "bulb": "SpaceBox",
+                            "uuid": "03794840-aee1-11f0-a12b-3b2630075131",
+                            "property": {
+                              "width": 20.0,
+                              "height": 60.0
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "04d83c01-aee1-11f0-a12b-3b2630075131",
+                          "property": {},
+                          "interior": [
+                            {
+                              "bulb": "Padding",
+                              "uuid": "2b6c7c50-aee1-11f0-a12b-3b2630075131",
+                              "property": {
+                                "padding.left": 10.0,
+                                "padding.right": 10.0
+                              },
+                              "id": "Padding"
+                            }
+                          ],
+                          "objet": {
+                            "bulb": "Row",
+                            "uuid": "04d83c00-aee1-11f0-a12b-3b2630075131",
+                            "property": {
+                              "mainAxisAlignment": "spaceBetween"
+                            },
+                            "children": [
+                              {
+                                "bulb": "Layout",
+                                "uuid": "07944ec2-aee1-11f0-a12b-3b2630075131",
+                                "property": {},
+                                "interior": [
+                                  {
+                                    "bulb": "GestureDetector",
+                                    "uuid": "914d9fd0-afaa-11f0-be10-3f186210343c",
+                                    "property": {
+                                      "onTap": {
+                                        "type": "EventResponseType.action",
+                                        "name": "NavigateToMypage"
+                                      }
+                                    },
+                                    "id": "GestureDetector"
+                                  }
+                                ],
+                                "objet": {
+                                  "bulb": "Icon",
+                                  "uuid": "07944ec1-aee1-11f0-a12b-3b2630075131",
+                                  "property": {
+                                    "iconData": {
+                                      "codePoint": 61059,
+                                      "fontFamily": "MaterialIcons",
+                                      "fontPackage": null,
+                                      "matchTextDirection": true
+                                    },
+                                    "size": 24.0
+                                  }
+                                }
+                              },
+                              {
+                                "bulb": "Layout",
+                                "uuid": "0a94bd81-aee1-11f0-a12b-3b2630075131",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Text",
+                                  "uuid": "0a94bd80-aee1-11f0-a12b-3b2630075131",
+                                  "property": {
+                                    "text": "설정",
+                                    "style.color": {
+                                      "color.value": 4278190080
+                                    },
+                                    "style.fontSize": 18.0,
+                                    "style.locale": "null",
+                                    "style.foreground": "null",
+                                    "style.background": "null",
+                                    "style.shadows": "null",
+                                    "style.fontFeatures": "null",
+                                    "style.decoration": "null",
+                                    "style.fontFamilyFallback": "null",
+                                    "textDirection": "ltr",
+                                    "locale": "null",
+                                    "strutStyle": "null",
+                                    "textHeightBehavior": "null"
+                                  }
+                                }
+                              },
+                              {
+                                "bulb": "Layout",
+                                "uuid": "0c3a5731-aee1-11f0-a12b-3b2630075131",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "SpaceBox",
+                                  "uuid": "0c3a5730-aee1-11f0-a12b-3b2630075131",
+                                  "property": {
+                                    "width": 36.0,
+                                    "height": 36.0
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "bulb": "Layout",
+                    "uuid": "7a5faad1-aee1-11f0-a12b-3b2630075131",
+                    "property": {},
+                    "objet": {
+                      "bulb": "SpaceBox",
+                      "uuid": "7a5faad0-aee1-11f0-a12b-3b2630075131",
+                      "property": {
+                        "width": 20.0
+                      }
+                    }
+                  },
+                  {
+                    "bulb": "Layout",
+                    "uuid": "a43d22b1-aee1-11f0-a12b-3b2630075131",
+                    "property": {},
+                    "interior": [
+                      {
+                        "bulb": "Expanded",
+                        "uuid": "d1989dc0-aee1-11f0-add8-f308989a3ae0",
+                        "property": {},
+                        "id": "Expanded"
+                      },
+                      {
+                        "bulb": "Padding",
+                        "uuid": "a66077e0-aee1-11f0-a12b-3b2630075131",
+                        "property": {
+                          "padding.left": 20.0,
+                          "padding.right": 20.0
+                        },
+                        "id": "Padding"
+                      }
+                    ],
+                    "objet": {
+                      "bulb": "Column",
+                      "uuid": "a43d22b0-aee1-11f0-a12b-3b2630075131",
+                      "property": {
+                        "crossAxisAlignment": "start"
+                      },
+                      "children": [
+                        {
+                          "bulb": "Layout",
+                          "uuid": "094838e0-afa8-11f0-be10-3f186210343c",
+                          "property": {},
+                          "interior": [
+                            {
+                              "bulb": "Padding",
+                              "uuid": "094838e1-afa8-11f0-be10-3f186210343c",
+                              "property": {
+                                "padding.left": 20.0,
+                                "padding.right": 20.0
+                              },
+                              "id": "Padding"
+                            },
+                            {
+                              "bulb": "SizedBox",
+                              "uuid": "094838e2-afa8-11f0-be10-3f186210343c",
+                              "property": {
+                                "width": "infinity",
+                                "height": 10.0
+                              },
+                              "id": "SizedBox"
+                            }
+                          ],
+                          "objet": {
+                            "bulb": "Divider",
+                            "uuid": "094838e3-afa8-11f0-be10-3f186210343c",
+                            "property": {
+                              "color": {
+                                "color.value": 4293256677
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "f6334600-afa7-11f0-be10-3f186210343c",
+                          "property": {},
+                          "objet": {
+                            "bulb": "SpaceBox",
+                            "uuid": "f6336d10-afa7-11f0-be10-3f186210343c",
+                            "property": {
+                              "width": 20.0,
+                              "height": 20.0
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "e1d4ce21-aee1-11f0-add8-f308989a3ae0",
+                          "property": {},
+                          "objet": {
+                            "bulb": "SpaceBox",
+                            "uuid": "e1d4ce20-aee1-11f0-add8-f308989a3ae0",
+                            "property": {
+                              "width": 20.0
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "d5aaa390-aee1-11f0-add8-f308989a3ae0",
+                          "property": {},
+                          "objet": {
+                            "bulb": "Text",
+                            "uuid": "d5aa7c80-aee1-11f0-add8-f308989a3ae0",
+                            "property": {
+                              "text": "알림 설정",
+                              "style.color": {
+                                "color.value": 4278190080
+                              },
+                              "style.fontSize": 16.0,
+                              "style.fontWeight": "w600",
+                              "style.locale": "null",
+                              "style.foreground": "null",
+                              "style.background": "null",
+                              "style.shadows": "null",
+                              "style.fontFeatures": "null",
+                              "style.decoration": "null",
+                              "style.fontFamilyFallback": "null",
+                              "textDirection": "ltr",
+                              "locale": "null",
+                              "strutStyle": "null",
+                              "textHeightBehavior": "null"
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "26b7b161-aee2-11f0-add8-f308989a3ae0",
+                          "property": {},
+                          "objet": {
+                            "bulb": "SpaceBox",
+                            "uuid": "26b7b160-aee2-11f0-add8-f308989a3ae0",
+                            "property": {
+                              "width": 20.0,
+                              "height": 20.0
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "ee7f4c41-aee1-11f0-add8-f308989a3ae0",
+                          "property": {},
+                          "objet": {
+                            "bulb": "Column",
+                            "uuid": "ee7f4c40-aee1-11f0-add8-f308989a3ae0",
+                            "property": {
+                              "crossAxisAlignment": "start",
+                              "spacing": 25.0
+                            },
+                            "children": [
+                              {
+                                "bulb": "Layout",
+                                "uuid": "f2bf8e01-aee1-11f0-add8-f308989a3ae0",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Text",
+                                  "uuid": "f2bf8e00-aee1-11f0-add8-f308989a3ae0",
+                                  "property": {
+                                    "text": "푸시 알림 설정",
+                                    "style.color": {
+                                      "color.value": 4278190080
+                                    },
+                                    "style.fontSize": 16.0,
+                                    "style.fontWeight": "w300",
+                                    "style.locale": "null",
+                                    "style.foreground": "null",
+                                    "style.background": "null",
+                                    "style.shadows": "null",
+                                    "style.fontFeatures": "null",
+                                    "style.decoration": "null",
+                                    "style.fontFamilyFallback": "null",
+                                    "textDirection": "ltr",
+                                    "locale": "null",
+                                    "strutStyle": "null",
+                                    "textHeightBehavior": "null"
+                                  }
+                                }
+                              },
+                              {
+                                "bulb": "Layout",
+                                "uuid": "81ba6b91-afa8-11f0-be10-3f186210343c",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Row",
+                                  "uuid": "81ba6b90-afa8-11f0-be10-3f186210343c",
+                                  "property": {
+                                    "mainAxisAlignment": "spaceBetween"
+                                  },
+                                  "children": [
+                                    {
+                                      "bulb": "Layout",
+                                      "uuid": "f4052d61-aee1-11f0-add8-f308989a3ae0",
+                                      "property": {},
+                                      "objet": {
+                                        "bulb": "Text",
+                                        "uuid": "f4052d60-aee1-11f0-add8-f308989a3ae0",
+                                        "property": {
+                                          "text": "방해금지 시간 설정",
+                                          "style.color": {
+                                            "color.value": 4278190080
+                                          },
+                                          "style.fontSize": 16.0,
+                                          "style.fontWeight": "w300",
+                                          "style.locale": "null",
+                                          "style.foreground": "null",
+                                          "style.background": "null",
+                                          "style.shadows": "null",
+                                          "style.fontFeatures": "null",
+                                          "style.decoration": "null",
+                                          "style.fontFamilyFallback": "null",
+                                          "textDirection": "ltr",
+                                          "locale": "null",
+                                          "strutStyle": "null",
+                                          "textHeightBehavior": "null"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "bulb": "Layout",
+                                      "uuid": "84f412c1-afa8-11f0-be10-3f186210343c",
+                                      "property": {},
+                                      "objet": {
+                                        "bulb": "Switch",
+                                        "uuid": "84f412c0-afa8-11f0-be10-3f186210343c",
+                                        "property": {
+                                          "thumbSize": 17.0,
+                                          "activeTrackColor": {
+                                            "color.value": 4294944000
+                                          },
+                                          "activeThumbColor": {
+                                            "color.value": 4294967295
+                                          },
+                                          "inactiveTrackColor": {
+                                            "color.value": 4287928735
+                                          },
+                                          "inactiveThumbColor": {
+                                            "color.value": 4294967295
+                                          },
+                                          "disabledTrackColor": {
+                                            "color.value": 4288651167
+                                          },
+                                          "disabledThumbColor": {
+                                            "color.value": 4285756275
+                                          },
+                                          "disabledActiveTrackColor": {
+                                            "color.value": 4288651167
+                                          },
+                                          "disabledActiveThumbColor": {
+                                            "color.value": 4284960932
+                                          }
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "bulb": "Layout",
+                                "uuid": "6e4b71d1-afa8-11f0-be10-3f186210343c",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Row",
+                                  "uuid": "6e4b71d0-afa8-11f0-be10-3f186210343c",
+                                  "property": {
+                                    "mainAxisAlignment": "spaceBetween"
+                                  },
+                                  "children": [
+                                    {
+                                      "bulb": "Layout",
+                                      "uuid": "f535e531-aee1-11f0-add8-f308989a3ae0",
+                                      "property": {},
+                                      "objet": {
+                                        "bulb": "Text",
+                                        "uuid": "f535e530-aee1-11f0-add8-f308989a3ae0",
+                                        "property": {
+                                          "text": "알림음",
+                                          "style.color": {
+                                            "color.value": 4278190080
+                                          },
+                                          "style.fontSize": 16.0,
+                                          "style.fontWeight": "w300",
+                                          "style.locale": "null",
+                                          "style.foreground": "null",
+                                          "style.background": "null",
+                                          "style.shadows": "null",
+                                          "style.fontFeatures": "null",
+                                          "style.decoration": "null",
+                                          "style.fontFamilyFallback": "null",
+                                          "textDirection": "ltr",
+                                          "locale": "null",
+                                          "strutStyle": "null",
+                                          "textHeightBehavior": "null"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "bulb": "Layout",
+                                      "uuid": "709ba361-afa8-11f0-be10-3f186210343c",
+                                      "property": {},
+                                      "objet": {
+                                        "bulb": "Text",
+                                        "uuid": "709ba360-afa8-11f0-be10-3f186210343c",
+                                        "property": {
+                                          "text": "벨소리",
+                                          "style.color": {
+                                            "color.value": 4294935296
+                                          },
+                                          "style.fontSize": 16.0,
+                                          "style.locale": "null",
+                                          "style.foreground": "null",
+                                          "style.background": "null",
+                                          "style.shadows": "null",
+                                          "style.fontFeatures": "null",
+                                          "style.decoration": "null",
+                                          "style.fontFamilyFallback": "null",
+                                          "textDirection": "ltr",
+                                          "locale": "null",
+                                          "strutStyle": "null",
+                                          "textHeightBehavior": "null"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "5d40fc62-aee1-11f0-a12b-3b2630075131",
+                          "property": {},
+                          "interior": [
+                            {
+                              "bulb": "Padding",
+                              "uuid": "632ddcb0-aee1-11f0-a12b-3b2630075131",
+                              "property": {
+                                "padding.left": 20.0,
+                                "padding.right": 20.0
+                              },
+                              "id": "Padding"
+                            },
+                            {
+                              "bulb": "SizedBox",
+                              "uuid": "5d40fc60-aee1-11f0-a12b-3b2630075131",
+                              "property": {
+                                "width": "infinity",
+                                "height": 50.0
+                              },
+                              "id": "SizedBox"
+                            }
+                          ],
+                          "objet": {
+                            "bulb": "Divider",
+                            "uuid": "5d40fc61-aee1-11f0-a12b-3b2630075131",
+                            "property": {
+                              "color": {
+                                "color.value": 4293256677
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "e95052c0-afa7-11f0-be10-3f186210343c",
+                          "property": {},
+                          "objet": {
+                            "bulb": "Text",
+                            "uuid": "e95052c1-afa7-11f0-be10-3f186210343c",
+                            "property": {
+                              "text": "사용자 설정",
+                              "style.color": {
+                                "color.value": 4278190080
+                              },
+                              "style.fontSize": 16.0,
+                              "style.fontWeight": "w600",
+                              "style.locale": "null",
+                              "style.foreground": "null",
+                              "style.background": "null",
+                              "style.shadows": "null",
+                              "style.fontFeatures": "null",
+                              "style.decoration": "null",
+                              "style.fontFamilyFallback": "null",
+                              "textDirection": "ltr",
+                              "locale": "null",
+                              "strutStyle": "null",
+                              "textHeightBehavior": "null"
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "04255f50-afa8-11f0-be10-3f186210343c",
+                          "property": {},
+                          "objet": {
+                            "bulb": "SpaceBox",
+                            "uuid": "04255f51-afa8-11f0-be10-3f186210343c",
+                            "property": {
+                              "width": 20.0,
+                              "height": 20.0
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "f0237460-afa7-11f0-be10-3f186210343c",
+                          "property": {},
+                          "objet": {
+                            "bulb": "Column",
+                            "uuid": "f0237461-afa7-11f0-be10-3f186210343c",
+                            "property": {
+                              "crossAxisAlignment": "start",
+                              "spacing": 25.0
+                            },
+                            "children": [
+                              {
+                                "bulb": "Layout",
+                                "uuid": "f0237462-afa7-11f0-be10-3f186210343c",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Text",
+                                  "uuid": "f0237463-afa7-11f0-be10-3f186210343c",
+                                  "property": {
+                                    "text": "계정 / 정보 관리",
+                                    "style.color": {
+                                      "color.value": 4278190080
+                                    },
+                                    "style.fontSize": 16.0,
+                                    "style.fontWeight": "w300",
+                                    "style.locale": "null",
+                                    "style.foreground": "null",
+                                    "style.background": "null",
+                                    "style.shadows": "null",
+                                    "style.fontFeatures": "null",
+                                    "style.decoration": "null",
+                                    "style.fontFamilyFallback": "null",
+                                    "textDirection": "ltr",
+                                    "locale": "null",
+                                    "strutStyle": "null",
+                                    "textHeightBehavior": "null"
+                                  }
+                                }
+                              },
+                              {
+                                "bulb": "Layout",
+                                "uuid": "f0237464-afa7-11f0-be10-3f186210343c",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Text",
+                                  "uuid": "f0237465-afa7-11f0-be10-3f186210343c",
+                                  "property": {
+                                    "text": "차단 사용자 관리",
+                                    "style.color": {
+                                      "color.value": 4278190080
+                                    },
+                                    "style.fontSize": 16.0,
+                                    "style.fontWeight": "w300",
+                                    "style.locale": "null",
+                                    "style.foreground": "null",
+                                    "style.background": "null",
+                                    "style.shadows": "null",
+                                    "style.fontFeatures": "null",
+                                    "style.decoration": "null",
+                                    "style.fontFamilyFallback": "null",
+                                    "textDirection": "ltr",
+                                    "locale": "null",
+                                    "strutStyle": "null",
+                                    "textHeightBehavior": "null"
+                                  }
+                                }
+                              },
+                              {
+                                "bulb": "Layout",
+                                "uuid": "f0237466-afa7-11f0-be10-3f186210343c",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Text",
+                                  "uuid": "f0237467-afa7-11f0-be10-3f186210343c",
+                                  "property": {
+                                    "text": "기타 설정",
+                                    "style.color": {
+                                      "color.value": 4278190080
+                                    },
+                                    "style.fontSize": 16.0,
+                                    "style.fontWeight": "w300",
+                                    "style.locale": "null",
+                                    "style.foreground": "null",
+                                    "style.background": "null",
+                                    "style.shadows": "null",
+                                    "style.fontFeatures": "null",
+                                    "style.decoration": "null",
+                                    "style.fontFamilyFallback": "null",
+                                    "textDirection": "ltr",
+                                    "locale": "null",
+                                    "strutStyle": "null",
+                                    "textHeightBehavior": "null"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "16db4240-afa8-11f0-be10-3f186210343c",
+                          "property": {},
+                          "interior": [
+                            {
+                              "bulb": "Padding",
+                              "uuid": "16db4241-afa8-11f0-be10-3f186210343c",
+                              "property": {
+                                "padding.left": 20.0,
+                                "padding.right": 20.0
+                              },
+                              "id": "Padding"
+                            },
+                            {
+                              "bulb": "SizedBox",
+                              "uuid": "16db4242-afa8-11f0-be10-3f186210343c",
+                              "property": {
+                                "width": "infinity",
+                                "height": 50.0
+                              },
+                              "id": "SizedBox"
+                            }
+                          ],
+                          "objet": {
+                            "bulb": "Divider",
+                            "uuid": "16db4243-afa8-11f0-be10-3f186210343c",
+                            "property": {
+                              "color": {
+                                "color.value": 4293256677
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "1bbd6950-afa8-11f0-be10-3f186210343c",
+                          "property": {},
+                          "objet": {
+                            "bulb": "Text",
+                            "uuid": "1bbd6951-afa8-11f0-be10-3f186210343c",
+                            "property": {
+                              "text": "기타",
+                              "style.color": {
+                                "color.value": 4278190080
+                              },
+                              "style.fontSize": 16.0,
+                              "style.fontWeight": "w600",
+                              "style.locale": "null",
+                              "style.foreground": "null",
+                              "style.background": "null",
+                              "style.shadows": "null",
+                              "style.fontFeatures": "null",
+                              "style.decoration": "null",
+                              "style.fontFamilyFallback": "null",
+                              "textDirection": "ltr",
+                              "locale": "null",
+                              "strutStyle": "null",
+                              "textHeightBehavior": "null"
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "23bbeb90-afa8-11f0-be10-3f186210343c",
+                          "property": {},
+                          "objet": {
+                            "bulb": "SpaceBox",
+                            "uuid": "23bbeb91-afa8-11f0-be10-3f186210343c",
+                            "property": {
+                              "width": 20.0,
+                              "height": 20.0
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "1fd625e0-afa8-11f0-be10-3f186210343c",
+                          "property": {},
+                          "objet": {
+                            "bulb": "Column",
+                            "uuid": "1fd625e1-afa8-11f0-be10-3f186210343c",
+                            "property": {
+                              "crossAxisAlignment": "start",
+                              "spacing": 25.0
+                            },
+                            "children": [
+                              {
+                                "bulb": "Layout",
+                                "uuid": "59a6de41-afa8-11f0-be10-3f186210343c",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Row",
+                                  "uuid": "59a6de40-afa8-11f0-be10-3f186210343c",
+                                  "property": {
+                                    "mainAxisAlignment": "spaceBetween"
+                                  },
+                                  "children": [
+                                    {
+                                      "bulb": "Layout",
+                                      "uuid": "1fd625e2-afa8-11f0-be10-3f186210343c",
+                                      "property": {},
+                                      "objet": {
+                                        "bulb": "Text",
+                                        "uuid": "1fd625e3-afa8-11f0-be10-3f186210343c",
+                                        "property": {
+                                          "text": "언어 설정",
+                                          "style.color": {
+                                            "color.value": 4278190080
+                                          },
+                                          "style.fontSize": 16.0,
+                                          "style.fontWeight": "w300",
+                                          "style.locale": "null",
+                                          "style.foreground": "null",
+                                          "style.background": "null",
+                                          "style.shadows": "null",
+                                          "style.fontFeatures": "null",
+                                          "style.decoration": "null",
+                                          "style.fontFamilyFallback": "null",
+                                          "textDirection": "ltr",
+                                          "locale": "null",
+                                          "strutStyle": "null",
+                                          "textHeightBehavior": "null"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "bulb": "Layout",
+                                      "uuid": "5c592d01-afa8-11f0-be10-3f186210343c",
+                                      "property": {},
+                                      "objet": {
+                                        "bulb": "Text",
+                                        "uuid": "5c592d00-afa8-11f0-be10-3f186210343c",
+                                        "property": {
+                                          "text": "한국어",
+                                          "style.color": {
+                                            "color.value": 4294935296
+                                          },
+                                          "style.fontSize": 16.0,
+                                          "style.locale": "null",
+                                          "style.foreground": "null",
+                                          "style.background": "null",
+                                          "style.shadows": "null",
+                                          "style.fontFeatures": "null",
+                                          "style.decoration": "null",
+                                          "style.fontFamilyFallback": "null",
+                                          "textDirection": "ltr",
+                                          "locale": "null",
+                                          "strutStyle": "null",
+                                          "textHeightBehavior": "null"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "bulb": "Layout",
+                                "uuid": "1fd625e4-afa8-11f0-be10-3f186210343c",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Text",
+                                  "uuid": "1fd625e5-afa8-11f0-be10-3f186210343c",
+                                  "property": {
+                                    "text": "캐시 데이터 삭제하기",
+                                    "style.color": {
+                                      "color.value": 4278190080
+                                    },
+                                    "style.fontSize": 16.0,
+                                    "style.fontWeight": "w300",
+                                    "style.locale": "null",
+                                    "style.foreground": "null",
+                                    "style.background": "null",
+                                    "style.shadows": "null",
+                                    "style.fontFeatures": "null",
+                                    "style.decoration": "null",
+                                    "style.fontFamilyFallback": "null",
+                                    "textDirection": "ltr",
+                                    "locale": "null",
+                                    "strutStyle": "null",
+                                    "textHeightBehavior": "null"
+                                  }
+                                }
+                              },
+                              {
+                                "bulb": "Layout",
+                                "uuid": "1fd625e6-afa8-11f0-be10-3f186210343c",
+                                "property": {},
+                                "interior": [
+                                  {
+                                    "bulb": "GestureDetector",
+                                    "uuid": "d6dea7d0-b615-11f0-b7d6-e9c17ce140b1",
+                                    "property": {
+                                      "onTap": {
+                                        "type": "EventResponseType.action",
+                                        "name": "logout"
+                                      }
+                                    },
+                                    "id": "GestureDetector"
+                                  }
+                                ],
+                                "objet": {
+                                  "bulb": "Text",
+                                  "uuid": "1fd625e7-afa8-11f0-be10-3f186210343c",
+                                  "property": {
+                                    "text": "로그아웃",
+                                    "style.color": {
+                                      "color.value": 4294901760
+                                    },
+                                    "style.fontSize": 16.0,
+                                    "style.fontWeight": "w300",
+                                    "style.locale": "null",
+                                    "style.foreground": "null",
+                                    "style.background": "null",
+                                    "style.shadows": "null",
+                                    "style.fontFeatures": "null",
+                                    "style.decoration": "null",
+                                    "style.fontFamilyFallback": "null",
+                                    "textDirection": "ltr",
+                                    "locale": "null",
+                                    "strutStyle": "null",
+                                    "textHeightBehavior": "null"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "bindinginfos": [],
+      "script": " ",
+      "provinstance": [],
+      "contentsdm": [],
+      "variable": []
+    }
+  ],
+  "variable": []
+}
