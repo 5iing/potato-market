@@ -1,0 +1,1111 @@
+#채팅 목록
+{
+  "page": {
+    "description": "채팅 목록"
+  },
+  "script": "",
+  "forms": [
+    {
+      "statetransitions": [],
+      "luactions": [
+        {
+          "name": "NavigateToHome",
+          "description": "",
+          "actions": [
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.openPage",
+              "assignVal": [
+                {
+                  "name": "pagePath",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "leeyeonwoo/home",
+                      "type": "DataType.string"
+                    }
+                  ]
+                },
+                {
+                  "name": "linkArg"
+                },
+                {
+                  "name": "routeName",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "LucyRoute.cupertino",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NavigateToSearch",
+          "description": "",
+          "actions": [
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.openPage",
+              "assignVal": [
+                {
+                  "name": "pagePath",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "leeyeonwoo/search_page",
+                      "type": "DataType.string"
+                    }
+                  ]
+                },
+                {
+                  "name": "linkArg"
+                },
+                {
+                  "name": "routeName",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "LucyRoute.cupertino",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NavigateToChat",
+          "description": "",
+          "actions": [
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.openPage",
+              "assignVal": [
+                {
+                  "name": "pagePath",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "leeyeonwoo/chat_page",
+                      "type": "DataType.string"
+                    }
+                  ]
+                },
+                {
+                  "name": "linkArg"
+                },
+                {
+                  "name": "routeName",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "LucyRoute.cupertino",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NavigateToMypage",
+          "description": "",
+          "actions": [
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.openPage",
+              "assignVal": [
+                {
+                  "name": "pagePath",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "leeyeonwoo/my_page",
+                      "type": "DataType.string"
+                    }
+                  ]
+                },
+                {
+                  "name": "linkArg"
+                },
+                {
+                  "name": "routeName",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "LucyRoute.cupertino",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "NavigateToChatting",
+          "description": "",
+          "actions": [
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.openPage",
+              "assignVal": [
+                {
+                  "name": "pagePath",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "leeyeonwoo/chatting_page",
+                      "type": "DataType.string"
+                    }
+                  ]
+                },
+                {
+                  "name": "linkArg"
+                },
+                {
+                  "name": "routeName",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "LucyRoute.cupertino",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "detectors": [],
+      "id": "unknown",
+      "title": "",
+      "nativeBinder": null,
+      "objet": {
+        "bulb": "Jet",
+        "uuid": "62189410-ab1b-11f0-8697-9b4ff321ae6d",
+        "property": {
+          "id": "unknown",
+          "title": ""
+        },
+        "child": {
+          "bulb": "Layout",
+          "uuid": "5f7f5c21-ad4b-11f0-a557-6fa74cf80583",
+          "property": {},
+          "interior": [
+            {
+              "bulb": "DecoratedBox",
+              "uuid": "91202200-ad4b-11f0-a557-6fa74cf80583",
+              "property": {
+                "decoration.color": {
+                  "color.value": 4294967295
+                },
+                "decoration.border": "null",
+                "decoration.borderRadius": "null",
+                "decoration.boxShadow": "null",
+                "decoration.gradient": "null"
+              },
+              "id": "DecoratedBox"
+            }
+          ],
+          "objet": {
+            "bulb": "SafeArea",
+            "uuid": "5f7f5c20-ad4b-11f0-a557-6fa74cf80583",
+            "property": {
+              "minimum": "null"
+            },
+            "child": {
+              "bulb": "Layout",
+              "uuid": "61a5be91-ad4b-11f0-a557-6fa74cf80583",
+              "property": {},
+              "interior": [
+                {
+                  "bulb": "DecoratedBox",
+                  "uuid": "67fbc0f0-ad4b-11f0-a557-6fa74cf80583",
+                  "property": {
+                    "decoration.color": {
+                      "color.value": 4294967295
+                    },
+                    "decoration.border": "null",
+                    "decoration.borderRadius": "null",
+                    "decoration.boxShadow": "null",
+                    "decoration.gradient": "null"
+                  },
+                  "id": "DecoratedBox"
+                }
+              ],
+              "objet": {
+                "bulb": "Column",
+                "uuid": "61a5be90-ad4b-11f0-a557-6fa74cf80583",
+                "property": {
+                  "crossAxisAlignment": "start"
+                },
+                "children": [
+                  {
+                    "bulb": "Layout",
+                    "uuid": "6e484d71-ad4b-11f0-a557-6fa74cf80583",
+                    "property": {},
+                    "objet": {
+                      "bulb": "SpaceBox",
+                      "uuid": "6e484d70-ad4b-11f0-a557-6fa74cf80583",
+                      "property": {
+                        "width": 20.0,
+                        "height": 60.0
+                      }
+                    }
+                  },
+                  {
+                    "bulb": "Layout",
+                    "uuid": "70b0e901-ad4b-11f0-a557-6fa74cf80583",
+                    "property": {},
+                    "interior": [
+                      {
+                        "bulb": "Padding",
+                        "uuid": "abf64000-ad4b-11f0-a557-6fa74cf80583",
+                        "property": {
+                          "padding.left": 20.0
+                        },
+                        "id": "Padding"
+                      }
+                    ],
+                    "objet": {
+                      "bulb": "Text",
+                      "uuid": "70b0e900-ad4b-11f0-a557-6fa74cf80583",
+                      "property": {
+                        "text": "채팅",
+                        "style.color": {
+                          "color.value": 4278190080
+                        },
+                        "style.fontSize": 20.0,
+                        "style.locale": "null",
+                        "style.foreground": "null",
+                        "style.background": "null",
+                        "style.shadows": "null",
+                        "style.fontFeatures": "null",
+                        "style.decoration": "null",
+                        "style.fontFamilyFallback": "null",
+                        "textAlign": "center",
+                        "textDirection": "ltr",
+                        "locale": "null",
+                        "strutStyle": "null",
+                        "textHeightBehavior": "null"
+                      }
+                    }
+                  },
+                  {
+                    "bulb": "Layout",
+                    "uuid": "b2369781-ad4b-11f0-a557-6fa74cf80583",
+                    "property": {},
+                    "objet": {
+                      "bulb": "SpaceBox",
+                      "uuid": "b2369780-ad4b-11f0-a557-6fa74cf80583",
+                      "property": {
+                        "width": 20.0
+                      }
+                    }
+                  },
+                  {
+                    "bulb": "Layout",
+                    "uuid": "05297c52-ad4c-11f0-a557-6fa74cf80583",
+                    "property": {},
+                    "interior": [
+                      {
+                        "bulb": "Expanded",
+                        "uuid": "0b14aef0-ad4c-11f0-a557-6fa74cf80583",
+                        "property": {},
+                        "id": "Expanded"
+                      },
+                      {
+                        "bulb": "SizedBox",
+                        "uuid": "05297c50-ad4c-11f0-a557-6fa74cf80583",
+                        "property": {
+                          "width": "infinity",
+                          "height": 200.0
+                        },
+                        "id": "SizedBox"
+                      }
+                    ],
+                    "objet": {
+                      "bulb": "ListView",
+                      "uuid": "05297c51-ad4c-11f0-a557-6fa74cf80583",
+                      "property": {
+                        "controller": "null",
+                        "padding": "null",
+                        "itemCount": 5,
+                        "animation": "null"
+                      },
+                      "child": {
+                        "bulb": "Layout",
+                        "uuid": "2e1c9bc1-ad6e-11f0-a557-6fa74cf80583",
+                        "property": {},
+                        "interior": [
+                          {
+                            "bulb": "GestureDetector",
+                            "uuid": "716690b0-ad88-11f0-9154-3b68624b4f15",
+                            "property": {
+                              "onTap": {
+                                "type": "EventResponseType.action",
+                                "name": "NavigateToChatting"
+                              }
+                            },
+                            "id": "GestureDetector"
+                          }
+                        ],
+                        "objet": {
+                          "bulb": "Column",
+                          "uuid": "2e1c9bc0-ad6e-11f0-a557-6fa74cf80583",
+                          "property": {},
+                          "children": [
+                            {
+                              "bulb": "Layout",
+                              "uuid": "2f2a6240-ad6e-11f0-a557-6fa74cf80583",
+                              "property": {},
+                              "interior": [
+                                {
+                                  "bulb": "Padding",
+                                  "uuid": "2f2a6241-ad6e-11f0-a557-6fa74cf80583",
+                                  "property": {
+                                    "padding.left": 20.0,
+                                    "padding.right": 20.0
+                                  },
+                                  "id": "Padding"
+                                },
+                                {
+                                  "bulb": "SizedBox",
+                                  "uuid": "2f2a6242-ad6e-11f0-a557-6fa74cf80583",
+                                  "property": {
+                                    "width": "infinity",
+                                    "height": 10.0
+                                  },
+                                  "id": "SizedBox"
+                                }
+                              ],
+                              "objet": {
+                                "bulb": "Divider",
+                                "uuid": "2f2a6243-ad6e-11f0-a557-6fa74cf80583",
+                                "property": {
+                                  "color": {
+                                    "color.value": 436207616
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "bulb": "Layout",
+                              "uuid": "d12d1dc1-ad4c-11f0-a557-6fa74cf80583",
+                              "property": {},
+                              "interior": [
+                                {
+                                  "bulb": "GestureDetector",
+                                  "uuid": "81ca3c10-b524-11f0-91ee-b92754864fc6",
+                                  "property": {
+                                    "onTap": {
+                                      "type": "EventResponseType.action",
+                                      "name": "NavigateToChatting"
+                                    }
+                                  },
+                                  "id": "GestureDetector"
+                                }
+                              ],
+                              "objet": {
+                                "bulb": "Row",
+                                "uuid": "d12d1dc0-ad4c-11f0-a557-6fa74cf80583",
+                                "property": {
+                                  "mainAxisAlignment": "spaceBetween"
+                                },
+                                "children": [
+                                  {
+                                    "bulb": "Layout",
+                                    "uuid": "7ad29101-ad59-11f0-a557-6fa74cf80583",
+                                    "property": {},
+                                    "objet": {
+                                      "bulb": "Row",
+                                      "uuid": "7ad29100-ad59-11f0-a557-6fa74cf80583",
+                                      "property": {},
+                                      "children": [
+                                        {
+                                          "bulb": "Layout",
+                                          "uuid": "d4974ad2-ad4c-11f0-a557-6fa74cf80583",
+                                          "property": {},
+                                          "interior": [
+                                            {
+                                              "bulb": "Padding",
+                                              "uuid": "aee5b770-ad4e-11f0-a557-6fa74cf80583",
+                                              "property": {
+                                                "padding.left": 20.0,
+                                                "padding.right": 20.0,
+                                                "padding.top": 20.0,
+                                                "padding.bottom": 20.0
+                                              },
+                                              "id": "Padding"
+                                            }
+                                          ],
+                                          "objet": {
+                                            "bulb": "Icon",
+                                            "uuid": "d4974ad1-ad4c-11f0-a557-6fa74cf80583",
+                                            "property": {
+                                              "iconData": {
+                                                "codePoint": 58513,
+                                                "fontFamily": "MaterialIcons",
+                                                "fontPackage": null,
+                                                "matchTextDirection": false
+                                              },
+                                              "size": 36.0
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "bulb": "Layout",
+                                          "uuid": "451e66c1-ad4e-11f0-a557-6fa74cf80583",
+                                          "property": {},
+                                          "objet": {
+                                            "bulb": "Column",
+                                            "uuid": "451e66c0-ad4e-11f0-a557-6fa74cf80583",
+                                            "property": {
+                                              "crossAxisAlignment": "start"
+                                            },
+                                            "children": [
+                                              {
+                                                "bulb": "Layout",
+                                                "uuid": "4db00141-ad4e-11f0-a557-6fa74cf80583",
+                                                "property": {},
+                                                "objet": {
+                                                  "bulb": "Row",
+                                                  "uuid": "4db00140-ad4e-11f0-a557-6fa74cf80583",
+                                                  "property": {
+                                                    "spacing": 6.0
+                                                  },
+                                                  "children": [
+                                                    {
+                                                      "bulb": "Layout",
+                                                      "uuid": "504419a1-ad4e-11f0-a557-6fa74cf80583",
+                                                      "property": {},
+                                                      "objet": {
+                                                        "bulb": "Text",
+                                                        "uuid": "504419a0-ad4e-11f0-a557-6fa74cf80583",
+                                                        "property": {
+                                                          "text": "박당근",
+                                                          "style.color": {
+                                                            "color.value": 4278190080
+                                                          },
+                                                          "style.fontSize": 18.0,
+                                                          "style.fontWeight": "w500",
+                                                          "style.locale": "null",
+                                                          "style.foreground": "null",
+                                                          "style.background": "null",
+                                                          "style.shadows": "null",
+                                                          "style.fontFeatures": "null",
+                                                          "style.decoration": "null",
+                                                          "style.fontFamilyFallback": "null",
+                                                          "textDirection": "ltr",
+                                                          "locale": "null",
+                                                          "strutStyle": "null",
+                                                          "textHeightBehavior": "null"
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "bulb": "Layout",
+                                                      "uuid": "5851de21-ad4e-11f0-a557-6fa74cf80583",
+                                                      "property": {},
+                                                      "objet": {
+                                                        "bulb": "Text",
+                                                        "uuid": "5851de20-ad4e-11f0-a557-6fa74cf80583",
+                                                        "property": {
+                                                          "text": "목동동",
+                                                          "style.color": {
+                                                            "color.value": 4290164406
+                                                          },
+                                                          "style.locale": "null",
+                                                          "style.foreground": "null",
+                                                          "style.background": "null",
+                                                          "style.shadows": "null",
+                                                          "style.fontFeatures": "null",
+                                                          "style.decoration": "null",
+                                                          "style.fontFamilyFallback": "null",
+                                                          "textDirection": "ltr",
+                                                          "locale": "null",
+                                                          "strutStyle": "null",
+                                                          "textHeightBehavior": "null"
+                                                        }
+                                                      }
+                                                    },
+                                                    {
+                                                      "bulb": "Layout",
+                                                      "uuid": "570fe841-ad4e-11f0-a557-6fa74cf80583",
+                                                      "property": {},
+                                                      "objet": {
+                                                        "bulb": "Text",
+                                                        "uuid": "570fe840-ad4e-11f0-a557-6fa74cf80583",
+                                                        "property": {
+                                                          "text": "3시간 전",
+                                                          "style.color": {
+                                                            "color.value": 4290427578
+                                                          },
+                                                          "style.locale": "null",
+                                                          "style.foreground": "null",
+                                                          "style.background": "null",
+                                                          "style.shadows": "null",
+                                                          "style.fontFeatures": "null",
+                                                          "style.decoration": "null",
+                                                          "style.fontFamilyFallback": "null",
+                                                          "textDirection": "ltr",
+                                                          "locale": "null",
+                                                          "strutStyle": "null",
+                                                          "textHeightBehavior": "null"
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              {
+                                                "bulb": "Layout",
+                                                "uuid": "5e5ef0a1-ad4e-11f0-a557-6fa74cf80583",
+                                                "property": {},
+                                                "objet": {
+                                                  "bulb": "Text",
+                                                  "uuid": "5e5ef0a0-ad4e-11f0-a557-6fa74cf80583",
+                                                  "property": {
+                                                    "text": "이거 얼마에요?",
+                                                    "style.color": {
+                                                      "color.value": 4278190080
+                                                    },
+                                                    "style.locale": "null",
+                                                    "style.foreground": "null",
+                                                    "style.background": "null",
+                                                    "style.shadows": "null",
+                                                    "style.fontFeatures": "null",
+                                                    "style.decoration": "null",
+                                                    "style.fontFamilyFallback": "null",
+                                                    "textDirection": "ltr",
+                                                    "locale": "null",
+                                                    "strutStyle": "null",
+                                                    "textHeightBehavior": "null"
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "bulb": "Layout",
+                                    "uuid": "484dfad1-ad59-11f0-a557-6fa74cf80583",
+                                    "property": {},
+                                    "interior": [
+                                      {
+                                        "bulb": "Padding",
+                                        "uuid": "8de4c4c0-ad59-11f0-a557-6fa74cf80583",
+                                        "property": {
+                                          "padding.right": 20.0
+                                        },
+                                        "id": "Padding"
+                                      },
+                                      {
+                                        "bulb": "DecoratedBox",
+                                        "uuid": "4eb53b40-ad59-11f0-a557-6fa74cf80583",
+                                        "property": {
+                                          "decoration.color": {
+                                            "color.value": 4280525171
+                                          },
+                                          "decoration.border": "null",
+                                          "decoration.borderRadius.topLeft.radius": 5.0,
+                                          "decoration.borderRadius.topRight.radius": 5.0,
+                                          "decoration.borderRadius.bottomRight.radius": 5.0,
+                                          "decoration.borderRadius.bottomLeft.radius": 5.0,
+                                          "decoration.boxShadow": "null",
+                                          "decoration.gradient": "null"
+                                        },
+                                        "id": "DecoratedBox"
+                                      }
+                                    ],
+                                    "objet": {
+                                      "bulb": "Wrap",
+                                      "uuid": "484dfad0-ad59-11f0-a557-6fa74cf80583",
+                                      "property": {
+                                        "alignment": "end",
+                                        "runAlignment": "end",
+                                        "crossAxisAlignment": "end"
+                                      },
+                                      "children": [
+                                        {
+                                          "bulb": "Layout",
+                                          "uuid": "55745fb1-ad59-11f0-a557-6fa74cf80583",
+                                          "property": {},
+                                          "interior": [
+                                            {
+                                              "bulb": "Padding",
+                                              "uuid": "84f0e600-ad59-11f0-a557-6fa74cf80583",
+                                              "property": {
+                                                "padding": "null"
+                                              },
+                                              "id": "Padding"
+                                            }
+                                          ],
+                                          "objet": {
+                                            "bulb": "SpaceBox",
+                                            "uuid": "55745fb0-ad59-11f0-a557-6fa74cf80583",
+                                            "property": {
+                                              "width": 45.0,
+                                              "height": 45.0
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "bulb": "Layout",
+                    "uuid": "e96099e0-ad4b-11f0-a557-6fa74cf80583",
+                    "property": {},
+                    "interior": [
+                      {
+                        "bulb": "SizedBox",
+                        "uuid": "e96099e1-ad4b-11f0-a557-6fa74cf80583",
+                        "property": {
+                          "height": 80.0
+                        },
+                        "id": "SizedBox"
+                      }
+                    ],
+                    "objet": {
+                      "bulb": "Wrap",
+                      "uuid": "e96099e2-ad4b-11f0-a557-6fa74cf80583",
+                      "property": {},
+                      "children": [
+                        {
+                          "bulb": "Layout",
+                          "uuid": "e96099e3-ad4b-11f0-a557-6fa74cf80583",
+                          "property": {},
+                          "objet": {
+                            "bulb": "Row",
+                            "uuid": "e96099e4-ad4b-11f0-a557-6fa74cf80583",
+                            "property": {
+                              "mainAxisAlignment": "spaceAround"
+                            },
+                            "children": [
+                              {
+                                "bulb": "Layout",
+                                "uuid": "e96099e5-ad4b-11f0-a557-6fa74cf80583",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Column",
+                                  "uuid": "e96099e6-ad4b-11f0-a557-6fa74cf80583",
+                                  "property": {},
+                                  "children": [
+                                    {
+                                      "bulb": "Layout",
+                                      "uuid": "e96099e7-ad4b-11f0-a557-6fa74cf80583",
+                                      "property": {},
+                                      "interior": [
+                                        {
+                                          "bulb": "GestureDetector",
+                                          "uuid": "26890af0-ad5b-11f0-a557-6fa74cf80583",
+                                          "property": {
+                                            "onTap": {
+                                              "type": "EventResponseType.action",
+                                              "name": "NavigateToHome"
+                                            }
+                                          },
+                                          "id": "GestureDetector"
+                                        }
+                                      ],
+                                      "objet": {
+                                        "bulb": "Column",
+                                        "uuid": "e96099e8-ad4b-11f0-a557-6fa74cf80583",
+                                        "property": {
+                                          "mainAxisSize": "min"
+                                        },
+                                        "children": [
+                                          {
+                                            "bulb": "Layout",
+                                            "uuid": "e96099e9-ad4b-11f0-a557-6fa74cf80583",
+                                            "property": {},
+                                            "interior": [
+                                              {
+                                                "bulb": "SizedBox",
+                                                "uuid": "e96099ea-ad4b-11f0-a557-6fa74cf80583",
+                                                "property": {
+                                                  "width": 36.0,
+                                                  "height": 36.0
+                                                },
+                                                "id": "SizedBox"
+                                              }
+                                            ],
+                                            "objet": {
+                                              "bulb": "Icon",
+                                              "uuid": "e96099eb-ad4b-11f0-a557-6fa74cf80583",
+                                              "property": {
+                                                "iconData": {
+                                                  "codePoint": 63477,
+                                                  "fontFamily": "MaterialIcons",
+                                                  "fontPackage": null,
+                                                  "matchTextDirection": false
+                                                },
+                                                "color": {
+                                                  "color.value": 4288651167
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "bulb": "Layout",
+                                            "uuid": "e96099ec-ad4b-11f0-a557-6fa74cf80583",
+                                            "property": {},
+                                            "objet": {
+                                              "bulb": "Text",
+                                              "uuid": "e96099ed-ad4b-11f0-a557-6fa74cf80583",
+                                              "property": {
+                                                "text": "홈",
+                                                "style.color": {
+                                                  "color.value": 4287335307
+                                                },
+                                                "style.fontSize": 12.0,
+                                                "style.fontWeight": "w500",
+                                                "style.locale": "null",
+                                                "style.foreground": "null",
+                                                "style.background": "null",
+                                                "style.shadows": "null",
+                                                "style.fontFeatures": "null",
+                                                "style.decoration": "null",
+                                                "style.fontFamily": "spoqa han sans neo",
+                                                "style.fontFamilyFallback": "null",
+                                                "textDirection": "ltr",
+                                                "locale": "null",
+                                                "strutStyle": "null",
+                                                "textHeightBehavior": "null"
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "bulb": "Layout",
+                                "uuid": "e96099ee-ad4b-11f0-a557-6fa74cf80583",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Column",
+                                  "uuid": "e96099ef-ad4b-11f0-a557-6fa74cf80583",
+                                  "property": {},
+                                  "children": [
+                                    {
+                                      "bulb": "Layout",
+                                      "uuid": "e96099f0-ad4b-11f0-a557-6fa74cf80583",
+                                      "property": {
+                                        "id": "search"
+                                      },
+                                      "interior": [
+                                        {
+                                          "bulb": "GestureDetector",
+                                          "uuid": "e96099f1-ad4b-11f0-a557-6fa74cf80583",
+                                          "property": {
+                                            "onTap": {
+                                              "type": "EventResponseType.action",
+                                              "name": "NavigateToSearch"
+                                            }
+                                          },
+                                          "id": "GestureDetector"
+                                        }
+                                      ],
+                                      "objet": {
+                                        "bulb": "Column",
+                                        "uuid": "e96099f2-ad4b-11f0-a557-6fa74cf80583",
+                                        "property": {
+                                          "mainAxisSize": "min"
+                                        },
+                                        "children": [
+                                          {
+                                            "bulb": "Layout",
+                                            "uuid": "e96099f3-ad4b-11f0-a557-6fa74cf80583",
+                                            "property": {},
+                                            "interior": [
+                                              {
+                                                "bulb": "SizedBox",
+                                                "uuid": "e96099f4-ad4b-11f0-a557-6fa74cf80583",
+                                                "property": {
+                                                  "width": 36.0,
+                                                  "height": 36.0
+                                                },
+                                                "id": "SizedBox"
+                                              }
+                                            ],
+                                            "objet": {
+                                              "bulb": "Icon",
+                                              "uuid": "e96099f5-ad4b-11f0-a557-6fa74cf80583",
+                                              "property": {
+                                                "iconData": {
+                                                  "codePoint": 58727,
+                                                  "fontFamily": "MaterialIcons",
+                                                  "fontPackage": null,
+                                                  "matchTextDirection": false
+                                                },
+                                                "color": {
+                                                  "color.value": 4288651167
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "bulb": "Layout",
+                                            "uuid": "e96099f6-ad4b-11f0-a557-6fa74cf80583",
+                                            "property": {},
+                                            "objet": {
+                                              "bulb": "Text",
+                                              "uuid": "e96099f7-ad4b-11f0-a557-6fa74cf80583",
+                                              "property": {
+                                                "text": "검색",
+                                                "style.color": {
+                                                  "color.value": 4287335307
+                                                },
+                                                "style.fontSize": 12.0,
+                                                "style.fontWeight": "w500",
+                                                "style.locale": "null",
+                                                "style.foreground": "null",
+                                                "style.background": "null",
+                                                "style.shadows": "null",
+                                                "style.fontFeatures": "null",
+                                                "style.decoration": "null",
+                                                "style.fontFamily": "spoqa han sans neo",
+                                                "style.fontFamilyFallback": "null",
+                                                "textDirection": "ltr",
+                                                "locale": "null",
+                                                "strutStyle": "null",
+                                                "textHeightBehavior": "null"
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "bulb": "Layout",
+                                "uuid": "e96099f8-ad4b-11f0-a557-6fa74cf80583",
+                                "property": {},
+                                "objet": {
+                                  "bulb": "Column",
+                                  "uuid": "e96099f9-ad4b-11f0-a557-6fa74cf80583",
+                                  "property": {},
+                                  "children": [
+                                    {
+                                      "bulb": "Layout",
+                                      "uuid": "e96099fa-ad4b-11f0-a557-6fa74cf80583",
+                                      "property": {},
+                                      "interior": [
+                                        {
+                                          "bulb": "GestureDetector",
+                                          "uuid": "2f25c900-ad5b-11f0-a557-6fa74cf80583",
+                                          "property": {
+                                            "onTap": {
+                                              "type": "EventResponseType.action",
+                                              "name": "NavigateToChat"
+                                            }
+                                          },
+                                          "id": "GestureDetector"
+                                        }
+                                      ],
+                                      "objet": {
+                                        "bulb": "Column",
+                                        "uuid": "e96099fb-ad4b-11f0-a557-6fa74cf80583",
+                                        "property": {
+                                          "mainAxisSize": "min"
+                                        },
+                                        "children": [
+                                          {
+                                            "bulb": "Layout",
+                                            "uuid": "e96099fc-ad4b-11f0-a557-6fa74cf80583",
+                                            "property": {},
+                                            "interior": [
+                                              {
+                                                "bulb": "SizedBox",
+                                                "uuid": "e96099fd-ad4b-11f0-a557-6fa74cf80583",
+                                                "property": {
+                                                  "width": 36.0,
+                                                  "height": 36.0
+                                                },
+                                                "id": "SizedBox"
+                                              }
+                                            ],
+                                            "objet": {
+                                              "bulb": "Icon",
+                                              "uuid": "e96099fe-ad4b-11f0-a557-6fa74cf80583",
+                                              "property": {
+                                                "iconData": {
+                                                  "codePoint": 57683,
+                                                  "fontFamily": "MaterialIcons",
+                                                  "fontPackage": null,
+                                                  "matchTextDirection": false
+                                                },
+                                                "color": {
+                                                  "color.value": 4288651167
+                                                }
+                                              }
+                                            }
+                                          },
+                                          {
+                                            "bulb": "Layout",
+                                            "uuid": "e96099ff-ad4b-11f0-a557-6fa74cf80583",
+                                            "property": {},
+                                            "objet": {
+                                              "bulb": "Text",
+                                              "uuid": "e9609a00-ad4b-11f0-a557-6fa74cf80583",
+                                              "property": {
+                                                "text": "채팅",
+                                                "style.color": {
+                                                  "color.value": 4287335307
+                                                },
+                                                "style.fontSize": 12.0,
+                                                "style.fontWeight": "w500",
+                                                "style.locale": "null",
+                                                "style.foreground": "null",
+                                                "style.background": "null",
+                                                "style.shadows": "null",
+                                                "style.fontFeatures": "null",
+                                                "style.decoration": "null",
+                                                "style.fontFamily": "spoqa han sans neo",
+                                                "style.fontFamilyFallback": "null",
+                                                "textDirection": "ltr",
+                                                "locale": "null",
+                                                "strutStyle": "null",
+                                                "textHeightBehavior": "null"
+                                              }
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "bulb": "Layout",
+                                "uuid": "e9609a01-ad4b-11f0-a557-6fa74cf80583",
+                                "property": {},
+                                "interior": [
+                                  {
+                                    "bulb": "GestureDetector",
+                                    "uuid": "3d63df70-ad5b-11f0-a557-6fa74cf80583",
+                                    "property": {
+                                      "onTap": {
+                                        "type": "EventResponseType.action",
+                                        "name": "NavigateToMypage"
+                                      }
+                                    },
+                                    "id": "GestureDetector"
+                                  }
+                                ],
+                                "objet": {
+                                  "bulb": "Column",
+                                  "uuid": "e9609a02-ad4b-11f0-a557-6fa74cf80583",
+                                  "property": {
+                                    "mainAxisSize": "min"
+                                  },
+                                  "children": [
+                                    {
+                                      "bulb": "Layout",
+                                      "uuid": "e9609a03-ad4b-11f0-a557-6fa74cf80583",
+                                      "property": {},
+                                      "interior": [
+                                        {
+                                          "bulb": "SizedBox",
+                                          "uuid": "e9609a04-ad4b-11f0-a557-6fa74cf80583",
+                                          "property": {
+                                            "width": 36.0,
+                                            "height": 36.0
+                                          },
+                                          "id": "SizedBox"
+                                        }
+                                      ],
+                                      "objet": {
+                                        "bulb": "Icon",
+                                        "uuid": "e9609a05-ad4b-11f0-a557-6fa74cf80583",
+                                        "property": {
+                                          "iconData": {
+                                            "codePoint": 58513,
+                                            "fontFamily": "MaterialIcons",
+                                            "fontPackage": null,
+                                            "matchTextDirection": false
+                                          },
+                                          "color": {
+                                            "color.value": 4288651167
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "bulb": "Layout",
+                                      "uuid": "e9609a06-ad4b-11f0-a557-6fa74cf80583",
+                                      "property": {},
+                                      "objet": {
+                                        "bulb": "Text",
+                                        "uuid": "e9609a07-ad4b-11f0-a557-6fa74cf80583",
+                                        "property": {
+                                          "text": "나의 감자",
+                                          "style.color": {
+                                            "color.value": 4287335307
+                                          },
+                                          "style.fontSize": 12.0,
+                                          "style.fontWeight": "w500",
+                                          "style.locale": "null",
+                                          "style.foreground": "null",
+                                          "style.background": "null",
+                                          "style.shadows": "null",
+                                          "style.fontFeatures": "null",
+                                          "style.decoration": "null",
+                                          "style.fontFamily": "spoqa han sans neo",
+                                          "style.fontFamilyFallback": "null",
+                                          "textDirection": "ltr",
+                                          "locale": "null",
+                                          "strutStyle": "null",
+                                          "textHeightBehavior": "null"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "bindinginfos": [],
+      "script": "",
+      "provinstance": [],
+      "contentsdm": [],
+      "variable": []
+    }
+  ],
+  "variable": []
+}

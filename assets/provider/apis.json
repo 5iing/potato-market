@@ -1,0 +1,290 @@
+{
+  "name": "apis",
+  "description": "apis",
+  "providerType": "DataProviderType.openApi",
+  "url": "http://localhost:3000/api/articles",
+  "provInfo": {
+    "name": "",
+    "description": "",
+    "isPushData": false,
+    "responsePack": [
+      {
+        "name": "header",
+        "isBlock": true,
+        "kind": "ContentsDataType.normal",
+        "isList": false,
+        "children": [
+          {
+            "name": "connection",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "x-powered-by",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "access-control-allow-credentials",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "keep-alive",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "date",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "vary",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "content-length",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "etag",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "content-type",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          }
+        ]
+      },
+      {
+        "name": "body",
+        "isBlock": true,
+        "kind": "ContentsDataType.normal",
+        "isList": false,
+        "children": [
+          {
+            "name": "status",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "data",
+            "isBlock": true,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "children": [
+              {
+                "name": "articles",
+                "isBlock": true,
+                "kind": "ContentsDataType.normal",
+                "isList": true,
+                "children": [
+                  {
+                    "name": "id",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.int"
+                  },
+                  {
+                    "name": "userId",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.int"
+                  },
+                  {
+                    "name": "title",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.string"
+                  },
+                  {
+                    "name": "content",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.string"
+                  },
+                  {
+                    "name": "price",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.int"
+                  },
+                  {
+                    "name": "category",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.string"
+                  },
+                  {
+                    "name": "location",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.string"
+                  },
+                  {
+                    "name": "images",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.string"
+                  },
+                  {
+                    "name": "status",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.string"
+                  },
+                  {
+                    "name": "views",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.int"
+                  },
+                  {
+                    "name": "createdAt",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.string"
+                  },
+                  {
+                    "name": "updatedAt",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.string"
+                  },
+                  {
+                    "name": "user",
+                    "isBlock": true,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "children": [
+                      {
+                        "name": "id",
+                        "isBlock": false,
+                        "kind": "ContentsDataType.normal",
+                        "isList": false,
+                        "type": "DataType.int"
+                      },
+                      {
+                        "name": "name",
+                        "isBlock": false,
+                        "kind": "ContentsDataType.normal",
+                        "isList": false,
+                        "type": "DataType.string"
+                      },
+                      {
+                        "name": "profileImage",
+                        "isBlock": false,
+                        "kind": "ContentsDataType.normal",
+                        "isList": false,
+                        "type": "DataType.string"
+                      },
+                      {
+                        "name": "location",
+                        "isBlock": false,
+                        "kind": "ContentsDataType.normal",
+                        "isList": false,
+                        "type": "DataType.string"
+                      },
+                      {
+                        "name": "temperature",
+                        "isBlock": false,
+                        "kind": "ContentsDataType.normal",
+                        "isList": false,
+                        "type": "DataType.string"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "likeCount",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.int"
+                  }
+                ]
+              },
+              {
+                "name": "pagination",
+                "isBlock": true,
+                "kind": "ContentsDataType.normal",
+                "isList": false,
+                "children": [
+                  {
+                    "name": "page",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.int"
+                  },
+                  {
+                    "name": "limit",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.int"
+                  },
+                  {
+                    "name": "total",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.int"
+                  },
+                  {
+                    "name": "totalPages",
+                    "isBlock": false,
+                    "kind": "ContentsDataType.normal",
+                    "isList": false,
+                    "type": "DataType.int"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "methodType": "ApiMethodType.get",
+    "apiDataType": "ApiDataType.json",
+    "servicePath": "",
+    "usePathParam": false,
+    "isBindingGroup": false
+  }
+}

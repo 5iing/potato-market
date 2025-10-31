@@ -1,0 +1,1791 @@
+#
+{
+  "page": {},
+  "script": "",
+  "forms": [
+    {
+      "statetransitions": [],
+      "luactions": [
+        {
+          "name": "NavigateToMypage",
+          "description": "",
+          "actions": [
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.openPage",
+              "assignVal": [
+                {
+                  "name": "pagePath",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "leeyeonwoo/my_page",
+                      "type": "DataType.string"
+                    }
+                  ]
+                },
+                {
+                  "name": "linkArg"
+                },
+                {
+                  "name": "routeName",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "LucyRoute.cupertino",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fetch",
+          "description": "",
+          "actions": [
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.requestData",
+              "assignVal": [
+                {
+                  "name": "provReqInstName",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "apis",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ],
+              "isNextRequest": false
+            }
+          ]
+        },
+        {
+          "name": "fetchSoldList",
+          "description": "",
+          "actions": [
+            {
+              "type": "ActionType.trigger",
+              "kind": "ActTriggerKind.requestData",
+              "assignVal": [
+                {
+                  "name": "provReqInstName",
+                  "assignVal": [
+                    {
+                      "bindingValType": "BindingValueType.constant",
+                      "assignVal": "soldList",
+                      "type": "DataType.string"
+                    }
+                  ]
+                }
+              ],
+              "isNextRequest": false
+            }
+          ]
+        }
+      ],
+      "detectors": [],
+      "id": "unknown",
+      "title": "",
+      "nativeBinder": null,
+      "objet": {
+        "bulb": "Jet",
+        "uuid": "ae027900-ad72-11f0-acb7-bda3a8ff90e7",
+        "property": {
+          "id": "unknown",
+          "title": "",
+          "onStart": {
+            "type": "EventResponseType.action",
+            "name": "fetchSoldList"
+          }
+        },
+        "child": {
+          "bulb": "Layout",
+          "uuid": "afced491-ad72-11f0-acb7-bda3a8ff90e7",
+          "property": {},
+          "interior": [
+            {
+              "bulb": "DecoratedBox",
+              "uuid": "be9e7ca0-ad72-11f0-acb7-bda3a8ff90e7",
+              "property": {
+                "decoration.color": {
+                  "color.value": 4294967295
+                },
+                "decoration.border": "null",
+                "decoration.borderRadius": "null",
+                "decoration.boxShadow": "null",
+                "decoration.gradient": "null"
+              },
+              "id": "DecoratedBox"
+            }
+          ],
+          "objet": {
+            "bulb": "SafeArea",
+            "uuid": "afced490-ad72-11f0-acb7-bda3a8ff90e7",
+            "property": {
+              "minimum": "null"
+            },
+            "child": {
+              "bulb": "Layout",
+              "uuid": "c18e70a1-ad72-11f0-acb7-bda3a8ff90e7",
+              "property": {},
+              "objet": {
+                "bulb": "Column",
+                "uuid": "c18e70a0-ad72-11f0-acb7-bda3a8ff90e7",
+                "property": {},
+                "children": [
+                  {
+                    "bulb": "Layout",
+                    "uuid": "c670e5d0-ad72-11f0-acb7-bda3a8ff90e7",
+                    "property": {},
+                    "objet": {
+                      "bulb": "SpaceBox",
+                      "uuid": "c670bec0-ad72-11f0-acb7-bda3a8ff90e7",
+                      "property": {
+                        "width": 20.0,
+                        "height": 60.0
+                      }
+                    }
+                  },
+                  {
+                    "bulb": "Layout",
+                    "uuid": "d7fa2fa1-ad72-11f0-acb7-bda3a8ff90e7",
+                    "property": {},
+                    "objet": {
+                      "bulb": "Row",
+                      "uuid": "d7fa2fa0-ad72-11f0-acb7-bda3a8ff90e7",
+                      "property": {
+                        "mainAxisAlignment": "spaceBetween"
+                      },
+                      "children": [
+                        {
+                          "bulb": "Layout",
+                          "uuid": "db109762-ad72-11f0-acb7-bda3a8ff90e7",
+                          "property": {},
+                          "interior": [
+                            {
+                              "bulb": "GestureDetector",
+                              "uuid": "8b22acd0-ad80-11f0-9154-3b68624b4f15",
+                              "property": {
+                                "onTap": {
+                                  "type": "EventResponseType.action",
+                                  "name": "NavigateToMypage"
+                                }
+                              },
+                              "id": "GestureDetector"
+                            },
+                            {
+                              "bulb": "Padding",
+                              "uuid": "16c1cf90-ad73-11f0-acb7-bda3a8ff90e7",
+                              "property": {
+                                "padding.left": 20.0
+                              },
+                              "id": "Padding"
+                            }
+                          ],
+                          "objet": {
+                            "bulb": "Icon",
+                            "uuid": "db109761-ad72-11f0-acb7-bda3a8ff90e7",
+                            "property": {
+                              "iconData": {
+                                "codePoint": 62832,
+                                "fontFamily": "MaterialIcons",
+                                "fontPackage": null,
+                                "matchTextDirection": true
+                              },
+                              "size": 21.0
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "e0716451-ad72-11f0-acb7-bda3a8ff90e7",
+                          "property": {},
+                          "objet": {
+                            "bulb": "Text",
+                            "uuid": "e0716450-ad72-11f0-acb7-bda3a8ff90e7",
+                            "property": {
+                              "text": "판매내역",
+                              "style.color": {
+                                "color.value": 4278190080
+                              },
+                              "style.fontSize": 18.0,
+                              "style.fontWeight": "w600",
+                              "style.locale": "null",
+                              "style.foreground": "null",
+                              "style.background": "null",
+                              "style.shadows": "null",
+                              "style.fontFeatures": "null",
+                              "style.decoration": "null",
+                              "style.fontFamilyFallback": "null",
+                              "textDirection": "ltr",
+                              "locale": "null",
+                              "strutStyle": "null",
+                              "textHeightBehavior": "null"
+                            }
+                          }
+                        },
+                        {
+                          "bulb": "Layout",
+                          "uuid": "e504a811-ad72-11f0-acb7-bda3a8ff90e7",
+                          "property": {},
+                          "interior": [
+                            {
+                              "bulb": "Padding",
+                              "uuid": "fc34c880-ad72-11f0-acb7-bda3a8ff90e7",
+                              "property": {
+                                "padding.right": 20.0
+                              },
+                              "id": "Padding"
+                            }
+                          ],
+                          "objet": {
+                            "bulb": "SpaceBox",
+                            "uuid": "e504a810-ad72-11f0-acb7-bda3a8ff90e7",
+                            "property": {
+                              "width": 30.0,
+                              "height": 20.0
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "bulb": "Layout",
+                    "uuid": "45070e60-ad73-11f0-acb7-bda3a8ff90e7",
+                    "property": {},
+                    "interior": [
+                      {
+                        "bulb": "Padding",
+                        "uuid": "45070e61-ad73-11f0-acb7-bda3a8ff90e7",
+                        "property": {
+                          "padding.left": 20.0,
+                          "padding.right": 20.0,
+                          "padding.top": 10.0
+                        },
+                        "id": "Padding"
+                      },
+                      {
+                        "bulb": "SizedBox",
+                        "uuid": "45070e62-ad73-11f0-acb7-bda3a8ff90e7",
+                        "property": {
+                          "width": "infinity",
+                          "height": 5.0
+                        },
+                        "id": "SizedBox"
+                      }
+                    ],
+                    "objet": {
+                      "bulb": "Divider",
+                      "uuid": "45070e63-ad73-11f0-acb7-bda3a8ff90e7",
+                      "property": {
+                        "color": {
+                          "color.value": 301989888
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "bulb": "Layout",
+                    "uuid": "aee5deb2-ad73-11f0-acb7-bda3a8ff90e7",
+                    "property": {
+                      "id": "sold_listview"
+                    },
+                    "interior": [
+                      {
+                        "bulb": "Expanded",
+                        "uuid": "bd5b31c0-ad73-11f0-acb7-bda3a8ff90e7",
+                        "property": {},
+                        "id": "Expanded"
+                      },
+                      {
+                        "bulb": "SizedBox",
+                        "uuid": "aee5deb0-ad73-11f0-acb7-bda3a8ff90e7",
+                        "property": {
+                          "width": "infinity",
+                          "height": 200.0
+                        },
+                        "id": "SizedBox"
+                      }
+                    ],
+                    "objet": {
+                      "bulb": "ListView",
+                      "uuid": "aee5deb1-ad73-11f0-acb7-bda3a8ff90e7",
+                      "property": {
+                        "controller": "null",
+                        "padding": "null",
+                        "animation": "null"
+                      },
+                      "child": {
+                        "bulb": "Layout",
+                        "uuid": "d0bb5e70-ad73-11f0-acb7-bda3a8ff90e7",
+                        "property": {},
+                        "objet": {
+                          "bulb": "Column",
+                          "uuid": "d0bb5e71-ad73-11f0-acb7-bda3a8ff90e7",
+                          "property": {},
+                          "children": [
+                            {
+                              "bulb": "Layout",
+                              "uuid": "d0bb5e72-ad73-11f0-acb7-bda3a8ff90e7",
+                              "property": {},
+                              "objet": {
+                                "bulb": "Row",
+                                "uuid": "d0bb5e73-ad73-11f0-acb7-bda3a8ff90e7",
+                                "property": {
+                                  "mainAxisAlignment": "spaceBetween",
+                                  "crossAxisAlignment": "end"
+                                },
+                                "children": [
+                                  {
+                                    "bulb": "Layout",
+                                    "uuid": "d0bb5e74-ad73-11f0-acb7-bda3a8ff90e7",
+                                    "property": {
+                                      "id": "article_row"
+                                    },
+                                    "interior": [
+                                      {
+                                        "bulb": "Padding",
+                                        "uuid": "d0bb5e75-ad73-11f0-acb7-bda3a8ff90e7",
+                                        "property": {
+                                          "padding.left": 20.0,
+                                          "padding.right": 20.0,
+                                          "padding.top": 10.0,
+                                          "padding.bottom": 10.0
+                                        },
+                                        "id": "Padding"
+                                      }
+                                    ],
+                                    "objet": {
+                                      "bulb": "Row",
+                                      "uuid": "d0bb5e76-ad73-11f0-acb7-bda3a8ff90e7",
+                                      "property": {},
+                                      "children": [
+                                        {
+                                          "bulb": "Layout",
+                                          "uuid": "d0bb5e77-ad73-11f0-acb7-bda3a8ff90e7",
+                                          "property": {
+                                            "id": "atticle_image_txt"
+                                          },
+                                          "interior": [
+                                            {
+                                              "bulb": "ClipRRect",
+                                              "uuid": "d0bb5e78-ad73-11f0-acb7-bda3a8ff90e7",
+                                              "property": {
+                                                "borderRadius.topLeft.radius": 10.0,
+                                                "borderRadius.topRight.radius": 10.0,
+                                                "borderRadius.bottomRight.radius": 10.0,
+                                                "borderRadius.bottomLeft.radius": 10.0,
+                                                "clipper": "null"
+                                              },
+                                              "id": "ClipRRect"
+                                            },
+                                            {
+                                              "bulb": "DecoratedBox",
+                                              "uuid": "d0bb5e79-ad73-11f0-acb7-bda3a8ff90e7",
+                                              "property": {
+                                                "decoration": "null"
+                                              },
+                                              "id": "DecoratedBox"
+                                            }
+                                          ],
+                                          "objet": {
+                                            "bulb": "Image",
+                                            "uuid": "d0bb5e7a-ad73-11f0-acb7-bda3a8ff90e7",
+                                            "property": {
+                                              "image": "null",
+                                              "width": 100.0,
+                                              "height": 100.0,
+                                              "alignment": "null",
+                                              "centerSlice": "null"
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "bulb": "Layout",
+                                          "uuid": "d0bb5e7b-ad73-11f0-acb7-bda3a8ff90e7",
+                                          "property": {},
+                                          "objet": {
+                                            "bulb": "SpaceBox",
+                                            "uuid": "d0bb5e7c-ad73-11f0-acb7-bda3a8ff90e7",
+                                            "property": {
+                                              "width": 20.0,
+                                              "height": 20.0
+                                            }
+                                          }
+                                        },
+                                        {
+                                          "bulb": "Layout",
+                                          "uuid": "d0bb5e7d-ad73-11f0-acb7-bda3a8ff90e7",
+                                          "property": {
+                                            "id": "article_text_containers"
+                                          },
+                                          "objet": {
+                                            "bulb": "Column",
+                                            "uuid": "d0bb5e7e-ad73-11f0-acb7-bda3a8ff90e7",
+                                            "property": {
+                                              "mainAxisSize": "min",
+                                              "mainAxisAlignment": "center",
+                                              "crossAxisAlignment": "start",
+                                              "spacing": 5.0,
+                                              "scrollAnchor": false
+                                            },
+                                            "children": [
+                                              {
+                                                "bulb": "Layout",
+                                                "uuid": "d0bb5e7f-ad73-11f0-acb7-bda3a8ff90e7",
+                                                "property": {
+                                                  "id": "article_title_txt"
+                                                },
+                                                "objet": {
+                                                  "bulb": "Text",
+                                                  "uuid": "d0bb5e80-ad73-11f0-acb7-bda3a8ff90e7",
+                                                  "property": {
+                                                    "text": "갤럭시 탭",
+                                                    "style.color": {
+                                                      "color.value": 4278190080
+                                                    },
+                                                    "style.fontWeight": "w500",
+                                                    "style.fontStyle": "normal",
+                                                    "style.locale": "null",
+                                                    "style.foreground": "null",
+                                                    "style.background": "null",
+                                                    "style.shadows": "null",
+                                                    "style.fontFeatures": "null",
+                                                    "style.decoration": "null",
+                                                    "style.fontFamily": "spoqa han sans neo",
+                                                    "style.fontFamilyFallback": "null",
+                                                    "textDirection": "ltr",
+                                                    "locale": "null",
+                                                    "strutStyle": "null",
+                                                    "textHeightBehavior": "null"
+                                                  }
+                                                }
+                                              },
+                                              {
+                                                "bulb": "Layout",
+                                                "uuid": "d0bb5e81-ad73-11f0-acb7-bda3a8ff90e7",
+                                                "property": {
+                                                  "id": "article_location_txt"
+                                                },
+                                                "objet": {
+                                                  "bulb": "Text",
+                                                  "uuid": "d0bb5e82-ad73-11f0-acb7-bda3a8ff90e7",
+                                                  "property": {
+                                                    "text": "목동동",
+                                                    "style.color": {
+                                                      "color.value": 4290032820
+                                                    },
+                                                    "style.fontSize": 12.0,
+                                                    "style.locale": "null",
+                                                    "style.foreground": "null",
+                                                    "style.background": "null",
+                                                    "style.shadows": "null",
+                                                    "style.fontFeatures": "null",
+                                                    "style.decoration": "null",
+                                                    "style.fontFamilyFallback": "null",
+                                                    "textDirection": "ltr",
+                                                    "locale": "null",
+                                                    "strutStyle": "null",
+                                                    "textHeightBehavior": "null"
+                                                  }
+                                                }
+                                              },
+                                              {
+                                                "bulb": "Layout",
+                                                "uuid": "d0bb5e83-ad73-11f0-acb7-bda3a8ff90e7",
+                                                "property": {
+                                                  "id": "article_price_txt"
+                                                },
+                                                "objet": {
+                                                  "bulb": "Text",
+                                                  "uuid": "d0bb5e84-ad73-11f0-acb7-bda3a8ff90e7",
+                                                  "property": {
+                                                    "text": "450,000원",
+                                                    "style.color": {
+                                                      "color.value": 4278190080
+                                                    },
+                                                    "style.fontSize": 16.0,
+                                                    "style.fontWeight": "w600",
+                                                    "style.locale": "null",
+                                                    "style.foreground": "null",
+                                                    "style.background": "null",
+                                                    "style.shadows": "null",
+                                                    "style.fontFeatures": "null",
+                                                    "style.decoration": "null",
+                                                    "style.fontFamilyFallback": "null",
+                                                    "textDirection": "ltr",
+                                                    "locale": "null",
+                                                    "strutStyle": "null",
+                                                    "textHeightBehavior": "null"
+                                                  }
+                                                }
+                                              },
+                                              {
+                                                "bulb": "Layout",
+                                                "uuid": "d0bb5e85-ad73-11f0-acb7-bda3a8ff90e7",
+                                                "property": {
+                                                  "id": "article_uploaded_at_txt"
+                                                },
+                                                "objet": {
+                                                  "bulb": "Text",
+                                                  "uuid": "d0bb5e86-ad73-11f0-acb7-bda3a8ff90e7",
+                                                  "property": {
+                                                    "text": "2일 전",
+                                                    "style.color": {
+                                                      "color.value": 4290032820
+                                                    },
+                                                    "style.fontSize": 12.0,
+                                                    "style.locale": "null",
+                                                    "style.foreground": "null",
+                                                    "style.background": "null",
+                                                    "style.shadows": "null",
+                                                    "style.fontFeatures": "null",
+                                                    "style.decoration": "null",
+                                                    "style.fontFamilyFallback": "null",
+                                                    "textDirection": "ltr",
+                                                    "locale": "null",
+                                                    "strutStyle": "null",
+                                                    "textHeightBehavior": "null"
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "bulb": "Layout",
+                                          "uuid": "d0bb5e87-ad73-11f0-acb7-bda3a8ff90e7",
+                                          "property": {},
+                                          "objet": {
+                                            "bulb": "Spacer",
+                                            "uuid": "d0bb5e88-ad73-11f0-acb7-bda3a8ff90e7",
+                                            "property": {}
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "bulb": "Layout",
+                                    "uuid": "d0bb5e89-ad73-11f0-acb7-bda3a8ff90e7",
+                                    "property": {},
+                                    "interior": [
+                                      {
+                                        "bulb": "Padding",
+                                        "uuid": "d0bb5e8a-ad73-11f0-acb7-bda3a8ff90e7",
+                                        "property": {
+                                          "padding.right": 20.0,
+                                          "padding.bottom": 15.0
+                                        },
+                                        "id": "Padding"
+                                      }
+                                    ],
+                                    "objet": {
+                                      "bulb": "Row",
+                                      "uuid": "d0bb5e8b-ad73-11f0-acb7-bda3a8ff90e7",
+                                      "property": {
+                                        "mainAxisAlignment": "end",
+                                        "spacing": 11.0
+                                      },
+                                      "children": [
+                                        {
+                                          "bulb": "Layout",
+                                          "uuid": "d0bb5e8c-ad73-11f0-acb7-bda3a8ff90e7",
+                                          "property": {},
+                                          "objet": {
+                                            "bulb": "Row",
+                                            "uuid": "d0bb5e8d-ad73-11f0-acb7-bda3a8ff90e7",
+                                            "property": {},
+                                            "children": [
+                                              {
+                                                "bulb": "Layout",
+                                                "uuid": "d0bb5e8e-ad73-11f0-acb7-bda3a8ff90e7",
+                                                "property": {},
+                                                "objet": {
+                                                  "bulb": "Icon",
+                                                  "uuid": "d0bb5e8f-ad73-11f0-acb7-bda3a8ff90e7",
+                                                  "property": {
+                                                    "iconData": {
+                                                      "codePoint": 58727,
+                                                      "fontFamily": "MaterialIcons",
+                                                      "fontPackage": null,
+                                                      "matchTextDirection": false
+                                                    },
+                                                    "size": 18.0,
+                                                    "color": {
+                                                      "color.value": 4290032820
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              {
+                                                "bulb": "Layout",
+                                                "uuid": "d0bb5e90-ad73-11f0-acb7-bda3a8ff90e7",
+                                                "property": {
+                                                  "id": "views"
+                                                },
+                                                "objet": {
+                                                  "bulb": "Text",
+                                                  "uuid": "d0bb5e91-ad73-11f0-acb7-bda3a8ff90e7",
+                                                  "property": {
+                                                    "text": "0",
+                                                    "style.color": {
+                                                      "color.value": 4290032820
+                                                    },
+                                                    "style.locale": "null",
+                                                    "style.foreground": "null",
+                                                    "style.background": "null",
+                                                    "style.shadows": "null",
+                                                    "style.fontFeatures": "null",
+                                                    "style.decoration": "null",
+                                                    "style.fontFamilyFallback": "null",
+                                                    "textDirection": "ltr",
+                                                    "locale": "null",
+                                                    "strutStyle": "null",
+                                                    "textHeightBehavior": "null"
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        {
+                                          "bulb": "Layout",
+                                          "uuid": "d0bb5e92-ad73-11f0-acb7-bda3a8ff90e7",
+                                          "property": {},
+                                          "objet": {
+                                            "bulb": "Row",
+                                            "uuid": "d0bb5e93-ad73-11f0-acb7-bda3a8ff90e7",
+                                            "property": {},
+                                            "children": [
+                                              {
+                                                "bulb": "Layout",
+                                                "uuid": "d0bb5e94-ad73-11f0-acb7-bda3a8ff90e7",
+                                                "property": {},
+                                                "objet": {
+                                                  "bulb": "Icon",
+                                                  "uuid": "d0bb5e95-ad73-11f0-acb7-bda3a8ff90e7",
+                                                  "property": {
+                                                    "iconData": {
+                                                      "codePoint": 57948,
+                                                      "fontFamily": "MaterialIcons",
+                                                      "fontPackage": null,
+                                                      "matchTextDirection": false
+                                                    },
+                                                    "size": 17.0,
+                                                    "color": {
+                                                      "color.value": 4290032820
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              {
+                                                "bulb": "Layout",
+                                                "uuid": "d0bb5e96-ad73-11f0-acb7-bda3a8ff90e7",
+                                                "property": {
+                                                  "id": "hearts"
+                                                },
+                                                "objet": {
+                                                  "bulb": "Text",
+                                                  "uuid": "d0bb5e97-ad73-11f0-acb7-bda3a8ff90e7",
+                                                  "property": {
+                                                    "text": "0",
+                                                    "style.color": {
+                                                      "color.value": 4290032820
+                                                    },
+                                                    "style.locale": "null",
+                                                    "style.foreground": "null",
+                                                    "style.background": "null",
+                                                    "style.shadows": "null",
+                                                    "style.fontFeatures": "null",
+                                                    "style.decoration": "null",
+                                                    "style.fontFamilyFallback": "null",
+                                                    "textDirection": "ltr",
+                                                    "locale": "null",
+                                                    "strutStyle": "null",
+                                                    "textHeightBehavior": "null"
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "bulb": "Layout",
+                              "uuid": "d0bb5e98-ad73-11f0-acb7-bda3a8ff90e7",
+                              "property": {},
+                              "interior": [
+                                {
+                                  "bulb": "Padding",
+                                  "uuid": "d0bb5e99-ad73-11f0-acb7-bda3a8ff90e7",
+                                  "property": {
+                                    "padding.left": 20.0,
+                                    "padding.right": 20.0
+                                  },
+                                  "id": "Padding"
+                                },
+                                {
+                                  "bulb": "SizedBox",
+                                  "uuid": "d0bb5e9a-ad73-11f0-acb7-bda3a8ff90e7",
+                                  "property": {
+                                    "width": "infinity",
+                                    "height": 5.0
+                                  },
+                                  "id": "SizedBox"
+                                }
+                              ],
+                              "objet": {
+                                "bulb": "Divider",
+                                "uuid": "d0bb5e9b-ad73-11f0-acb7-bda3a8ff90e7",
+                                "property": {
+                                  "color": {
+                                    "color.value": 301989888
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "bindinginfos": [
+        {
+          "bindid": "sold_listview",
+          "bindpath": "apis.body.data.articles",
+          "bindvalue": {
+            "bindPath": "objet:dataBinding"
+          },
+          "isList": true,
+          "isBlock": true
+        },
+        {
+          "bindid": "article_title_txt",
+          "bindpath": "apis.body.data.articles.title",
+          "bindvalue": {
+            "bindPath": "objet:text"
+          },
+          "isList": false,
+          "isBlock": false
+        },
+        {
+          "bindid": "article_location_txt",
+          "bindpath": "apis.body.data.articles.location",
+          "bindvalue": {
+            "bindPath": "objet:text"
+          },
+          "isList": false,
+          "isBlock": false
+        },
+        {
+          "bindid": "article_price_txt",
+          "bindpath": "apis.body.data.articles.price",
+          "bindvalue": {
+            "bindPath": "objet:text"
+          },
+          "isList": false,
+          "isBlock": false,
+          "bindAttr": [
+            {
+              "type": "AttributeType.mask",
+              "noDispZero": false,
+              "useThousand": true,
+              "dispMinus": false,
+              "postfix": "원"
+            }
+          ]
+        },
+        {
+          "bindid": "article_uploaded_at_txt",
+          "bindpath": "apis.body.data.articles.createdAt",
+          "bindvalue": {
+            "bindPath": "objet:text"
+          },
+          "isList": false,
+          "isBlock": false
+        },
+        {
+          "bindid": "views",
+          "bindpath": "apis.body.data.articles.views",
+          "bindvalue": {
+            "bindPath": "objet:text"
+          },
+          "isList": false,
+          "isBlock": false,
+          "bindAttr": [
+            {
+              "type": "AttributeType.convertor",
+              "kind": "AttrConvertor.string"
+            }
+          ]
+        },
+        {
+          "bindid": "hearts",
+          "bindpath": "apis.body.data.articles.likeCount",
+          "bindvalue": {
+            "bindPath": "objet:text"
+          },
+          "isList": false,
+          "isBlock": false
+        }
+      ],
+      "script": "",
+      "provinstance": [
+        {
+          "name": "apis",
+          "description": "",
+          "assignProv": "apis",
+          "assignVal": {}
+        },
+        {
+          "name": "soldList",
+          "description": "",
+          "assignProv": "soldList",
+          "assignVal": {}
+        }
+      ],
+      "contentsdm": [
+        {
+          "name": "apis",
+          "description": "",
+          "applyRulePack": [],
+          "dataPack": [
+            {
+              "name": "header",
+              "isBlock": true,
+              "kind": "ContentsDataType.normal",
+              "isList": false,
+              "bindPath": [
+                "apis.responsePack.header"
+              ],
+              "children": [
+                {
+                  "name": "connection",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "apis.responsePack.header.connection"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "x-powered-by",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "apis.responsePack.header.x-powered-by"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "access-control-allow-credentials",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "apis.responsePack.header.access-control-allow-credentials"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "keep-alive",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "apis.responsePack.header.keep-alive"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "date",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "apis.responsePack.header.date"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "vary",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "apis.responsePack.header.vary"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "content-length",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "apis.responsePack.header.content-length"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "etag",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "apis.responsePack.header.etag"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "content-type",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "apis.responsePack.header.content-type"
+                  ],
+                  "type": "DataType.string"
+                }
+              ]
+            },
+            {
+              "name": "body",
+              "isBlock": true,
+              "kind": "ContentsDataType.normal",
+              "isList": false,
+              "bindPath": [
+                "apis.responsePack.body"
+              ],
+              "children": [
+                {
+                  "name": "status",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "apis.responsePack.body.status"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "data",
+                  "isBlock": true,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "apis.responsePack.body.data"
+                  ],
+                  "children": [
+                    {
+                      "name": "articles",
+                      "isBlock": true,
+                      "kind": "ContentsDataType.normal",
+                      "isList": true,
+                      "bindPath": [
+                        "apis.responsePack.body.data.articles"
+                      ],
+                      "children": [
+                        {
+                          "name": "id",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.id"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "userId",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.userId"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "title",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.title"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "content",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.content"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "price",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.price"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "category",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.category"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "location",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.location"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "images",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": true,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.images"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "status",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.status"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "views",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.views"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "createdAt",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.createdAt"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "updatedAt",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.updatedAt"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "user",
+                          "isBlock": true,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.user"
+                          ],
+                          "children": [
+                            {
+                              "name": "id",
+                              "isBlock": false,
+                              "kind": "ContentsDataType.normal",
+                              "isList": false,
+                              "bindPath": [
+                                "apis.responsePack.body.data.articles.user.id"
+                              ],
+                              "type": "DataType.int"
+                            },
+                            {
+                              "name": "name",
+                              "isBlock": false,
+                              "kind": "ContentsDataType.normal",
+                              "isList": false,
+                              "bindPath": [
+                                "apis.responsePack.body.data.articles.user.name"
+                              ],
+                              "type": "DataType.string"
+                            },
+                            {
+                              "name": "profileImage",
+                              "isBlock": false,
+                              "kind": "ContentsDataType.normal",
+                              "isList": false,
+                              "bindPath": [
+                                "apis.responsePack.body.data.articles.user.profileImage"
+                              ],
+                              "type": "DataType.string"
+                            },
+                            {
+                              "name": "location",
+                              "isBlock": false,
+                              "kind": "ContentsDataType.normal",
+                              "isList": false,
+                              "bindPath": [
+                                "apis.responsePack.body.data.articles.user.location"
+                              ],
+                              "type": "DataType.string"
+                            },
+                            {
+                              "name": "temperature",
+                              "isBlock": false,
+                              "kind": "ContentsDataType.normal",
+                              "isList": false,
+                              "bindPath": [
+                                "apis.responsePack.body.data.articles.user.temperature"
+                              ],
+                              "type": "DataType.string"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "likeCount",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.articles.likeCount"
+                          ],
+                          "type": "DataType.int"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "pagination",
+                      "isBlock": true,
+                      "kind": "ContentsDataType.normal",
+                      "isList": false,
+                      "bindPath": [
+                        "apis.responsePack.body.data.pagination"
+                      ],
+                      "children": [
+                        {
+                          "name": "page",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.pagination.page"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "limit",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.pagination.limit"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "total",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.pagination.total"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "totalPages",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "apis.responsePack.body.data.pagination.totalPages"
+                          ],
+                          "type": "DataType.int"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "soldList_ds",
+          "description": "",
+          "applyRulePack": [],
+          "dataPack": [
+            {
+              "name": "header",
+              "isBlock": true,
+              "kind": "ContentsDataType.normal",
+              "isList": false,
+              "bindPath": [
+                "soldList.responsePack.header"
+              ],
+              "children": [
+                {
+                  "name": "connection",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.connection"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "x-powered-by",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.x-powered-by"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "access-control-allow-credentials",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.access-control-allow-credentials"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "keep-alive",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.keep-alive"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "date",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.date"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "vary",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.vary"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "content-length",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.content-length"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "etag",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.etag"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "content-type",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.content-type"
+                  ],
+                  "type": "DataType.string"
+                }
+              ]
+            },
+            {
+              "name": "body",
+              "isBlock": true,
+              "kind": "ContentsDataType.normal",
+              "isList": false,
+              "bindPath": [
+                "soldList.responsePack.body"
+              ],
+              "children": [
+                {
+                  "name": "status",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.body.status"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "data",
+                  "isBlock": true,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.body.data"
+                  ],
+                  "children": [
+                    {
+                      "name": "articles",
+                      "isBlock": true,
+                      "kind": "ContentsDataType.normal",
+                      "isList": true,
+                      "bindPath": [
+                        "soldList.responsePack.body.data.articles"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "name": "pagination",
+                      "isBlock": true,
+                      "kind": "ContentsDataType.normal",
+                      "isList": false,
+                      "bindPath": [
+                        "soldList.responsePack.body.data.pagination"
+                      ],
+                      "children": [
+                        {
+                          "name": "page",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.pagination.page"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "limit",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.pagination.limit"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "total",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.pagination.total"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "totalPages",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.pagination.totalPages"
+                          ],
+                          "type": "DataType.int"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "soldList_ds_2",
+          "description": "",
+          "applyRulePack": [],
+          "dataPack": [
+            {
+              "name": "header",
+              "isBlock": true,
+              "kind": "ContentsDataType.normal",
+              "isList": false,
+              "bindPath": [
+                "soldList.responsePack.header"
+              ],
+              "children": [
+                {
+                  "name": "connection",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.connection"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "x-powered-by",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.x-powered-by"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "access-control-allow-credentials",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.access-control-allow-credentials"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "keep-alive",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.keep-alive"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "date",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.date"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "vary",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.vary"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "content-length",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.content-length"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "etag",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.etag"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "content-type",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.header.content-type"
+                  ],
+                  "type": "DataType.string"
+                }
+              ]
+            },
+            {
+              "name": "body",
+              "isBlock": true,
+              "kind": "ContentsDataType.normal",
+              "isList": false,
+              "bindPath": [
+                "soldList.responsePack.body"
+              ],
+              "children": [
+                {
+                  "name": "status",
+                  "isBlock": false,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.body.status"
+                  ],
+                  "type": "DataType.string"
+                },
+                {
+                  "name": "data",
+                  "isBlock": true,
+                  "kind": "ContentsDataType.normal",
+                  "isList": false,
+                  "bindPath": [
+                    "soldList.responsePack.body.data"
+                  ],
+                  "children": [
+                    {
+                      "name": "articles",
+                      "isBlock": true,
+                      "kind": "ContentsDataType.normal",
+                      "isList": true,
+                      "bindPath": [
+                        "soldList.responsePack.body.data.articles"
+                      ],
+                      "children": [
+                        {
+                          "name": "id",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.articles.id"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "title",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.articles.title"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "content",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.articles.content"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "price",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.articles.price"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "category",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.articles.category"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "location",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.articles.location"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "images",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": true,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.articles.images"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "status",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.articles.status"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "views",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.articles.views"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "createdAt",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.articles.createdAt"
+                          ],
+                          "type": "DataType.string"
+                        },
+                        {
+                          "name": "updatedAt",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.articles.updatedAt"
+                          ],
+                          "type": "DataType.string"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "pagination",
+                      "isBlock": true,
+                      "kind": "ContentsDataType.normal",
+                      "isList": false,
+                      "bindPath": [
+                        "soldList.responsePack.body.data.pagination"
+                      ],
+                      "children": [
+                        {
+                          "name": "page",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.pagination.page"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "limit",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.pagination.limit"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "total",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.pagination.total"
+                          ],
+                          "type": "DataType.int"
+                        },
+                        {
+                          "name": "totalPages",
+                          "isBlock": false,
+                          "kind": "ContentsDataType.normal",
+                          "isList": false,
+                          "bindPath": [
+                            "soldList.responsePack.body.data.pagination.totalPages"
+                          ],
+                          "type": "DataType.int"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "token",
+          "description": "",
+          "applyRulePack": [],
+          "dataPack": [
+            {
+              "name": "token",
+              "isBlock": false,
+              "kind": "ContentsDataType.normal",
+              "isList": false,
+              "type": "DataType.string"
+            }
+          ]
+        }
+      ],
+      "variable": []
+    }
+  ],
+  "variable": []
+}

@@ -1,0 +1,202 @@
+{
+  "name": "google_test",
+  "description": "adsads",
+  "providerType": "DataProviderType.openApi",
+  "url": "https://dog.ceo/api/breeds/image/random",
+  "provInfo": {
+    "name": "",
+    "description": "",
+    "isPushData": false,
+    "responsePack": [
+      {
+        "name": "header",
+        "isBlock": true,
+        "kind": "ContentsDataType.normal",
+        "isList": false,
+        "children": [
+          {
+            "name": "connection",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "cache-control",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "date",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "access-control-allow-origin",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "vary",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "content-encoding",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "speculation-rules",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "age",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "report-to",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "server-timing",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "cf-cache-status",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "content-type",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "server",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "x-powered-by",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "alt-svc",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "accept-ranges",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "content-length",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "nel",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "cf-ray",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "via",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "x-cache-hits",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "x-cache",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          }
+        ]
+      },
+      {
+        "name": "body",
+        "isBlock": true,
+        "kind": "ContentsDataType.normal",
+        "isList": false,
+        "children": [
+          {
+            "name": "message",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          },
+          {
+            "name": "status",
+            "isBlock": false,
+            "kind": "ContentsDataType.normal",
+            "isList": false,
+            "type": "DataType.string"
+          }
+        ]
+      }
+    ],
+    "methodType": "ApiMethodType.get",
+    "apiDataType": "ApiDataType.json",
+    "servicePath": "",
+    "usePathParam": false,
+    "isBindingGroup": false
+  }
+}
